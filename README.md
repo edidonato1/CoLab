@@ -182,6 +182,9 @@ src
 #### ERD Model
 
 > Use this section to display an image of a computer generated ERD model. You can use draw.io, Lucidchart or another ERD tool.
+ERD Model: 
+![CoLab ERD](https://github.com/edidonato1/CoLab/blob/master/images/CoLab_ERD.png "ERD Model")
+
 
 <br>
 

@@ -105,9 +105,8 @@ _The **CoLab** MVP in its most raw form will be series of messageboards, where e
 
 - Mobile Resource Index
 
-#### Component Tree
-
-> Use this section to display the structure of how your React components are being rendered. This should show the parent to child relation between you components. In other words, show which components are rendering the other components. 
+#### Component Tree 
+![component tree](https://github.com/edidonato1/CoLab/blob/master/images/Component_Tree.png "Component Tree") 
 
 #### Component Hierarchy
 

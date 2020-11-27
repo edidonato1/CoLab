@@ -181,8 +181,7 @@ src
 
 #### ERD Model
 
-
-<br>
+ERD Model: 
 ![CoLab ERD](https://github.com/edidonato1/CoLab/blob/master/images/CoLab_ERD.png "ERD Model")
 
 

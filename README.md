@@ -31,15 +31,6 @@ _For example, take Cara.  Cara is an up-and-coming chef, currently known for her
 - Each medium has its own messageboard where users can post in search of artists operating in that medium that they may want to collaborate with.
 - When two users find each other on a messageboard, they can create a new "collaboration", which will be a place where they can bouce ideas off of one another, and create a list of to-dos to be completed for their project.
 
-### Goals
-- Create a fully-integrated back-end with several relationships:
->  Users <--> Mediums
->  Users --> Collaborations
->  Collaborations --> Mediums
->  Users --> Posts
-- Build a stylish and interactive front-end that gives users the ability to connect 
-
-
 <br>
 
 ## MVP
@@ -105,8 +96,6 @@ _The **CoLab** MVP in its most raw form will be series of messageboards, where e
 
 - Mobile Resource Index
 
-#### Component Tree 
-![component tree](https://github.com/edidonato1/CoLab/blob/master/images/Component_Tree.png "Component Tree") 
 
 #### Component Hierarchy
 
@@ -155,11 +144,10 @@ src
 
 ```
 
-#### Component Tree
 
-> Use this section to include a link to your component tree.
+#### Component Tree 
+![component tree](https://github.com/edidonato1/CoLab/blob/master/images/Component_Tree.png "Component Tree") 
 
-[Component tree](url)
 
 #### Time Estimates
 
@@ -178,8 +166,6 @@ src
 ### Server (Back End)
 
 #### ERD Model
-
-ERD Model: 
 ![CoLab ERD](https://github.com/edidonato1/CoLab/blob/master/images/CoLab_ERD.png "ERD Model")
 
 
@@ -189,7 +175,15 @@ ERD Model:
 
 ## Post-MVP
 
-> Use this section to document ideas you've had that would be fun (or necessary) for your Post-MVP. This will be helpful when you return to your project after graduation!
+_As my proposed project is becoming a bit more ambitious than I had originally imagined, There are certain components and features that I'm considering now to be a part of the Post-MVP, or second iteration.  For instance, the **Collaborations** feature is starting to seem more complex as I further develop the concept._
+
+#### Collaborations
+For Post-MVP, the collaborations model will be exclusive to the users that are participating in it, meaning it will only be accessible through the user's profile.
+
+Another challenge will be managing the relationship between users and collaborations. Through a non-programmatic lens of association it would seem that the user belongs to a collaboration, in the sense that it's a contributing member, but the more I think about it, it will have to be the other way around, where a single collaboration must be created by one user, and then can belong to many users.  
+
+
+
 
 ***
 

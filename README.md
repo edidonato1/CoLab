@@ -111,8 +111,6 @@ _The **CoLab** MVP in its most raw form will be series of messageboards, where e
 
 #### Component Hierarchy
 
-> Use this section to define your React components and the data architecture of your app. This should be a reflection of how you expect your directory/file tree to look like. 
-
 ``` structure
 
 src
@@ -124,27 +122,28 @@ src
 |__ components/
       |__ shared
           |__ layouts
+              |__ Nav.jsx
               |__ Header.jsx
               |__ Layout.jsx
-          |__ nav
-              |__ Nav.jsx
       |__ forms
           |__ StyledForms.js
           |__ user
               |__ Login.jsx
               |__ Register.jsx 
           |__ CreatePost.jsx
+          |__ EditUser.jsx
 |__ containers/
     |__ MediumContainer.jsx
     |__ CollabContainer.jsx
 |__ screens/
+    |__ Profile.jsx
     |__ LoginRegister.jsx
     |__ Mediums.jsx
     |__ MediumDetail.jsx
     |__ CreateMedium.jsx
     |__ Collaborations.jsx
-    |__ CollaborationDetail.jsx
-    |__ CreateCollaboration.jsx
+    |__ CollabDetail.jsx
+    |__ CreateCollab.jsx
 |__ services/
     |__ apiConfig.js
     |__ auth.js

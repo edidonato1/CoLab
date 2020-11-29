@@ -72,29 +72,13 @@ _The **CoLab** MVP in its most raw form will be series of messageboards, where e
 
 > Use the Wireframes section to display desktop, tablet and mobile views. No hand-drawn wireframes. Use a tool like wireframe.cc, Whimsical or AdobeXD
 
-![Dummy Link](url)
+![Web breakpoint](https://www.figma.com/file/C3tycpZaLnBFCmo2XyuuYt/CoLab?node-id=0%3A1)
 
-- Desktop Landing
+- Web Wireframes
 
-![Dummy Link](url)
+![Mobile breakpoint(https://www.figma.com/file/C3tycpZaLnBFCmo2XyuuYt/CoLab?node-id=7%3A97)
 
-- Desktop Hero
-
-![Dummy Link](url)
-
-- Resource Index
-
-![Dummy Link](url)
-
-- Resource Show
-
-![Dummy Link](url)
-
-- Tablet Resource Index
-
-![Dummy Link](url)
-
-- Mobile Resource Index
+- Mobile wireframes
 
 
 #### Component Hierarchy
@@ -173,7 +157,8 @@ src
 
 ***
 
-## Post-MVP
+## Post-MVP vis
+
 
 _As my proposed project is becoming a bit more ambitious than I had originally imagined, There are certain components and features that I'm considering now to be a part of the Post-MVP, or second iteration.  For instance, the **Collaborations** feature is starting to seem more complex as I further develop the concept._
 

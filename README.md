@@ -41,10 +41,10 @@ _The **CoLab** MVP in its most raw form will be series of messageboards, where e
 
 ### Goals
 
-- _Implement a token-authenticated user login process._
-- _Create a fully-integrated back-end with full and partial CRUD functionality, depending on the table._
-- _User profile gives quick access to associated messageboards and collaborations._
-- _Build a stylish and interactive front-end that gives users the tools they need to connect and collaborate._
+- Implement a token-authenticated user login process.
+- Create a fully-integrated back-end with full and partial CRUD functionality, depending on the table.
+- User profile gives quick access to their associated messageboards.
+- Build a stylish and interactive front-end that gives users the tools they need to connect and collaborate.
 
 
 <br>
@@ -70,15 +70,9 @@ _The **CoLab** MVP in its most raw form will be series of messageboards, where e
 
 #### Wireframes
 
-> Use the Wireframes section to display desktop, tablet and mobile views. No hand-drawn wireframes. Use a tool like wireframe.cc, Whimsical or AdobeXD
-
 [Web breakpoint](https://www.figma.com/file/C3tycpZaLnBFCmo2XyuuYt/CoLab?node-id=0%3A1)
 
-- Web Wireframes
-
 [Mobile breakpoint](https://www.figma.com/file/C3tycpZaLnBFCmo2XyuuYt/CoLab?node-id=7%3A97)
-
-- Mobile wireframes
 
 
 #### Component Hierarchy
@@ -130,20 +124,27 @@ src
 
 
 #### Component Tree 
-![component tree](https://github.com/edidonato1/CoLab/blob/master/images/Component_Tree.png "Component Tree") 
+[component tree](https://github.com/edidonato1/CoLab/blob/master/images/Component_Tree.png) 
 
 
 #### Time Estimates
 
-> Use this section to estimate the time necessary to build out each of the components you've described above.
+| Task                | Priority | Estimated Time |  Actual Time  |
+| ------------------- | :------: | :------------: |  :---------:  |
+| add models          |    H     |     2 hrs      |      TBD      |
+| build routes        |    H     |     2 hrs      |      TBD      |
+| create associations |    H     |     6 hrs      |      TBD      |
+| seed data           |    L     |     2 hrs      |      TBD      |
+| add React services  |    H     |     2 hrs      |      TBD      |
+| build frontend skeleton |    H     |     3 hrs      |      TBD      |
+| build frontend forms|    H     |     5 hrs      |      TBD      |
+| test frontend CRUD  |    M     |     3 hrs      |      TBD      |
+| streamline functionality |    H     |     6 hrs      |      TBD      |
+| CSS styling         |    H     |     16 hrs      |      TBD      |
+| post-MVP - collaborations |   L   |     10    |     TBD     |
+| TOTAL               |          |     57 hrs      |      TBD       |
 
-| Task                | Priority | Estimated Time | Time Invested | Actual Time |
-| ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Add Contact Form    |    L     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| TOTAL               |          |     6 hrs      |     3 hrs     |     TBD     |
 
-> _Why is this necessary? Time frames are key to the development cycle. You have limited time to code your app, and your estimates can then be used to evaluate possibilities of your MVP and post-MVP based on time needed. It's best you assume an additional hour for each component, as well as a few hours added to the total time, to play it safe._
 
 <br>
 
@@ -157,7 +158,7 @@ src
 
 ***
 
-## Post-MVP vis
+## Post-MVP 
 
 
 _As my proposed project is becoming a bit more ambitious than I had originally imagined, There are certain components and features that I'm considering now to be a part of the Post-MVP, or second iteration.  For instance, the **Collaborations** feature is starting to seem more complex as I further develop the concept._
@@ -165,7 +166,7 @@ _As my proposed project is becoming a bit more ambitious than I had originally i
 #### Collaborations
 For Post-MVP, the collaborations model will be exclusive to the users that are participating in it, meaning it will only be accessible through the user's profile.
 
-Another challenge will be managing the relationship between users and collaborations. Through a non-programmatic lens of association it would seem that the user belongs to a collaboration, in the sense that it's a contributing member, but the more I think about it, it will have to be the other way around, where a single collaboration must be created by one user, and then can belong to many users.  
+The primary challenge will be managing the relationship between users and collaborations. Through a non-programmatic lens of association it would seem that the user belongs to a collaboration, in the sense that they are a contributing member, but the more I think about it, it will have to be the other way around, where a single collaboration must be created by one user, and then can belong to many users.  
 
 
 
@@ -174,8 +175,7 @@ Another challenge will be managing the relationship between users and collaborat
 
 ## Code Showcase
 
-> Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
+
 
 ## Code Issues & Resolutions
 
-> Use this section to list of all major issues encountered and their resolution.

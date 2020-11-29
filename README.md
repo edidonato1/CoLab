@@ -22,8 +22,8 @@
 
 ## Overview
 
-_**CoLab** is a messageboard-style application meant to bring creatives from various mediums together for collaborations. Taking the concepts of multimedia and mixed media, **CoLab** aims to create an environment for Mixed Medium projects to be imagined._
-_For example, take Cara.  Cara is an up-and-coming chef, currently known for her pop-up series, which is gaining in popularity.  For her next series, she wants to highlight the artistic nature of her culinary prowess.  To do this, she wants to showcase a thoroughfare that combines visual arts with culinary arts, and needs a visual artist who shares her passion.  By utilizing the tools provided by **CoLab**, Cara can quickly connect with many artists who may want to contribute to her series in the coming months._
+**CoLab** is a messageboard-style application meant to bring creatives from various mediums together for collaborations. Taking the concepts of multimedia and mixed media, **CoLab** aims to create an environment for Mixed Medium projects to be imagined._
+For example, take Cara.  Cara is an up-and-coming chef, currently known for her pop-up series, which is gaining in popularity.  For her next series, she wants to highlight the artistic nature of her culinary prowess.  To do this, she wants to showcase a thoroughfare that combines visual arts with culinary arts, and needs a visual artist who shares her passion.  By utilizing the tools provided by **CoLab**, Cara can quickly connect with many artists who may want to contribute to her series in the coming months.
 
 ### Features
 - Users start by registering for the application, which gains them access to their user profile
@@ -44,7 +44,7 @@ _The **CoLab** MVP in its most raw form will be series of messageboards, where e
 - Implement a token-authenticated user login process.
 - Create a fully-integrated back-end with full and partial CRUD functionality, depending on the table.
 - User profile gives quick access to their associated messageboards.
-- Build a stylish and interactive front-end that gives users the tools they need to connect and collaborate.
+- Build a stylish and interactive front-end that gives users the tools they need to connect.
 
 
 <br>
@@ -55,14 +55,14 @@ _The **CoLab** MVP in its most raw form will be series of messageboards, where e
 
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
-|  Ruby on Rails   | _Back-end framework for the application._ |
-|    PostgreSQL    | _Handles the relational database on which the app is built._ |
-|       Axios      | _HTTP client that will connect the front-end application to our database._ |
-|       CORS       | _Allows for resource sharing between client and server._ |
-|      React       | _Front-end framework for the cpplication._ |
-|   React Router   | _Used to seamlessly link and route components._ |
-| Styled Components| _Allows for more dynamic styling of components in React._ |
-|    FontAwesome   | _Icon library for attractive and mobile-friendly UI._ |
+|  Ruby on Rails   | Back-end framework for the application. |
+|    PostgreSQL    | Handles the relational database on which the app is built.|
+|       Axios      | HTTP client that will connect the front-end application to our database. |
+|       CORS       | Allows for resource sharing between client and server.|
+|      React       | Front-end framework for the application. |
+|   React Router   | Used to seamlessly link and route components.|
+| Styled Components| Allows for more dynamic styling of components in React. |
+|    FontAwesome   | Icon library for attractive and mobile-friendly UI. |
 
 <br>
 

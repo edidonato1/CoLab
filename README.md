@@ -76,7 +76,7 @@ _The **CoLab** MVP in its most raw form will be series of messageboards, where e
 
 - Web Wireframes
 
-![Mobile breakpoint(https://www.figma.com/file/C3tycpZaLnBFCmo2XyuuYt/CoLab?node-id=7%3A97)
+![Mobile breakpoint](https://www.figma.com/file/C3tycpZaLnBFCmo2XyuuYt/CoLab?node-id=7%3A97)
 
 - Mobile wireframes
 

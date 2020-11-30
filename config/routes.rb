@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   post '/auth/login', to: 'authentication#login'
   get '/auth/verify', to: 'authentication#verify'
   resources :users
+
+  put '/users/:id', to: 'users#add_medium' 
+
   resources :media do
     resources :posts
   end
+
 end

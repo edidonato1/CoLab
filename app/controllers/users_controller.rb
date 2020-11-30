@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update]
-  # before_action :authorize_request, except: :create
 
   def create
     @user = User.new(user_params)
@@ -24,7 +23,7 @@ class UsersController < ApplicationController
 
 
   def show 
-    render json: @user
+    render json: @user, include: :media
   end
 
   def update 
@@ -35,6 +34,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def add_medium
+    @medium = Medium.find(params[:medium_id])
+    @user.media << @medium
+
+    render json: @user, include: :media
+  end
 
 
   private

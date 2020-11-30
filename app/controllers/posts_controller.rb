@@ -18,6 +18,7 @@ before_action :set_post, only: [:show, :update, :destroy]
       render json: @post, status: :created
     else
       render json: @post.errors, status: :unprocessable_entity
+    end
   end
 
   def update
@@ -26,6 +27,8 @@ before_action :set_post, only: [:show, :update, :destroy]
     else 
       render json: @post.errors, status: :unprocessable_entity
     end
+  end
+
 
   def destroy
     @post.destroy
@@ -38,7 +41,7 @@ def set_post
 end
 
 def post_params
-  params.require(:post).permit(:subject, :content )
+  params.require(:post).permit(:subject, :content, :user_id, :medium_id )
 end
 
 

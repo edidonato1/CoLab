@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_182413) do
+ActiveRecord::Schema.define(version: 2020_11_30_193858) do
 
   create_table "media", force: :cascade do |t|
     t.string "name"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_11_30_182413) do
 
   create_table "posts", force: :cascade do |t|
     t.string "subject"
-    t.string "content"
+    t.text "content"
     t.integer "user_id", null: false
     t.integer "medium_id", null: false
     t.datetime "created_at", precision: 6, null: false

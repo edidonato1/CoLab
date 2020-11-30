@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update]
-  before_action :authorize_request, except: :create
+  # before_action :authorize_request, except: :create
 
   def create
     @user = User.new(user_params)
@@ -15,6 +15,13 @@ class UsersController < ApplicationController
       render json: @user.errors, status: :unprocessable_entity
     end
   end
+
+  def index 
+    @users = User.all
+
+    render json: @users
+  end
+
 
   def show 
     render json: @user

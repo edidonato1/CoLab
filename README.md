@@ -46,6 +46,11 @@ _The **CoLab** MVP in its most raw form will be series of messageboards, where e
 - User profile gives quick access to their associated messageboards.
 - Build a stylish and interactive front-end that gives users the tools they need to connect.
 
+### Challenges
+
+- I have several relationships to consider. Figuring out how to manage these may take some trial and error.
+- My Mediums model needs to exist on its own, but also needs to belong to Users.  It exists both as a "tag", and as a messageboard, each of which with the ability to display its own unique screen.  
+- Attaching Posts to the Mediums is something I haven't seen in class, and will take some heavy application and research to figure out once things get started.
 
 <br>
 

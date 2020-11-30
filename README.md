@@ -151,7 +151,7 @@ src
 ### Server (Back End)
 
 #### ERD Model
-![CoLab ERD](https://github.com/edidonato1/CoLab/blob/master/images/CoLab_ERD.png "ERD Model")
+[CoLab ERD](https://github.com/edidonato1/CoLab/blob/develop/images/CoLab_ERD.png)
 
 
 <br>

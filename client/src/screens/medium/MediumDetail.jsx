@@ -7,6 +7,7 @@ import PostDetail from '../post/PostDetail'
 export default function MediumDetail(props) {
   const [medium, setMedium] = useState(null);
   const [createPost, setCreatePost] = useState(false);
+  const [updated, setUpdated] = useState(false)
   const { id } = useParams();
   const { loggedInUser } = props;
 
@@ -18,7 +19,7 @@ export default function MediumDetail(props) {
       setMedium(mediumData);
     }
     fetchMedium(id);
-  }, [id, createPost])
+  }, [id, createPost, updated])
 
 
   return (
@@ -27,7 +28,12 @@ export default function MediumDetail(props) {
         <h1>{medium?.name}</h1>
         <h2 onClick={() => setCreatePost(!createPost)}>post to {medium?.name}</h2>
         {medium?.posts.map((post) => (
-          <PostDetail key={post.id} post={post}/>
+          <PostDetail
+            updated={updated}
+            setUpdated={setUpdated}
+            loggedInUser={loggedInUser}
+            key={post.id}
+            post={post} />
         ))}
       </>
       :

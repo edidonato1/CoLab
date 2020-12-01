@@ -24,29 +24,31 @@ export default function PostCreate(props) {
   }
 
   return (
-
-    <form onSubmit={(e) => {
-      e.preventDefault();
-      handleSubmit(mediumId, formData)
-    }}>
-      <h1>post to {medium?.name}</h1>
-      <label>subject
+    <div>
+      <p onClick={() => setCreatePost(!createPost)}>cancel</p>
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit(mediumId, formData)
+      }}>
+        <h1>post to {medium?.name}</h1>
+        <label>subject
        <input
-          type="text"
-          name="subject"
-          value={formData.subject}
-          onChange={handleChange}
-        />
-      </label>
-      <label>content
+            type="text"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
+          />
+        </label>
+        <label>content
        <input
-          type="text"
-          name="content"
-          value={formData.content}
-          onChange={handleChange}
-        />
-      </label>
-      <button type="submit">post</button>
-    </form>
+            type="text"
+            name="content"
+            value={formData.content}
+            onChange={handleChange}
+          />
+        </label>
+        <button type="submit">post</button>
+      </form>
+    </div>
   )
 }

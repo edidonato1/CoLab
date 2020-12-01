@@ -1,16 +1,15 @@
 import Home from './screens/Home';
 import Login from './screens/user/Login';
 import Register from './screens/user/Register';
-import { useEffect, useContext } from 'react';
+import MediumContainer from './containers/MediumContainer'
+import { useEffect, useState, useContext } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import { verifyUser, loginUser, registerUser } from './services/auth';
 import './App.css';
-import { LoggedInUserProvider, LoggedInUserContext } from './components/shared/LoggedInUser';
-
 
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useContext(LoggedInUserContext)
+  const [loggedInUser, setLoggedInUser] = useState(null)
   const history = useHistory();
 
 
@@ -33,22 +32,21 @@ function App() {
 
   const handleRegister = async (registerData) => {
     const userData = await registerUser(registerData);
-    setLoggedInUser(userData);
+    setLoggedInUser(userData)
     history.push('/');
   }
 
   return (
-    <LoggedInUserProvider>
-      <Switch>
-        <Route exact path='/' component={Home} />
-        <Route path='/login' >
-          <Login handleLogin={handleLogin}/>
-        </Route>
-        <Route path='/register'>
-          <Register handleRegister={handleRegister} />
-        </Route>
-      </Switch>
-    </LoggedInUserProvider>
+    <Switch>
+      <Route exact path='/' component={Home} />
+      <Route path='/login' >
+        <Login handleLogin={handleLogin} />
+      </Route>
+      <Route path='/register'>
+        <Register handleRegister={handleRegister} />
+      </Route>
+      <Route path='/media' component={MediumContainer} />
+    </Switch>
   );
 }
 

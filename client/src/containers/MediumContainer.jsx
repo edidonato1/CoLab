@@ -3,6 +3,7 @@ import { Switch, Route, useHistory } from 'react-router-dom';
 import { getAllMedia } from '../services/media';
 import { getAllPosts } from '../services/posts';
 import Media from '../screens/medium/Media';
+import MediaDetail from '../screens/medium/MediumDetail';
 
 export default function MediumContainer(props) {
   const [media, setMedia] = useState([]);
@@ -20,12 +21,15 @@ export default function MediumContainer(props) {
     fetchMedia();
     fetchPosts();
   }, [])
-  
+
 
   return (
     <Switch>
       <Route path='/media/all'>
-        <Media media={media}/>
+        <Media media={media} />
+      </Route>
+      <Route path='/media/:id' >
+        <MediaDetail media={media}/>
       </Route>
     </Switch>
   )

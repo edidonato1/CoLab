@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Media(props) {
-  const { media } = props
-
-  // const name = media[0].name
+export default function Media({media}) {
+  // const { media } = props
 
   return (
     <div>
@@ -19,7 +17,6 @@ export default function Media(props) {
             <>
               <p>{medium.description}</p>
             </>
-
           </React.Fragment>
          ))
       }

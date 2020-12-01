@@ -4,6 +4,7 @@ import { getAllMedia } from '../services/media';
 import { getAllPosts } from '../services/posts';
 import Media from '../screens/medium/Media';
 import MediaDetail from '../screens/medium/MediumDetail';
+import MediumRequest from '../screens/medium/MediumRequest';
 
 export default function MediumContainer(props) {
   const [media, setMedia] = useState([]);
@@ -27,6 +28,9 @@ export default function MediumContainer(props) {
     <Switch>
       <Route path='/media/all'>
         <Media media={media} />
+      </Route>
+      <Route path='/media/request'>
+        <MediumRequest />
       </Route>
       <Route path='/media/:id' >
         <MediaDetail

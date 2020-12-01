@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update]
+  before_action :set_user, only: [:show, :update, :add_medium, :remove_medium]
 
   def create
     @user = User.new(user_params)
@@ -41,7 +41,13 @@ class UsersController < ApplicationController
     render json: @user, include: :media
   end
 
+  def remove_medium
+    @medium = Medium.find(params[:medium_id])
+    @user.media.delete(@medium)
 
+    render json: @user, include: :media
+  end
+  
   private
     def set_user 
       @user = User.find(params[:id])

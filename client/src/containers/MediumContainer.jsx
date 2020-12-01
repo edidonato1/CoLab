@@ -29,7 +29,9 @@ export default function MediumContainer(props) {
         <Media media={media} />
       </Route>
       <Route path='/media/:id' >
-        <MediaDetail media={media}/>
+        <MediaDetail
+          loggedInUser={props.loggedInUser}
+          media={media} />
       </Route>
     </Switch>
   )

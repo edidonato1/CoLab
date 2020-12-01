@@ -8,6 +8,7 @@ export default function MediumDetail(props) {
   const [medium, setMedium] = useState(null);
   const [createPost, setCreatePost] = useState(false);
   const { id } = useParams();
+  const { loggedInUser } = props;
 
   const updateCreatedAt = (str) => {
     let newStr = str.split('').splice(0, 10).join('').split('-').reverse()
@@ -21,7 +22,7 @@ export default function MediumDetail(props) {
       setMedium(mediumData);
     }
     fetchMedium(id);
-  }, [id])
+  }, [id, createPost])
 
 
   return (
@@ -39,8 +40,10 @@ export default function MediumDetail(props) {
       </>
       :
       <PostCreate
+        loggedInUser={loggedInUser}
         createPost={createPost}
         setCreatePost={setCreatePost}
+        medium={medium}
         mediumId={id} />
     }
     </>

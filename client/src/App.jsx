@@ -45,7 +45,9 @@ function App() {
       <Route path='/register'>
         <Register handleRegister={handleRegister} />
       </Route>
-      <Route path='/media' component={MediumContainer} />
+      <Route path='/media' >
+        <MediumContainer loggedInUser={loggedInUser}/>
+      </Route>
     </Switch>
   );
 }

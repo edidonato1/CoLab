@@ -86,35 +86,36 @@ _The **CoLab** MVP in its most raw form will be series of messageboards, where e
 
 src
 |__ assets/
-      |__ fonts
-      |__ icons
-      |__ images
-      |__ wireframes
+    |__ fonts
+    |__ icons
+    |__ images
+    |__ wireframes
 |__ components/
-      |__ shared
-          |__ layouts
-              |__ Nav.jsx
-              |__ Header.jsx
-              |__ Layout.jsx
-      |__ forms
-          |__ StyledForms.js
-          |__ user
-              |__ Login.jsx
-              |__ Register.jsx 
-          |__ CreatePost.jsx
-          |__ EditUser.jsx
+    |__ shared
+        |__ Nav.jsx
+        |__ Header.jsx
+        |__ Layout.jsx
 |__ containers/
     |__ MediumContainer.jsx
     |__ CollabContainer.jsx
 |__ screens/
-    |__ Profile.jsx
-    |__ LoginRegister.jsx
-    |__ Mediums.jsx
-    |__ MediumDetail.jsx
-    |__ CreateMedium.jsx
-    |__ Collaborations.jsx
-    |__ CollabDetail.jsx
-    |__ CreateCollab.jsx
+    Home.jsx
+    |__ medium
+        |__ Mediums.jsx
+        |__ MediumDetail.jsx
+        |__ MediumRequest.jsx
+    |__ post
+        |__ PostCreate.jsx
+        |__ PostEdit.jsx
+    |__ user
+        |__ ProfileEdit.jsx
+        |__ Profile.jsx
+        |__ Login.jsx
+        |__ Register.jsx
+    |__ collab
+        |__ Collaborations.jsx
+        |__ CollabDetail.jsx
+        |__ CreateCollab.jsx
 |__ services/
     |__ apiConfig.js
     |__ auth.js
@@ -136,10 +137,10 @@ src
 
 | Task                | Priority | Estimated Time |  Actual Time  |
 | ------------------- | :------: | :------------: |  :---------:  |
-| add models          |    H     |     2 hrs      |      TBD      |
-| build routes        |    H     |     2 hrs      |      TBD      |
-| create associations |    H     |     6 hrs      |      TBD      |
-| seed data           |    L     |     2 hrs      |      TBD      |
+| add models          |    H     |     2 hrs      |      1 hr     |
+| build routes        |    H     |     2 hrs      |      2 hrs    |
+| create associations |    H     |     6 hrs      |      4 hrs    |
+| seed data           |    L     |     2 hrs      |     .5 hrs   |
 | add React services  |    H     |     2 hrs      |      TBD      |
 | build frontend skeleton |    H     |     3 hrs      |      TBD      |
 | build frontend forms|    H     |     5 hrs      |      TBD      |

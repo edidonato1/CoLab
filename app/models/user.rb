@@ -8,4 +8,14 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy  
   has_and_belongs_to_many :media
+
+  def return_data
+    {
+      username: username, 
+      email: email,
+      media: media,
+      bio: bio
+    }
+  end
+
 end

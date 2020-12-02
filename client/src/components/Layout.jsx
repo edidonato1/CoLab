@@ -5,9 +5,9 @@ export default function Layout(props) {
   
   return (
     <LayoutStyled>
+      <Header />
       <div className="main">
 
-      <Header />
       {props.children}
       </div>
     </LayoutStyled>

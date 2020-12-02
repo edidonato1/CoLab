@@ -1,9 +1,18 @@
 import styled from 'styled-components';
 
- const LayoutStyled = styled.div`
+const LayoutStyled = styled.div`
+display: flex;
+overflow: auto;
+width: 100vw;
+height: 100vh;
+background: #F1F0F0;
+
+
 
 .main {
-  margin-top: 80px;
+  margin-top: 60px;
+  height: calc(100% - 60px);
+  width: 100%;
 }
 
 .header {

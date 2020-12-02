@@ -55,7 +55,7 @@ function App() {
   return (
     <Layout
       loggedInUser={loggedInUser}
-    handleLogout={handleLogout}
+      handleLogout={handleLogout}
     >
       <Switch>
         <Route exact path='/' component={Home} />
@@ -68,14 +68,13 @@ function App() {
         <Route path='/profile'>
           <Profile
             media={media}
-            loggedInUser={loggedInUser} 
-             handleLogout={handleLogout}/>
+            loggedInUser={loggedInUser}
+            handleLogout={handleLogout} />
         </Route>
         <Route path='/media' >
           <MediumContainer
             media={media}
             loggedInUser={loggedInUser} />
-       
         </Route>
       </Switch>
     </Layout>

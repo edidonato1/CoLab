@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import FormStyles from '../../stylesheets/FormStyles';
 
 
 export default function Login(props) {
@@ -12,38 +13,38 @@ export default function Login(props) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
-      ...prevState, 
+      ...prevState,
       [name]: value
     }))
   }
 
 
   return (
-    <form onSubmit={(e) => {
-      e.preventDefault();
-      props.handleLogin(formData)
-    }}>
-      <h1>login</h1>
-      <label> username
-        <input 
-          type='text'
-          name='username'
-          value={formData.username}
-          onChange={handleChange}
+    <FormStyles>
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        props.handleLogin(formData)
+      }}>
+        <h1>login</h1>
+        <label> username
+        <input
+            type='text'
+            name='username'
+            value={formData.username}
+            onChange={handleChange}
           />
-      </label>
-      <label> password
-        <input 
-          type='password'
-          name='password'
-          value={formData.password}
-          onChange={handleChange}
+        </label>
+        <label> password
+        <input
+            type='password'
+            name='password'
+            value={formData.password}
+            onChange={handleChange}
           />
-      </label>
-      <button type="submit">send</button>
-      <p>need an account?<Link to='/register'>register</Link></p>
-
-
+        </label>
+        <button type="submit">send</button>
+        <p>need an account?<Link to='/register'>register</Link></p>
       </form>
+    </FormStyles>
   )
 }

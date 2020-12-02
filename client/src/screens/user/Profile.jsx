@@ -7,6 +7,7 @@ export default function Profile(props) {
   const [editProfile, setEditProfile] = useState(false)
 
   const { loggedInUser, media, handleLogout } = props
+
   return (
     <>
     {
@@ -37,6 +38,7 @@ export default function Profile(props) {
     </React.Fragment>
     :
           <ProfileEdit
+            setEditProfile={setEditProfile}
             media={media}
             loggedInUser={loggedInUser} />
     }

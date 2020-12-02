@@ -23,7 +23,7 @@ function App() {
       setLoggedInUser(userData)
     }
     handleVerify();
-  }, [loggedInUser])
+  }, [])
 
   useEffect(() => {
     const fetchMedia = async () => {

@@ -1,4 +1,4 @@
-import { useState, useEffect, useReducer } from 'react';
+import { useState, useEffect } from 'react';
 import { getOneUser } from '../../services/users';
 import PostEdit from './PostEdit';
 

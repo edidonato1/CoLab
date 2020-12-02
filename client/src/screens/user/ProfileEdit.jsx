@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react'
 import { addMedium } from '../../services/media';
+import { putUser } from '../../services/users';
 
 export default function ProfileEdit(props) {
-  const { media, loggedInUser } = props;
+  const { media, loggedInUser, setEditProfile } = props;
 
   const [newMedium, setNewMedium] = useState({})
   const [formData, setFormData] = useState({
     username: loggedInUser.username,
     img_url: loggedInUser.img_url,
     bio: loggedInUser.bio,
+    password: ''
   })
 
   const handleChange = (e) => {
@@ -19,6 +21,11 @@ export default function ProfileEdit(props) {
     }))
   }
 
+  const handleSubmit = async (id, data) => {
+    await putUser(id, data);
+    setEditProfile(false)
+  }
+
   const handleAddMedium = async (e) => {
     e.preventDefault();
     await addMedium(newMedium, loggedInUser.id)
@@ -27,7 +34,10 @@ export default function ProfileEdit(props) {
   return (
     <div>
       <h2>update profile</h2>
-      <form>
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit(loggedInUser.id, formData)
+      }}>
         <label> username
         <input
             type='text'
@@ -44,14 +54,24 @@ export default function ProfileEdit(props) {
             onChange={handleChange}
           />
         </label>
-        <label> bio
+        <label> password
         <input
+            type='password'
+            name='password'
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label> bio
+        <textarea
             type='text'
             name='bio'
             value={formData.bio}
             onChange={handleChange}
           />
         </label>
+        <button type="submit">save</button>
       </form>
       <form onSubmit={handleAddMedium}>
       <label> add a medium
@@ -69,7 +89,6 @@ export default function ProfileEdit(props) {
         </label>
         <button type="submit">add</button>
       </form>
-      {/* <h1>{loggedInUser.media[0].id}</h1> */}
     </div>
   )
 }

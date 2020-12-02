@@ -8,6 +8,7 @@ class AuthenticationController < ApplicationController
       token = encode({id: @user.id})
       render json: {
         user: @user.attributes.except("password_digest"),
+        # include: :media,
         token: token
         },  status: :ok
     else
@@ -18,7 +19,7 @@ class AuthenticationController < ApplicationController
   # GET /auth/verify
   def verify
     render json: @current_user.attributes.except("password_digest"),
-    include: :media,
+    # include: :media,
     status: :ok
   end
 

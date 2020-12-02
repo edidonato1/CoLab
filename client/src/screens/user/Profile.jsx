@@ -7,7 +7,8 @@ export default function Profile(props) {
   return (
     <ProfileStyles loggedInUser={loggedInUser}>
       <aside className="side-bar">
-        <h2>hello, {loggedInUser?.username}</h2>
+        <h2>your profile</h2>
+        <h4>{loggedInUser?.username}</h4>
         <div id="profile-pic" >
         </div>
       </aside>

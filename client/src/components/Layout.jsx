@@ -1,10 +1,15 @@
-
+import LayoutStyled from '../stylesheets/Layout';
+import Header from './Header';
 
 export default function Layout(props) {
   
   return (
-    <div>
+    <LayoutStyled>
+      <div className="main">
+
+      <Header />
       {props.children}
-    </div>
+      </div>
+    </LayoutStyled>
   )
 }

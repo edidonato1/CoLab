@@ -6,7 +6,7 @@ import MediaDetail from '../screens/medium/MediumDetail';
 import MediumRequest from '../screens/medium/MediumRequest';
 
 export default function MediumContainer(props) {
-  const { media } = props;
+  const { media, loggedInUser } = props;
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
@@ -22,7 +22,9 @@ export default function MediumContainer(props) {
   return (
     <Switch>
       <Route exact path='/media/'>
-        <Media media={media} />
+        <Media
+          loggedInUser={loggedInUser}
+          media={media} />
       </Route>
       <Route path='/media/request'>
         <MediumRequest />

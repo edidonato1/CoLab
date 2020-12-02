@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import FormStyles from '../../stylesheets/FormStyles';
 
 export default function Register(props) {
@@ -23,18 +24,18 @@ export default function Register(props) {
 
   return (
     <FormStyles>
-
-      <form onSubmit={(e) => {
+      <h1>register</h1>
+      <form className="form-main" onSubmit={(e) => {
         e.preventDefault();
         props.handleRegister(formData);
       }}>
-        <h1>register</h1>
         <label> username
         <input
             type='text'
             name='username'
             value={formData.username}
             onChange={handleChange}
+            autoFocus
           />
         </label>
         <label> email
@@ -69,8 +70,10 @@ export default function Register(props) {
             onChange={handleChange}
           />
         </label>
-
+        <div className="button-box">
         <button type="submit">send</button>
+        </div>
+        <p>already have an account? <Link to='/login'>log in</Link></p>
       </form>
     </FormStyles>
   )

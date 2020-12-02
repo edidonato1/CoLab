@@ -1,7 +1,8 @@
-import React, {  useState } from 'react';
-import { Redirect } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import FormStyles from '../../stylesheets/FormStyles';
 import emailjs from 'emailjs-com'
-import{ init } from 'emailjs-com';
+import { init } from 'emailjs-com';
 init("user_BJqYEUDtQZODDSAmTYVCv");
 
 const MediumRequest = () => {
@@ -46,48 +47,52 @@ const MediumRequest = () => {
 
   return (
     <div >
-      <h1>Request</h1>
-      <form onSubmit={sendEmail}>
-        <div >
+      <FormStyles >
+        <h1>Request</h1>
+        <form className="form-main" onSubmit={sendEmail}>
           <div >
+            <label>name
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <label>email
+              <input
+                type="text"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <label>subject
             <input
-              type="text"
-              name="name"
-              value={form.name}
-              placeholder="full name"
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="text"
-              name="email"
-              value={form.email}
-              placeholder="email address"
-              onChange={handleChange}
-              required
-            />
+                type="text"
+                name="subject"
+                value={form.subject}
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <label>message
+            <textarea
+                type="text"
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <div className="button-box">
+              <button type="submit">send</button>
+            </div>
           </div>
-          <input
-            type="text"
-            name="subject"
-            value={form.subject}
-            placeholder="subject"
-            onChange={handleChange}
-            required
-          />
-          <textarea
-            type="text"
-            name="message"
-            value={form.message}
-            placeholder="message"
-            onChange={handleChange}
-            required
-          />
-          <div >
-            <button type="submit">send</button>
-          </div>
-        </div>
-      </form>
+        </form>
+      </FormStyles>
     </div>
   )
 }

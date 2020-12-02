@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { addPost } from '../../services/posts';
+import FormStyles from '../../stylesheets/FormStyles';
 
 export default function PostCreate(props) {
   const { loggedInUser, medium, mediumId, createPost, setCreatePost } = props
@@ -23,32 +24,38 @@ export default function PostCreate(props) {
     setCreatePost(!createPost);
   }
 
+  const goBack = `<< back`
+
   return (
     <div>
-      <p onClick={() => setCreatePost(!createPost)}>cancel</p>
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        handleSubmit(mediumId, formData)
-      }}>
-        <h1>post to {medium?.name}</h1>
-        <label>subject
-       <input
-            type="text"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-          />
-        </label>
-        <label>content
-       <input
-            type="text"
-            name="content"
-            value={formData.content}
-            onChange={handleChange}
-          />
-        </label>
-        <button type="submit">post</button>
-      </form>
+      <p style={{ cursor: "default" }} onClick={() => setCreatePost(!createPost)}>{goBack}</p>
+      <FormStyles>
+        <form className="form-main" onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit(mediumId, formData)
+        }}>
+          <h1 >post to <span id="create-title">{medium?.name}</span></h1>
+          <label>subject
+              <input
+              type="text"
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+            />
+          </label>
+          <label>content
+            <textarea
+              type="text"
+              name="content"
+              value={formData.content}
+              onChange={handleChange}
+            />
+          </label>
+          <div className="button-box">
+            <button type="submit">post</button>
+          </div>
+        </form>
+      </FormStyles>
     </div>
   )
 }

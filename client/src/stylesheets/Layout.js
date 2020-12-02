@@ -47,6 +47,26 @@ nav {
   font-family: avenir;
   font-size: 25px;
 }
+
+button {
+  padding: 5px;
+  width: fit-content;
+  background: #092741;
+  color: #E36562;
+  font-weight: 600;
+  border: 2px outset #614753;
+  border-radius: 10px;
+}
+
+button:hover {
+background: #614753;
+border-color: #092741;
+text-shadow: 1px 1px #092741;
+}
+
+button:focus {
+  outline: none;
+}
 `
 
 export default LayoutStyled;

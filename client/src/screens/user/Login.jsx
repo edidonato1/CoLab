@@ -21,17 +21,18 @@ export default function Login(props) {
 
   return (
     <FormStyles>
-      <form onSubmit={(e) => {
+      <h1>login</h1>
+      <form className="form-main" onSubmit={(e) => {
         e.preventDefault();
         props.handleLogin(formData)
       }}>
-        <h1>login</h1>
         <label> username
         <input
             type='text'
             name='username'
             value={formData.username}
             onChange={handleChange}
+            autoFocus
           />
         </label>
         <label> password
@@ -42,8 +43,10 @@ export default function Login(props) {
             onChange={handleChange}
           />
         </label>
-        <button type="submit">send</button>
-        <p>need an account?<Link to='/register'>register</Link></p>
+        <div className="button-box">
+          <button type="submit">send</button>
+        </div>
+        <p>need an account? <Link to='/register'>register</Link></p>
       </form>
     </FormStyles>
   )

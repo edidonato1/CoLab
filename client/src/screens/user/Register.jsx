@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
-import { getAllMedia } from '../../services/media';
 
 export default function Register(props) {
-  const [media, setMedia] = useState([])
+  const { media } = props;
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -21,15 +20,6 @@ export default function Register(props) {
     }))
   }
 
-  useEffect(() => {
-    const fetchMedia = async () => {
-      const mediaData = await getAllMedia();
-      setMedia(mediaData);
-    }
-    fetchMedia();
-  }, [])
-
-  
   return (
     <form onSubmit={(e) => {
       e.preventDefault();
@@ -76,16 +66,7 @@ export default function Register(props) {
           onChange={handleChange}
           />
       </label>
-      <label> media
-        <select
-          name='media'
-          value={formData.media}
-          onChange={handleChange}
-        >{media.map(medium => 
-          <option>{medium.name}</option>
-        )}
-        </select> 
-      </label>
+
       <button type="submit">send</button>
     </form>
   )

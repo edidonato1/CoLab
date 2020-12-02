@@ -65,10 +65,14 @@ function App() {
           <Login handleLogin={handleLogin} />
         </Route>
         <Route path='/register'>
-          <Register handleRegister={handleRegister} />
+          <Register
+            media={media}
+            handleRegister={handleRegister} />
         </Route>
         <Route path='/profile'>
-          <Profile loggedInUser={loggedInUser}/>
+          <Profile
+            media={media}
+            loggedInUser={loggedInUser} />
         </Route>
         <Route path='/media' >
           <MediumContainer

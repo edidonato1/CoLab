@@ -1,32 +1,27 @@
 import { useState, useEffect } from 'react';
-import { Switch, Route, useHistory } from 'react-router-dom';
-import { getAllMedia } from '../services/media';
+import { Switch, Route} from 'react-router-dom';
 import { getAllPosts } from '../services/posts';
 import Media from '../screens/medium/Media';
 import MediaDetail from '../screens/medium/MediumDetail';
 import MediumRequest from '../screens/medium/MediumRequest';
 
 export default function MediumContainer(props) {
-  const [media, setMedia] = useState([]);
+  const { media } = props;
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
-    const fetchMedia = async () => {
-      const mediaData = await getAllMedia();
-      setMedia(mediaData);
-    }
+
     const fetchPosts = async () => {
       const postData = await getAllPosts();
       setPosts(postData);
     }
-    fetchMedia();
     fetchPosts();
   }, [])
 
 
   return (
     <Switch>
-      <Route path='/media/all'>
+      <Route exact path='/media/'>
         <Media media={media} />
       </Route>
       <Route path='/media/request'>

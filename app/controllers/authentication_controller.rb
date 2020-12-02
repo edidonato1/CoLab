@@ -9,7 +9,7 @@ class AuthenticationController < ApplicationController
       render json: {
         user: @user.attributes.except("password_digest"),
         token: token
-        }, status: :ok
+        },  status: :ok
     else
       render json: { errors: 'unauthorized' }, status: :unauthorized
     end
@@ -17,7 +17,9 @@ class AuthenticationController < ApplicationController
   
   # GET /auth/verify
   def verify
-    render json: @current_user.attributes.except("password_digest"), status: :ok
+    render json: @current_user.attributes.except("password_digest"),
+    include: :media,
+    status: :ok
   end
 
 

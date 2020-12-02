@@ -6,7 +6,7 @@ import MediumContainer from './containers/MediumContainer'
 import Profile from './screens/user/Profile';
 import { useEffect, useState, useContext } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
-import { getAllMedia } from './services/media';
+import { getAllMedia } from './services/media'
 import { verifyUser, loginUser, registerUser, removeToken } from './services/auth';
 import './App.css';
 
@@ -21,12 +21,9 @@ function App() {
     const handleVerify = async () => {
       const userData = await verifyUser();
       setLoggedInUser(userData)
-      if (!userData) {
-        history.push('/')
-      }
     }
     handleVerify();
-  }, [])
+  }, [loggedInUser])
 
   useEffect(() => {
     const fetchMedia = async () => {
@@ -58,26 +55,27 @@ function App() {
   return (
     <Layout
       loggedInUser={loggedInUser}
-      handleLogout={handleLogout}>
+    handleLogout={handleLogout}
+    >
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/login' >
           <Login handleLogin={handleLogin} />
         </Route>
         <Route path='/register'>
-          <Register
-            media={media}
-            handleRegister={handleRegister} />
+          <Register handleRegister={handleRegister} />
         </Route>
         <Route path='/profile'>
           <Profile
             media={media}
-            loggedInUser={loggedInUser} />
+            loggedInUser={loggedInUser} 
+             handleLogout={handleLogout}/>
         </Route>
         <Route path='/media' >
           <MediumContainer
             media={media}
             loggedInUser={loggedInUser} />
+       
         </Route>
       </Switch>
     </Layout>

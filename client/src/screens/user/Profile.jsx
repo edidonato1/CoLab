@@ -6,7 +6,7 @@ import ProfileStyles from '../../stylesheets/ProfileStyles';
 export default function Profile(props) {
   const [editProfile, setEditProfile] = useState(false)
 
-  const { loggedInUser, media } = props
+  const { loggedInUser, media, handleLogout } = props
   return (
     <>
     {
@@ -16,6 +16,7 @@ export default function Profile(props) {
         <aside className="side-bar">
                 <h2>your profile</h2>
                 <p onClick={() => setEditProfile(!editProfile)}>edit</p>
+                <p onClick={handleLogout}>log out</p>
           <h4>{loggedInUser?.username}</h4>
           <div id="profile-pic" >
           </div>
@@ -35,7 +36,9 @@ export default function Profile(props) {
       </ProfileStyles>
     </React.Fragment>
     :
-          <ProfileEdit loggedInUser={loggedInUser}/>
+          <ProfileEdit
+            media={media}
+            loggedInUser={loggedInUser} />
     }
     </>
   )

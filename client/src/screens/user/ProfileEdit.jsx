@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react'
+import { addMedium } from '../../services/media';
 
 export default function ProfileEdit(props) {
   const { media, loggedInUser } = props;
 
+  const [newMedium, setNewMedium] = useState({})
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    img_url: '',
-    bio: '',
-    media: []
+    username: loggedInUser.username,
+    img_url: loggedInUser.img_url,
+    bio: loggedInUser.bio,
   })
 
   const handleChange = (e) => {
@@ -18,6 +17,11 @@ export default function ProfileEdit(props) {
       ...prevState,
       [name]: value
     }))
+  }
+
+  const handleAddMedium = async (e) => {
+    e.preventDefault();
+    await addMedium(newMedium, loggedInUser.id)
   }
 
   return (
@@ -40,19 +44,33 @@ export default function ProfileEdit(props) {
             onChange={handleChange}
           />
         </label>
-
+        <label> bio
+        <input
+            type='text'
+            name='bio'
+            value={formData.bio}
+            onChange={handleChange}
+          />
+        </label>
       </form>
+      <form onSubmit={handleAddMedium}>
+      <label> add a medium
+          <select
+            defaultValue='default'
+            name='media'
+            value={formData.media}
+            onChange={(e) => setNewMedium(e.target.value)}
+            >
+            <option disabled value='default'>select</option>
+            {media?.map(medium =>
+            <option value={medium.id} key={medium.id}>{medium.name}</option>
+            )}
+          </select>
+        </label>
+        <button type="submit">add</button>
+      </form>
+      {/* <h1>{loggedInUser.media[0].id}</h1> */}
     </div>
   )
 }
 
-{/* <label> media
-<select
-  name='media'
-  value={formData.media}
-  onChange={handleChange}
->{media.map(medium => 
-  <option value={medium.id} key={medium.id}>{medium.name}</option>
-)}
-</select> 
-</label> */}

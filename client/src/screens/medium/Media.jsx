@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import MediaStyles from '../../stylesheets/MediaStyles';
 import UserAside from '../../components/UserAside';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 export default function Media(props) {
+  const [mediumLink, setMediumLink] = useState('')
+  const history = useHistory();
+  
+  if (mediumLink) {
+    setMediumLink(null)
+    history.push(`/media/${mediumLink}`)
+}
+
   const { media, loggedInUser } = props
 
 
@@ -16,6 +24,18 @@ export default function Media(props) {
       </p>
       
       <h1>all media</h1>
+      <div className="mobile-select">
+      <select
+          defaultValue='default'
+          name='media'
+          onChange={(e) => setMediumLink(e.target.value)}
+            >
+            <option disabled value='default' >browse media</option>
+            {media?.map(medium =>
+            <option value={medium.id} key={medium.id}>{medium.name}</option>
+            )}
+          </select>
+      </div>
       <div className="all-media">
         <div className="user-aside">
           <UserAside

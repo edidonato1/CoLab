@@ -57,6 +57,13 @@ p {
   color: #F1F0F0;
 }
 
+@media screen and (max-width: 500px) {
+
+
+}
+
+}
+
 `
 
 export default HomeStyled;

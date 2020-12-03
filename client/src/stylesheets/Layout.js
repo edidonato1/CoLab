@@ -9,6 +9,7 @@ background: #F1F0F0;
 
 
 
+
 .main {
   margin-top: 60px;
   height: calc(100% - 60px);
@@ -90,6 +91,23 @@ text-shadow: 1px 1px #092741;
 button:focus {
   outline: none;
 }
+
+@media screen and (max-width: 500px) {
+  width: 100vw;
+  justify-content: center;
+
+  nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  height: 60px;
+  background: #092741;
+  justify-content: space-evenly;
+  }
+
+}
+
+
 `
 
 export default LayoutStyled;

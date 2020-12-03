@@ -8,6 +8,11 @@ body {
   height: 100%;
 }
 
+a {
+  text-decoration: none;
+}
+
+
 *  {
   font-family: 'Nunito', sans-serif;
 }

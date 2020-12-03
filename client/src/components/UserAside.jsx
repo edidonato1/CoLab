@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFlask, faUser, faPalette, faHome } from '@fortawesome/free-solid-svg-icons';
 import UserAsideStyles from '../stylesheets/UserAside';
 
 

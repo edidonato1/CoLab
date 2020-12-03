@@ -6,8 +6,7 @@ import UserAside from '../../components/UserAside';
 export default function Media(props) {
   const { media, loggedInUser } = props
 
-
-
+  
   return (
     <MediaStyles>
       <h1>all media</h1>

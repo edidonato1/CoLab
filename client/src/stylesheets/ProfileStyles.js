@@ -75,12 +75,54 @@ h2 {
   margin: 5px;
 }
 
+
+
 // Edit Profile
+
+form {
+  display: flex;
+  width: 66%;
+  justify-content: space-evenly;
+}
 
 .edit-profile-main {
   display: flex;
-
+  background: lightyellow;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  width: 100%;
 }
+
+.edit-left{
+  display: flex;
+  flex-direction: column;
+  background: lightgreen;
+}
+
+.edit-mid {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-right {
+  width: 33%;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-box {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+button {
+  height: fit-content;
+}
+
+
+
 
 
 `

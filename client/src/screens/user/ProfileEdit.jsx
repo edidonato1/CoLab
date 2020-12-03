@@ -39,7 +39,7 @@ export default function ProfileEdit(props) {
     <ProfileStyles>
       <h2>update profile</h2>
       <p onClick={() => setEditProfile(false)}>{goBack}</p>
-      <img className="profile-pic" src={ loggedInUser?.img_url}/>
+      <img className="profile-pic" src={loggedInUser?.img_url} />
       <div className="edit-profile-main">
         <form onSubmit={(e) => {
           e.preventDefault();
@@ -75,18 +75,21 @@ export default function ProfileEdit(props) {
           </div>
           <div className="edit-mid">
             <label> bio
-        <textarea
+              <textarea
                 type='text'
                 name='bio'
                 value={formData.bio}
                 onChange={handleChange}
               />
             </label>
-            <button type="submit">save</button>
+            <div className="button-box">
+              <button className="profile-update" type="submit">save</button>
+            </div>
           </div>
         </form>
-        <div className="edit-right">
-          <form onSubmit={handleAddMedium}>
+          <form
+            className="edit-right"
+            onSubmit={handleAddMedium}>
             <label> add a medium
           <select
                 defaultValue='default'
@@ -100,9 +103,10 @@ export default function ProfileEdit(props) {
                 )}
               </select>
             </label>
-            <button type="submit">add</button>
+            <div className="button-box">
+              <button className="profile-update" type="submit">add</button>
+            </div>
           </form>
-        </div>
       </div>
     </ProfileStyles>
   )

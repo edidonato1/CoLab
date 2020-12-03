@@ -37,10 +37,8 @@ margin-bottom: 7px;
   margin-top: -20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 80%;
+  justify-content: flex-start;
   min-width: 500px;
-
 }
 
 img {
@@ -48,16 +46,67 @@ border-radius: 50%;
 object-fit: cover;
 width: 150px;
 height: 150px;
+margin-right: 40px;
 }
 
 .create-post {
-
+  text-align: right;
+  margin-right: 40px;
   font-size: 20px;
 }
 
 .icon {
   color: #E36562;
 }
+
+.post-container {
+background: #F9EAE7;
+padding: 10px 20px;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 0;
+  background: white;
+
+}
+
+.post-top {
+  height: 60px;
+  display: flex;
+  background: #09274160;
+  color: #614853;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+
+  height: 60px;
+  width: 200px;
+  background: #092741;
+  color: #F1F0F0;
+  margin-right: 20px;
+  padding-left: 10px;
+}
+
+#user-pic {
+  margin-right: 20px;
+  width: 45px;
+  height: 45px;
+}
+
+#content{
+  margin: 10px;
+}
+
+small {
+  font-style: italic;
+  color: #614853;
+  padding: 2px;
+}
+
 `
 
 export default MediumStyled;

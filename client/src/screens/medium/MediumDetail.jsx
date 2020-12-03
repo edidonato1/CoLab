@@ -40,8 +40,10 @@ export default function MediumDetail(props) {
           <div
             className="medium-title">
             <img src={medium?.img_url} alt={medium?.name} />
-            <h1 className="name">{medium?.name}</h1>
-            <h4>{medium?.posts.length} posts</h4>
+            <div className="title-right">
+              <h1 className="name">{medium?.name}</h1>
+              <h4>{medium?.posts.length} posts</h4>
+            </div>
           </div>
 
           <p
@@ -56,7 +58,7 @@ export default function MediumDetail(props) {
                 loggedInUser={loggedInUser}
                 key={post.id}
                 post={post} />
-            ))}
+            )).reverse()}
           </div>
         </div>
         :

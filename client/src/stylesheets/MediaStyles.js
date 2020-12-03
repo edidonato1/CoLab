@@ -27,6 +27,8 @@ justify-content: center;
 align-items: center;
 padding: 15px;
 background: #F9EAE7;
+
+margin-left: 260px;
 }
 
 a {
@@ -44,7 +46,7 @@ h2 {
   justify-content: center;
   background: #09274140;
   margin: 0;
-  height: 60px;
+  height: 50px;
   width: 100%;
   text-decoration: none;
   color: #E36562;
@@ -52,15 +54,14 @@ h2 {
 
 .description {
   display: flex;
-  
-  padding: 14px;
+  padding: 0 14px;
   background: white;
-  height: 162px;
+  height: 170px;
   margin: 0;
 }
 
 #description {
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .media-card {
@@ -77,9 +78,9 @@ height: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
-width: 250px;
-min-width: 250px;
-height: 250px;
+width: 220px;
+min-width: 220px;
+height: 220px;
 /* background: #092741; */
 background: rgba(9, 39, 65, .9);
 }
@@ -97,8 +98,8 @@ img {
 border-radius: 50%;
 /* border: 2px solid rgb(249, 234, 231); */
 object-fit: cover;
-width: 200px;
-height: 200px;
+width: 180px;
+height: 180px;
 }
 
 `

@@ -8,13 +8,17 @@ import flask from '../../assets/images/flask.png'
 
 export default function Profile(props) {
   const [editProfile, setEditProfile] = useState(false)
-
+  const { updated, setUpdated } = props
 
   const { loggedInUser, media, handleLogout } = props;
+
+
+
 
   if (!loggedInUser) {
     return (<Redirect to="/" />)
   }
+
 
   return (
     <>
@@ -30,8 +34,6 @@ export default function Profile(props) {
                   handleLogout={handleLogout}
                   editProfile={editProfile}
                   setEditProfile={setEditProfile} />
-
-
               </aside>
               <div className="dash-parent">
                 <h2>dashboard</h2>
@@ -51,6 +53,8 @@ export default function Profile(props) {
           </React.Fragment>
           :
           <ProfileEdit
+            updated={updated}
+            setUpdated={setUpdated}
             setEditProfile={setEditProfile}
             media={media}
             loggedInUser={loggedInUser} />

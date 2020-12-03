@@ -4,7 +4,7 @@ import { addMedium } from '../../services/media';
 import { putUser } from '../../services/users';
 
 export default function ProfileEdit(props) {
-  const { media, loggedInUser, setEditProfile } = props;
+  const { media, loggedInUser, setEditProfile, updated, setUpdated } = props;
 
   const [newMedium, setNewMedium] = useState({})
   const [formData, setFormData] = useState({
@@ -25,6 +25,7 @@ export default function ProfileEdit(props) {
   const handleSubmit = async (id, data) => {
     await putUser(id, data);
     setEditProfile(false)
+    setUpdated(!updated)
   }
 
   const handleAddMedium = async (e) => {

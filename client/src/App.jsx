@@ -14,6 +14,8 @@ import './App.css';
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(null)
   const [media, setMedia] = useState([])
+  const [updated, setUpdated] = useState(false)
+
   const history = useHistory();
 
 
@@ -23,7 +25,7 @@ function App() {
       setLoggedInUser(userData)
     }
     handleVerify();
-  }, [])
+  }, [updated])
 
   useEffect(() => {
     const fetchMedia = async () => {
@@ -67,6 +69,8 @@ function App() {
         </Route>
         <Route path='/profile'>
           <Profile
+            updated={updated}
+            setUpdated={setUpdated}
             media={media}
             loggedInUser={loggedInUser}
             handleLogout={handleLogout} />

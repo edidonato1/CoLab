@@ -22,8 +22,6 @@ export default function ProfileEdit(props) {
     }))
   }
 
-
-
   const handleSubmit = async (id, data) => {
     await putUser(id, data);
     setEditProfile(false)
@@ -32,14 +30,13 @@ export default function ProfileEdit(props) {
 
   const handleAddMedium = async (e) => {
     e.preventDefault();
-    if (loggedInUser.media.length <= 4 && !loggedInUser.media.includes()) {
+    if (loggedInUser.media.length <= 4) {
       await addMedium(newMedium, loggedInUser.id)
       setUpdated(!updated)
     }
   }
 
   const handleRemoveMedium = async (mediumId, userId) => {
-
     await removeMedium(mediumId, userId);
     setUpdated(!updated);
   }

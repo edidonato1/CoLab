@@ -63,6 +63,7 @@ nav {
   text-decoration: none;
   color: #E36562;
   font-size: 25px;
+  transition: 200ms;
 }
 
 .nav-icon:hover {

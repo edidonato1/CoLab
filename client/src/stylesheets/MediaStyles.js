@@ -20,7 +20,6 @@ width: 100vw;
 #add-request {
   position: fixed;
   left: 5px;
-  top: 450px;
 }
 
 .all-media {

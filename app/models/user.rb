@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   def return_data
     {
+      id: id,
       username: username, 
       email: email,
       media: media,

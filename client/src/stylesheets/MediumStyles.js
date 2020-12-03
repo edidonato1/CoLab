@@ -78,6 +78,7 @@ min-height: 200px;
 }
 
 .post-top {
+  position: relative;
   height: 60px;
   display: flex;
   background: #09274160;
@@ -87,7 +88,6 @@ min-height: 200px;
 .user-info {
   display: flex;
   align-items: center;
-
   height: 60px;
   width: 200px;
   background: #092741;
@@ -110,6 +110,11 @@ small {
   font-style: italic;
   color: #614853;
   padding: 2px;
+}
+
+h6 {
+  position: absolute;
+  right: 10px;
 }
 
 `

@@ -8,9 +8,6 @@ display: flex;
 flex-direction: column;
 background: #F9EAE7;
 width: 250px;
-/* margin-left: 30px; */
-/* margin-right: 15px; */
-
 
 li {
   list-style-type: none;

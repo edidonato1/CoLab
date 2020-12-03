@@ -7,7 +7,7 @@ export default function PostCreate(props) {
   const [formData, setFormData] = useState({
     subject: '',
     content: '',
-    user_id: loggedInUser.id,
+    user_id: Number(loggedInUser.id),
     medium_id: Number(mediumId)
   })
 
@@ -41,6 +41,7 @@ export default function PostCreate(props) {
               name="subject"
               value={formData.subject}
               onChange={handleChange}
+              maxLength="30"
             />
           </label>
           <label>content

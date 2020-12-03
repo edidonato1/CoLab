@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { putPost } from '../../services/posts';
+import { putPost, destroyPost } from '../../services/posts';
+// import FormStyles from '../../stylesheets/FormStyles';
 
 export default function PostCreate(props) {
   const { post, updated, setUpdated , medium, editPost, setEditPost } = props
@@ -25,13 +26,34 @@ export default function PostCreate(props) {
   }
 
   return (
+    <>
+    {/* <div className="post">
+    <div className="post-top">
+      <div className="user-info">
+        <img id="user-pic" src={user.img_url ? user.img_url : "https://images.unsplash.com/photo-1439436556258-1f7fab1bfd4f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8YW5pbWF0aW9ufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60"} alt={user.username} />
+        <h4>{user.username}</h4>
+      </div>
+      <h3>{post.subject}</h3>
+      {loggedInUser?.id == post.user_id ?
+      <h6 onClick={() => setEditPost(!editPost)}>Edit</h6>
+      :
+      // <h6 onClick={() => setEditPost(!editPost)}>Edit</h6>
+      <> </>
+    }
+    </div>
+    <div id="content">
+    <p >{post.content}</p>
+    <small>posted: {updateCreatedAt(post.created_at)}</small>
+    </div>
+  </div> */}
+
     <div>
       <p onClick={() => setEditPost(!editPost)}>cancel</p>
       <form onSubmit={(e) => {
         e.preventDefault();
         handleSubmit(post.id, formData)
       }}>
-        <h1>edit post to {medium?.name}</h1>
+        
         <label>subject
        <input
             type="text"
@@ -50,6 +72,7 @@ export default function PostCreate(props) {
         </label>
         <button type="submit">save</button>
       </form>
-    </div>
+      </div>
+      </>
   )
 }

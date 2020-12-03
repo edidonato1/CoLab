@@ -15,6 +15,6 @@ export const addMedium = async (mediumId, userId) => {
   return resp.data;
 }
 
-export const removeMediun = async (mediumId, userId) => {
+export const removeMedium = async (mediumId, userId) => {
   const resp = await api.patch(`/media/${mediumId}/users/${userId}`)
 }

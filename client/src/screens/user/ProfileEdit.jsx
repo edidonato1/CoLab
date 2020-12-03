@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useParams } from 'react';
 import ProfileStyles from '../../stylesheets/ProfileStyles';
-import { addMedium } from '../../services/media';
+import { addMedium, removeMedium } from '../../services/media';
 import { putUser } from '../../services/users';
 
 export default function ProfileEdit(props) {
@@ -22,6 +22,8 @@ export default function ProfileEdit(props) {
     }))
   }
 
+
+
   const handleSubmit = async (id, data) => {
     await putUser(id, data);
     setEditProfile(false)
@@ -30,22 +32,31 @@ export default function ProfileEdit(props) {
 
   const handleAddMedium = async (e) => {
     e.preventDefault();
-    await addMedium(newMedium, loggedInUser.id)
+    if (loggedInUser.media.length <= 4 && !loggedInUser.media.includes()) {
+      await addMedium(newMedium, loggedInUser.id)
+      setUpdated(!updated)
+    }
+  }
+
+  const handleRemoveMedium = async (mediumId, userId) => {
+
+    await removeMedium(mediumId, userId);
+    setUpdated(!updated);
   }
 
   const goBack = `<< back`
 
   return (
     <ProfileStyles>
-      <h2>update profile</h2>
+      <h2 id="update-title">update profile</h2>
       <p onClick={() => setEditProfile(false)}>{goBack}</p>
-      <img className="profile-pic" src={loggedInUser?.img_url} />
       <div className="edit-profile-main">
         <form onSubmit={(e) => {
           e.preventDefault();
           handleSubmit(loggedInUser.id, formData)
         }}>
           <div className="edit-left">
+            <img className="profile-pic" src={loggedInUser?.img_url} />
 
             <label> image url
         <input
@@ -68,13 +79,14 @@ export default function ProfileEdit(props) {
                 type='password'
                 name='password'
                 value={formData.password}
+                placeholder="required"
                 onChange={handleChange}
                 required
               />
             </label>
           </div>
           <div className="edit-mid">
-            <label> bio
+            <label htmlFor="bio"> bio
               <textarea
                 type='text'
                 name='bio'
@@ -87,26 +99,37 @@ export default function ProfileEdit(props) {
             </div>
           </div>
         </form>
-          <form
-            className="edit-right"
-            onSubmit={handleAddMedium}>
-            <label> add a medium
+        <form
+          className="edit-right"
+          onSubmit={handleAddMedium}>
+          <div>
+            <h5>your media</h5>
+            <ul>
+              {loggedInUser?.media.map(medium =>
+                <div className="medium-list"> <li value={medium.id}>{medium.name}</li>
+                  <small
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleRemoveMedium(medium.id, loggedInUser.id)
+                    }}>remove</small></div>
+              )}
+            </ul>
+          </div>
           <select
-                defaultValue='default'
-                name='media'
-                value={formData.media}
-                onChange={(e) => setNewMedium(e.target.value)}
-              >
-                <option disabled value='default'>select</option>
-                {media?.map(medium =>
-                  <option value={medium.id} key={medium.id}>{medium.name}</option>
-                )}
-              </select>
-            </label>
-            <div className="button-box">
-              <button className="profile-update" type="submit">add</button>
-            </div>
-          </form>
+            defaultValue='default'
+            name='media'
+            value={formData.media}
+            onChange={(e) => setNewMedium(e.target.value)}
+          >
+            <option disabled value='default'>add a medium</option>
+            {media?.map(medium =>
+              <option value={medium.id} key={medium.id}>{medium.name}</option>
+            )}
+          </select>
+          <div className="button-box">
+            <button className="profile-update" type="submit">add</button>
+          </div>
+        </form>
       </div>
     </ProfileStyles>
   )

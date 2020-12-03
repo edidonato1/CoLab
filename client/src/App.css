@@ -22,3 +22,7 @@ h6 {
   color: #61485380;
   color: rgba(9, 39, 65, .5);
 }
+
+li {
+  list-style-type: none;
+}

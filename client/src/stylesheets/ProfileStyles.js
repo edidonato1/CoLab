@@ -79,6 +79,10 @@ h2 {
 
 // Edit Profile
 
+#update-title {
+  color: #E36562;
+}
+
 form {
   display: flex;
   width: 66%;
@@ -87,28 +91,35 @@ form {
 
 .edit-profile-main {
   display: flex;
-  background: lightyellow;
+  background: #F9EAE7;
   flex-wrap: nowrap;
   justify-content: space-evenly;
-  width: 100%;
+  margin: 0 auto;
+  width: 600px;
+  height: 300px;
+  padding: 20px;
+  box-shadow: 2px 2px 2px 2px #61485380;
 }
 
 .edit-left{
   display: flex;
   flex-direction: column;
-  background: lightgreen;
+  align-items: center;
+
 }
 
 .edit-mid {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .edit-right {
   width: 33%;
   display: flex; 
   flex-direction: column;
-  align-items: center;
+  /* align-items: flex-end; */
+  justify-content: space-between;
 }
 
 .button-box {
@@ -117,10 +128,76 @@ form {
   width: 100%;
 }
 
+select {
+width: 100%;
+background: #61485380;
+height: 30px;
+border: none;
+}
+
+
 button {
   height: fit-content;
 }
 
+* {
+  color: #092741;
+}
+
+label {
+display: flex;
+flex-direction: column;
+text-align: center;
+color: ;
+}
+
+input {
+  /* min-width: 160px; */
+  /* width: 170px; */
+width: 100%;
+  height: 40px;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+  background: rgba(97, 72, 83, .3);
+}
+
+textarea {
+  border: none;
+  resize: vertical;
+  width: 100%;
+  min-height: 100px;
+  max-height: 220px;
+  height: 100px;
+  /* resize: none; */
+}
+
+.medium-list {
+  display: flex;
+  justify-content: space-between;
+  line-height: 30px;
+}
+
+small {
+  font-style: italic;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+small:hover {
+
+}
+
+h5 {
+  background: #61485380;
+  height: 30px;
+  margin: 0;
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
+}
 
 
 

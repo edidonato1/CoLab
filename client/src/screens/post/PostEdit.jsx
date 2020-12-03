@@ -3,7 +3,7 @@ import { putPost, destroyPost } from '../../services/posts';
 // import FormStyles from '../../stylesheets/FormStyles';
 
 export default function PostCreate(props) {
-  const { post, updated, setUpdated , medium, editPost, setEditPost } = props
+  const { post, updated, setUpdated, medium, editPost, setEditPost, user, updateCreatedAt } = props
   const [formData, setFormData] = useState({
     subject: post.subject,
     content: post.content,
@@ -27,52 +27,38 @@ export default function PostCreate(props) {
 
   return (
     <>
-    {/* <div className="post">
-    <div className="post-top">
-      <div className="user-info">
-        <img id="user-pic" src={user.img_url ? user.img_url : "https://images.unsplash.com/photo-1439436556258-1f7fab1bfd4f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8YW5pbWF0aW9ufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60"} alt={user.username} />
-        <h4>{user.username}</h4>
+      <div className="post">
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit(post.id, formData)
+        }}>
+          <div className="post-top">
+            <div className="user-info">
+              <img id="user-pic" src={user.img_url ? user.img_url : "https://images.unsplash.com/photo-1439436556258-1f7fab1bfd4f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8YW5pbWF0aW9ufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60"} alt={user.username} />
+              <h4>{user.username}</h4>
+            </div>
+            <input
+              type="text"
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              id="subject"
+            />
+            <h6 onClick={() => setEditPost(!editPost)}>Cancel</h6>
+          </div>
+          <div id="content">
+            <textarea
+              type="text"
+              name="content"
+              value={formData.content}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="button-box">
+            <button type="submit">save</button>
+          </div>
+        </form>
       </div>
-      <h3>{post.subject}</h3>
-      {loggedInUser?.id == post.user_id ?
-      <h6 onClick={() => setEditPost(!editPost)}>Edit</h6>
-      :
-      // <h6 onClick={() => setEditPost(!editPost)}>Edit</h6>
-      <> </>
-    }
-    </div>
-    <div id="content">
-    <p >{post.content}</p>
-    <small>posted: {updateCreatedAt(post.created_at)}</small>
-    </div>
-  </div> */}
-
-    <div>
-      <p onClick={() => setEditPost(!editPost)}>cancel</p>
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        handleSubmit(post.id, formData)
-      }}>
-        
-        <label>subject
-       <input
-            type="text"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-          />
-        </label>
-        <label>content
-       <input
-            type="text"
-            name="content"
-            value={formData.content}
-            onChange={handleChange}
-          />
-        </label>
-        <button type="submit">save</button>
-      </form>
-      </div>
-      </>
+    </>
   )
 }

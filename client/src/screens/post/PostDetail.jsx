@@ -47,11 +47,13 @@ export default function PostDetail(props) {
         </div>
         :
         <PostEdit
+          updateCreatedAt={updateCreatedAt}
           editPost={editPost}
           setEditPost={setEditPost}
           post={post}
           updated={updated}
           setUpdated={setUpdated}
+          user={user}
         />
       }
     </>

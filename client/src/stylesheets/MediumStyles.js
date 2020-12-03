@@ -115,6 +115,48 @@ small {
 h6 {
   position: absolute;
   right: 10px;
+  cursor: default;
+}
+
+textarea {
+  width: 90%;
+  border: none;
+  resize: vertical;
+  min-height: 100px;
+  max-height: 150px;
+}
+
+input {
+  min-width: 150px;
+  width: 50%;
+  border: none;
+  background: none;
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #614853;
+}
+
+input:focus {
+  outline: none;
+  background: rgba(97, 72, 83, .3);
+  color: #092741;
+}
+
+textarea {
+  width: 98%;
+  font-size: 16px;
+}
+
+textarea:focus {
+  background: rgba(97, 72, 83, .3);
+  outline: none;
+}
+
+.button-box {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
 }
 
 `

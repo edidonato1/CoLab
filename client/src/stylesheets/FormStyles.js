@@ -66,6 +66,12 @@ a {
   color: #E92D66;
 }
 
+@media screen and (max-width: 600px) {
+  .form-main {
+    box-shadow: none;
+  }
+}
+
 
 `
 

@@ -32,7 +32,7 @@ export default function PostDetail(props) {
               <img id="user-pic" src={user.img_url ? user.img_url : "https://images.unsplash.com/photo-1439436556258-1f7fab1bfd4f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8YW5pbWF0aW9ufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60"} alt={user.username} />
               <h4>{user.username}</h4>
             </div>
-            <h3>{post.subject}</h3>
+            <h3 className="subject">{post.subject}</h3>
             {loggedInUser?.id == post.user_id ?
             <h6 onClick={() => setEditPost(!editPost)}>Edit</h6>
             :

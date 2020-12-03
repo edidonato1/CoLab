@@ -107,7 +107,7 @@ img {
   height: 180px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   justify-content: center;
 
 .mobile-select {

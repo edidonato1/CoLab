@@ -165,6 +165,55 @@ small {
   margin: 10px;
 }
 
+@media screen and (max-width: 600px) {
+
+.user-aside {
+  display: none;
+}
+
+.medium-parent {
+  margin: 80px 0;
+  width: initial;
+  margin-left: 0;
+}
+
+.create-post {
+  margin-right: 5px;
+}
+
+.medium-title {
+  flex-direction: column;
+  min-width: initial;
+}
+
+.title-right {
+  text-align: center;
+}
+
+.post-top {
+  flex-direction: column;
+  height: initial;
+}
+
+.user-info {
+  width: initial;
+  margin-right: initial;
+}
+
+.subject {
+  margin-left: 10px;
+}
+
+img {
+  margin-right: 0%;
+}
+
+h6 {
+bottom: 5px;
+}
+
+}
+
 `
 
 export default MediumStyled;

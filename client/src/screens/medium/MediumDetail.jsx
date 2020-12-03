@@ -36,7 +36,6 @@ export default function MediumDetail(props) {
       </div>
       {!createPost ?
         <div className="medium-parent">
-
           <div
             className="medium-title">
             <img src={medium?.img_url} alt={medium?.name} />
@@ -45,7 +44,6 @@ export default function MediumDetail(props) {
               <h4>{medium?.posts.length} posts</h4>
             </div>
           </div>
-
           <p
             className="create-post"
             onClick={() => setCreatePost(!createPost)}>new post <FontAwesomeIcon className="icon" icon={faPencilAlt} />

@@ -1,13 +1,88 @@
 import styled from 'styled-components';
 
- const ProfileStyles = styled.div`
-#profile-pic {
+const ProfileStyles = styled.div`
+ padding-top: 20px;
+
+.profile-pic {
   width: 100px;
   height: 100px;
-  background-image: ${({ loggedInUser }) => (loggedInUser?.img_url ?  `url(${loggedInUser?.img_url}})`  : "url('https://images.unsplash.com/photo-1569172122301-bc5008bc09c5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60')")};
   border-radius: 50%;
-  background-size: cover;
+  object-fit: cover;
 }
+
+.side-bar {
+position: fixed;
+left: 50px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.dash-parent {
+  margin-left: 270px;
+}
+
+// Dashboard photos
+
+.dashboard {
+  margin: 0 auto;
+  background-color: #F9EAE7;
+  width: fit-content;
+  height: fit-content;
+  padding: 20px;
+}
+
+.dash-photo-box {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50vw;
+  min-width: 500px;
+  height: 400px;
+  background: white;
+  padding: 15px;
+}
+
+.photo-box-top {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 200px;
+  margin: 5px;
+}
+
+#top-left {
+  width: 40%;
+  height: 95%;
+  object-fit: cover;
+  margin: 5px;
+}
+
+#top-right {
+  width: 56%;
+  height: 95%;
+  object-fit: cover;
+  margin: 5px;
+}
+
+#bottom {
+  width: 98%;
+  object-fit: cover;
+  height: 200px;
+  margin: 5px;
+}
+
+// Edit Profile
+
+.edit-profile-main {
+  display: flex;
+
+}
+
+
 `
 
 export default ProfileStyles;

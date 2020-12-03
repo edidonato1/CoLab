@@ -105,6 +105,10 @@ button:focus {
   justify-content: space-evenly;
   }
 
+  .nav-icon {
+    font-size: 30px;
+  }
+
 }
 
 

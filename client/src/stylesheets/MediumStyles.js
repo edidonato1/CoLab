@@ -8,6 +8,13 @@ flex-wrap: wrap;
 align-items: center;
 width: 100vw;
 
+#go-back {
+  position: absolute;
+  top: 70px;
+  left: 15px;
+  cursor: default;
+}
+
 .medium-parent {
   width: 70%;
   margin-left: 270px;

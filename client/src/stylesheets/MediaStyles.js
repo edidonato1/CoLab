@@ -145,6 +145,7 @@ display: none;
   width: 100vw;
   margin-left: initial;
   margin-bottom: 60px;
+  padding: initial;
 }
 
 .description {
@@ -156,6 +157,8 @@ display: none;
   min-width: 300px;
   max-width: 300px;
   align-items: center;
+  background: white;
+  padding: 20px 0;
 }
 
 h2 {

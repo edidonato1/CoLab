@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { getOneMedium } from '../../services/media'
 import MediumStyles from '../../stylesheets/MediumStyles';
 import PostCreate from '../post/PostCreate';
@@ -12,7 +12,9 @@ export default function MediumDetail(props) {
   const [medium, setMedium] = useState(null);
   const [createPost, setCreatePost] = useState(false);
   const [updated, setUpdated] = useState(false)
+
   const { id } = useParams();
+
   const { loggedInUser, media } = props;
 
 
@@ -49,19 +51,18 @@ export default function MediumDetail(props) {
             onClick={() => setCreatePost(!createPost)}>new post <FontAwesomeIcon className="icon" icon={faPencilAlt} />
           </p>
           <div className="post-container">
-
             {medium?.posts.length > 0 ?
               medium?.posts.map((post) => (
-              <PostDetail
-                updated={updated}
-                setUpdated={setUpdated}
-                loggedInUser={loggedInUser}
-                key={post.id}
-                post={post} />
+                <PostDetail
+                  updated={updated}
+                  setUpdated={setUpdated}
+                  loggedInUser={loggedInUser}
+                  key={post.id}
+                  post={post} />
               )).reverse()
               :
-              <h3 className="no-posts">no posts for { medium?.name} yet.</h3>
-          }
+              <h3 className="no-posts">no posts for {medium?.name} yet.</h3>
+            }
           </div>
         </div>
         :

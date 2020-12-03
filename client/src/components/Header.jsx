@@ -16,10 +16,10 @@ export default function Header() {
           <Link to="/media" className="nav-icon"><FontAwesomeIcon icon={faPalette} /></Link>
         </div>
         <div className="icon-box">
-          <Link to="/profile" className="nav-icon"><FontAwesomeIcon icon={faUser} /></Link>
+          <Link to="/" className="nav-icon"><FontAwesomeIcon icon={faHome} /></Link>
         </div>
         <div className="icon-box">
-          <Link to="/" className="nav-icon"><FontAwesomeIcon icon={faHome} /></Link>
+          <Link to="/profile" className="nav-icon"><FontAwesomeIcon icon={faUser} /></Link>
         </div>
       </nav>
 

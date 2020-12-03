@@ -3,7 +3,7 @@ import { putPost, destroyPost } from '../../services/posts';
 // import FormStyles from '../../stylesheets/FormStyles';
 
 export default function PostCreate(props) {
-  const { post, updated, setUpdated, medium, editPost, setEditPost, user, updateCreatedAt } = props
+  const { post, updated, setUpdated,  editPost, setEditPost, user, updateCreatedAt } = props
   const [formData, setFormData] = useState({
     subject: post.subject,
     content: post.content,
@@ -25,6 +25,11 @@ export default function PostCreate(props) {
     setUpdated(!updated);
   }
 
+  const handleDelete = async (id) => {
+    await destroyPost(id)
+    setUpdated(!updated)
+  }
+
   return (
     <>
       <div className="post">
@@ -38,6 +43,7 @@ export default function PostCreate(props) {
               <h4>{user.username}</h4>
             </div>
             <input
+              className="edit-input"
               type="text"
               name="subject"
               value={formData.subject}
@@ -48,6 +54,7 @@ export default function PostCreate(props) {
           </div>
           <div id="content">
             <textarea
+              id="edit-textarea"
               type="text"
               name="content"
               value={formData.content}
@@ -55,6 +62,7 @@ export default function PostCreate(props) {
             />
           </div>
           <div className="button-box">
+            <button onClick={() => handleDelete(post.id)}>delete</button>
             <button type="submit">save</button>
           </div>
         </form>

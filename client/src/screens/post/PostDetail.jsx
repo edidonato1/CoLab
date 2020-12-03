@@ -36,7 +36,6 @@ export default function PostDetail(props) {
             {loggedInUser?.id == post.user_id ?
             <h6 onClick={() => setEditPost(!editPost)}>Edit</h6>
             :
-            // <h6 onClick={() => setEditPost(!editPost)}>Edit</h6>
             <> </>
           }
           </div>

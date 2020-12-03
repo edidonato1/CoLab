@@ -209,7 +209,15 @@ img {
 }
 
 h6 {
-bottom: 5px;
+/* bottom: 5px; */
+margin: 0;
+bottom: 0;
+}
+
+.edit-input {
+  margin-left: 5px;
+width: 100%;
+height: 60px;
 }
 
 }

@@ -1,15 +1,19 @@
 import { useState, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import UserAsideStyles from '../stylesheets/UserAside';
 
 
 export default function UserAside(props) {
   const [mediumLink, setMediumLink] = useState(null);
+  const history = useHistory();
 
   const { loggedInUser, media } = props;
 
+
+  // navigate using select menu
   if (mediumLink) {
-    return <Redirect to={`/media/${mediumLink}`} />
+    setMediumLink(null)
+    history.push(`/media/${mediumLink}`)
 }
 
   return (

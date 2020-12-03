@@ -51,14 +51,19 @@ export default function MediumDetail(props) {
             onClick={() => setCreatePost(!createPost)}>new post <FontAwesomeIcon className="icon" icon={faPencilAlt} />
           </p>
           <div className="post-container">
-            {medium?.posts.map((post) => (
+
+            {medium?.posts.length > 0 ?
+              medium?.posts.map((post) => (
               <PostDetail
                 updated={updated}
                 setUpdated={setUpdated}
                 loggedInUser={loggedInUser}
                 key={post.id}
                 post={post} />
-            )).reverse()}
+              )).reverse()
+              :
+              <h3 className="no-posts">no posts for { medium?.name} yet.</h3>
+          }
           </div>
         </div>
         :

@@ -59,9 +59,14 @@ margin-right: 40px;
   color: #E36562;
 }
 
+.no-posts {
+  color: #614853;
+}
+
 .post-container {
 background: #F9EAE7;
 padding: 10px 20px;
+min-height: 200px;
 }
 
 .post {

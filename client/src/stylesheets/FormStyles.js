@@ -39,6 +39,7 @@ input:focus {
 
 textarea {
   width: 70%;
+  max-width: 70%;
   border: none;
   resize: vertical;
   min-height: 100px;

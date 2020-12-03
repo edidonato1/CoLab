@@ -24,7 +24,12 @@ h1 {
 
 h4 {
 margin-bottom: 7px;
+}
 
+h6 {
+  position: absolute;
+  right: 10px;
+  cursor: default;
 }
 
 .user-aside {
@@ -112,19 +117,6 @@ small {
   padding: 2px;
 }
 
-h6 {
-  position: absolute;
-  right: 10px;
-  cursor: default;
-}
-
-textarea {
-  width: 90%;
-  border: none;
-  resize: vertical;
-  min-height: 100px;
-  max-height: 150px;
-}
 
 .edit-input {
   min-width: 150px;
@@ -146,11 +138,25 @@ textarea {
 #edit-textarea {
   width: 98%;
   font-size: 16px;
+  border: none;
+  resize: vertical;
+  min-height: 100px;
+  max-height: 150px;
 }
 
 #edit-textarea:focus {
   background: rgba(97, 72, 83, .3);
   outline: none;
+}
+
+#delete {
+  background: #F9EAE7;
+}
+
+#delete:hover {
+  background: #09274160;
+  color: #092741;
+  text-shadow: 1px 1px #E36562;
 }
 
 .button-box {

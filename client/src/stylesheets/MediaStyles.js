@@ -13,6 +13,16 @@ width: 100vw;
   width: 30%;
 }
 
+.icon {
+  color: #E36562;
+}
+
+#add-request {
+  position: fixed;
+  left: 5px;
+  top: 450px;
+}
+
 .all-media {
   display: flex;
   flex-direction: row;

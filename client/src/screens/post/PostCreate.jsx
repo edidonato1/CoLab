@@ -27,9 +27,9 @@ export default function PostCreate(props) {
   const goBack = `<< back`
 
   return (
-    <div>
-      <p style={{ cursor: "default" }} onClick={() => setCreatePost(!createPost)}>{goBack}</p>
+    <div className="medium-parent">
       <FormStyles>
+      <p style={{ cursor: "default" }} onClick={() => setCreatePost(!createPost)}>{goBack}</p>
         <form className="form-main" onSubmit={(e) => {
           e.preventDefault();
           handleSubmit(mediumId, formData)

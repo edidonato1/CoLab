@@ -2,13 +2,19 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import MediaStyles from '../../stylesheets/MediaStyles';
 import UserAside from '../../components/UserAside';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 export default function Media(props) {
   const { media, loggedInUser } = props
 
-  
+
   return (
     <MediaStyles>
+      <p id="add-request">don't see your preferred medium?<br />
+        request to add one here <Link to="/media/request" ><FontAwesomeIcon className="icon" icon={faPlusCircle}/></Link>
+      </p>
+      
       <h1>all media</h1>
       <div className="all-media">
         <div className="user-aside">

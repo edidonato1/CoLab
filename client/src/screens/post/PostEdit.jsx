@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { putPost, destroyPost } from '../../services/posts';
-// import FormStyles from '../../stylesheets/FormStyles';
+
 
 export default function PostCreate(props) {
   const { post, updated, setUpdated,  editPost, setEditPost, user, updateCreatedAt } = props
@@ -62,7 +62,7 @@ export default function PostCreate(props) {
             />
           </div>
           <div className="button-box">
-            <button onClick={() => handleDelete(post.id)}>delete</button>
+            <button id="delete" onClick={() => handleDelete(post.id)}>erase</button>
             <button type="submit">save</button>
           </div>
         </form>

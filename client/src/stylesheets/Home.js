@@ -21,14 +21,14 @@ text-align: center;
 line-height: 40px;
 color: #092741;
 padding: 20px;
-background: rgba(249, 234, 231, .5);
+background: rgba(249, 234, 231, .7);
 border: 4px solid rgba(249, 234, 231, .3);
 
 }
 
 h1 {
   font-family: avenir;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 60px;
 }
 

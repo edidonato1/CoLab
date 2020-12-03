@@ -9,12 +9,18 @@ export default function Header() {
   return (
     <div className="header">
       <div className="logo">
-        <Link to="/" className="icon"> C o L <FontAwesomeIcon icon={faFlask} /> b </Link>
+        <Link to="/" className="nav-logo"> C o L <FontAwesomeIcon icon={faFlask} /> b </Link>
       </div>
       <nav>
-        <Link to="/media" className="icon"><FontAwesomeIcon icon={faPalette} /></Link>
-        <Link to="/profile" className="icon"><FontAwesomeIcon icon={faUser} /></Link>
-        <Link to="/" className="icon"><FontAwesomeIcon icon={faHome} /></Link>
+        <div className="icon-box">
+          <Link to="/media" className="nav-icon"><FontAwesomeIcon icon={faPalette} /></Link>
+        </div>
+        <div className="icon-box">
+          <Link to="/profile" className="nav-icon"><FontAwesomeIcon icon={faUser} /></Link>
+        </div>
+        <div className="icon-box">
+          <Link to="/" className="nav-icon"><FontAwesomeIcon icon={faHome} /></Link>
+        </div>
       </nav>
 
     </div>

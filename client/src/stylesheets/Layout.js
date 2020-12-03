@@ -24,6 +24,7 @@ background: #F1F0F0;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 99;
 }
 
 nav {
@@ -41,11 +42,32 @@ nav {
   margin-left: 40px;
 }
 
-.icon {
+.nav-logo {
   text-decoration: none;
   color: #E36562;
   font-family: avenir;
+}
+
+.nav-logo:hover {
+  color: #F9EAE7;
+}
+
+.icon-box {
+  display: flex;
+  align-items: center;
+  width: 40px;
+  height: 60px;
+}
+
+.nav-icon {
+  text-decoration: none;
+  color: #E36562;
   font-size: 25px;
+}
+
+.nav-icon:hover {
+  color: #F9EAE7;
+  font-size: 28px;
 }
 
 button {

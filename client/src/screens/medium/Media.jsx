@@ -52,7 +52,7 @@ export default function Media(props) {
                   </div>
                   <div className="media-card-right">
                     <Link to={`/media/${medium.id}`}>
-                      <h2>{medium.name}</h2>
+                      <h2 className="medium-title">{medium.name}</h2>
                     </Link>
                     <div className="description">
                       <p id="description">{medium.description}</p>

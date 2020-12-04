@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFlask, faUser, faPalette, faHome } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import LayoutStyled from '../stylesheets/Layout'
 
@@ -13,13 +13,31 @@ export default function Header() {
       </div>
       <nav>
         <div className="icon-box">
-          <Link to="/media" className="nav-icon"><FontAwesomeIcon icon={faPalette} /></Link>
+          <NavLink
+            to="/media"
+            className="nav-icon"
+            activeStyle={{
+              fontSize: "33px",
+              color: "#F9EAE7"
+            }}><FontAwesomeIcon icon={faPalette} /></NavLink>
         </div>
         <div className="icon-box">
-          <Link to="/" className="nav-icon"><FontAwesomeIcon icon={faHome} /></Link>
+          <NavLink
+            exact to="/"
+            className="nav-icon"
+            activeStyle={{
+              fontSize: "33px",
+              color: "#F9EAE7"
+            }}><FontAwesomeIcon icon={faHome} /></NavLink>
         </div>
         <div className="icon-box">
-          <Link to="/profile" className="nav-icon"><FontAwesomeIcon icon={faUser} /></Link>
+          <NavLink
+            to="/profile"
+            className="nav-icon"
+            activeStyle={{
+              fontSize: "33px",
+              color: "#F9EAE7"
+            }}><FontAwesomeIcon icon={faUser} /></NavLink>
         </div>
       </nav>
 

@@ -11,6 +11,10 @@ width: 100vw;
   display: none;
 }
 
+.medium-title:hover {
+color: #092741;
+}
+
 .user-aside {
   width: 30%;
 }

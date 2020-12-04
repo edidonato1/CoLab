@@ -7,7 +7,7 @@ export default function PostCreate(props) {
   const [formData, setFormData] = useState({
     subject: '',
     content: '',
-    user_id: Number(loggedInUser.id),
+    user_id: Number(loggedInUser?.id),
     medium_id: Number(mediumId)
   })
 

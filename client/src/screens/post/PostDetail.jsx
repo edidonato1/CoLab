@@ -20,7 +20,7 @@ export default function PostDetail(props) {
       setUser(user)
     }
     fetchUser(post.user_id)
-  }, [editPost])
+  }, [editPost, post.user_id])
 
 
   return (

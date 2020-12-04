@@ -1,4 +1,4 @@
-import { useState, useParams } from 'react';
+import { useState } from 'react';
 import ProfileStyles from '../../stylesheets/ProfileStyles';
 import { addMedium, removeMedium } from '../../services/media';
 import { putUser } from '../../services/users';
@@ -47,7 +47,7 @@ export default function ProfileEdit(props) {
     <ProfileStyles>
       {dashVersion !== 'web' ?
         <div className="mobile-edit-title">
-          <img className="profile-pic" src={loggedInUser?.img_url} />
+          <img alt="profile pic" className="profile-pic" src={loggedInUser?.img_url} />
           <h2 id="update-title">edit profile</h2>
         </div>
         :
@@ -61,7 +61,7 @@ export default function ProfileEdit(props) {
         }}>
           <div className="edit-left">
             {dashVersion !== 'web' ? <h5>your info</h5> :
-              <img className="profile-pic" src={loggedInUser?.img_url} />}
+              <img alt="profile pic" className="profile-pic" src={loggedInUser?.img_url} />}
             <label> image url
              <input
                 type='text'
@@ -110,7 +110,7 @@ export default function ProfileEdit(props) {
             <h5>your media</h5>
             <ul>
               {loggedInUser?.media.map(medium =>
-                <div className="medium-list"> <li value={medium.id}>{medium.name}</li>
+                <div key={ medium.id} className="medium-list"> <li  value={medium.id}>{medium.name}</li>
                   <small
                     onClick={(e) => {
                       e.preventDefault();

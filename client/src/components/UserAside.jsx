@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom'
 import UserAsideStyles from '../stylesheets/UserAside';
 
@@ -18,12 +18,12 @@ export default function UserAside(props) {
 
   return (
     <UserAsideStyles>
-      <h1><Link to="/profile" >{loggedInUser?.username}</Link></h1>
+      <h1><Link to="/profile" >{loggedInUser ? loggedInUser?.username : `nobody logged in`}</Link></h1>
       <div className="user-media">
         <h4>your media</h4>
         <ul>
         {loggedInUser?.media.map(medium => 
-          <Link to={`/media/${medium.id}`} ><li>{medium.name}</li></Link>
+          <Link to={`/media/${medium.id}`} ><li key={medium.id}>{medium.name}</li></Link>
           )}
         </ul>
 

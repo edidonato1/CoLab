@@ -46,10 +46,13 @@ export default function MediumDetail(props) {
               <h4>{medium?.posts.length} posts</h4>
             </div>
           </div>
+          {loggedInUser ? 
           <p
             className="create-post"
             onClick={() => setCreatePost(!createPost)}>new post <FontAwesomeIcon className="icon" icon={faPencilAlt} />
-          </p>
+            </p>
+            : <p></p>
+          }
           <div className="post-container">
             {medium?.posts.length > 0 ?
               medium?.posts.map((post) => (

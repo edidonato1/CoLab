@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import ProfileEdit from '../../screens/user/ProfileEdit';
 import ProfileAside from '../../components/ProfileAside';
 import ProfileStyles from '../../stylesheets/ProfileStyles';
@@ -62,11 +62,11 @@ export default function Profile(props) {
                     <div className="dashboard">
                       <div className="dash-photo-box">
                         <div className="photo-box-top">
-                          <img id="top-left" src={loggedInUser.media[0] ? loggedInUser.media[0].img_url : flask} />
-                          <img id="top-right" src={loggedInUser.media[1] ? loggedInUser.media[1].img_url : flask} />
+                          <img alt="dash pic 1" id="top-left" src={loggedInUser.media[0] ? loggedInUser.media[0].img_url : flask} />
+                          <img alt="dash pic 2" id="top-right" src={loggedInUser.media[1] ? loggedInUser.media[1].img_url : flask} />
                         </div>
                         <div className="photo-box-bottom">
-                          <img id="bottom" src={loggedInUser.media[2] ? loggedInUser.media[2].img_url : flask} />
+                          <img alt="dash pic 3" id="bottom" src={loggedInUser.media[2] ? loggedInUser.media[2].img_url : flask} />
                         </div>
                       </div>
                     </div>

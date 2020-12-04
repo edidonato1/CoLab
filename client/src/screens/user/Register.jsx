@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import FormStyles from '../../stylesheets/FormStyles';
 
 export default function Register(props) {
-  const { media } = props;
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -50,6 +49,7 @@ export default function Register(props) {
         <input
             type='password'
             name='password'
+            autoComplete='current password'
             value={formData.password}
             onChange={handleChange}
           />

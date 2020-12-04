@@ -25,7 +25,7 @@ export default function ProfileAside(props) {
         <h4>your media</h4>
         <ul>
           {loggedInUser?.media.map(medium =>
-            <Link to={`/media/${medium.id}`} ><li key={medium.id}>{medium.name}</li></Link>
+            <Link key={ medium.id} to={`/media/${medium.id}`} ><li key={medium.id}>{medium.name}</li></Link>
           )}
         </ul>
         <div className="button-box">

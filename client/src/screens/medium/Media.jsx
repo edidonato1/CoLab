@@ -8,11 +8,11 @@ import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 export default function Media(props) {
   const [mediumLink, setMediumLink] = useState('')
   const history = useHistory();
-  
+
   if (mediumLink) {
     setMediumLink(null)
     history.push(`/media/${mediumLink}`)
-}
+  }
 
   const { media, loggedInUser } = props
 
@@ -20,21 +20,21 @@ export default function Media(props) {
   return (
     <MediaStyles>
       <p id="add-request">don't see your preferred medium?<br />
-        request to add one here <Link to="/media/request" ><FontAwesomeIcon className="icon" icon={faPlusCircle}/></Link>
+        request to add one here <Link to="/media/request" ><FontAwesomeIcon className="icon" icon={faPlusCircle} /></Link>
       </p>
-      
+
       <h1>all media</h1>
       <div className="mobile-select">
-      <select
+        <select
           defaultValue='default'
           name='media'
           onChange={(e) => setMediumLink(e.target.value)}
-            >
-            <option disabled value='default' >browse media</option>
-            {media?.map(medium =>
+        >
+          <option disabled value='default' >browse media</option>
+          {media?.map(medium =>
             <option value={medium.id} key={medium.id}>{medium.name}</option>
-            )}
-          </select>
+          )}
+        </select>
       </div>
       <div className="all-media">
         <div className="user-aside">
@@ -48,7 +48,7 @@ export default function Media(props) {
               <React.Fragment key={medium.id} >
                 <div className="media-card">
                   <div id="image-container">
-                    <img src={medium.img_url} />
+                    <img alt={medium.name} src={medium.img_url} />
                   </div>
                   <div className="media-card-right">
                     <Link to={`/media/${medium.id}`}>

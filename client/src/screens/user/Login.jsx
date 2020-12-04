@@ -39,6 +39,7 @@ export default function Login(props) {
         <input
             type='password'
             name='password'
+            autoComplete='current password'
             value={formData.password}
             onChange={handleChange}
           />

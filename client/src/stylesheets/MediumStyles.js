@@ -160,6 +160,14 @@ small {
   outline: none;
 }
 
+#read-more {
+  cursor: default;
+}
+
+#read-more:hover {
+  color:  #092741;
+}
+
 #delete {
   background: #F9EAE7;
 }

@@ -1,18 +1,25 @@
 import { useState, useEffect } from 'react';
 import { getOneUser } from '../../services/users';
+import { updateCreatedAt } from '../../utils/stringFunctions'
 import PostEdit from './PostEdit';
 
 export default function PostDetail(props) {
+  const [mobile, setMobile] = useState(false)
   const { post, loggedInUser, updated, setUpdated } = props;
   const [editPost, setEditPost] = useState(false);
+  const [readLess, setReadLess] = useState(true);
+
   const [user, setUser] = useState({});
 
-
-
-  const updateCreatedAt = (str) => {
-    let newStr = str.split('').splice(0, 10).join('').split('-').reverse()
-    return newStr.map(item => item.charAt(0) === '0' ? item.slice(1) : item).join('/')
+  const handler = () => {
+    window.innerWidth <= 600 ? setMobile(true) : setMobile(false)
   }
+
+  useEffect(() => {
+    handler();
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler)
+  }, [])
 
   useEffect(() => {
     const fetchUser = async (id) => {
@@ -23,6 +30,8 @@ export default function PostDetail(props) {
   }, [editPost, post.user_id])
 
 
+  const showLess = mobile ? ` << read less` : ``
+ 
   return (
     <>
       {!editPost ?
@@ -40,7 +49,12 @@ export default function PostDetail(props) {
           }
           </div>
           <div id="content">
-          <p >{post.content}</p>
+
+            {readLess && mobile ?
+              <p > {post.content.slice(0, 140)}<small id="read-more" onClick={() => setReadLess(!readLess)}>... read more >></small> </p>
+              :
+              <p>{post.content}<small id="read-more" onClick={() => setReadLess(!readLess)}>{showLess}</small></p>}
+          {/* <p >{post.content}</p> */}
           <small>posted: {updateCreatedAt(post.created_at)}</small>
           </div>
         </div>

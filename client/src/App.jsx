@@ -31,7 +31,11 @@ function App() {
   useEffect(() => {
     const fetchMedia = async () => {
       const mediaData = await getAllMedia();
-      setMedia(mediaData);
+      setMedia(mediaData.sort((a, b) => {
+        let textA = a.name.toUpperCase();
+        let textB = b.name.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+      }));
     }
     fetchMedia();
   }, [])

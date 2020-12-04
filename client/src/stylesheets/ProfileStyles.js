@@ -135,6 +135,10 @@ height: 30px;
 border: none;
 }
 
+select:hover {
+  background: rgba(97, 72, 83, .7);
+}
+
 
 button {
   height: fit-content;

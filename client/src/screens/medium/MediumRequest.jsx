@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import FormStyles from '../../stylesheets/FormStyles';
 import emailjs from 'emailjs-com'
 import { init } from 'emailjs-com';
@@ -13,6 +13,8 @@ const MediumRequest = () => {
     subject: '',
     message: ''
   })
+
+  const history = useHistory();
 
   const sendEmail = event => {
     event.preventDefault();
@@ -45,9 +47,12 @@ const MediumRequest = () => {
     return <Redirect to="/" />
   }
 
+  const goBack = `<< go back`
+
   return (
     <div >
       <FormStyles >
+      <p className="go-back" onClick={() => history.push('/media')}>{goBack}</p>
         <h1>Request</h1>
         <form className="form-main" onSubmit={sendEmail}>
           <div >

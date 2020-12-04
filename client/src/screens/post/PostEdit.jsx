@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { putPost, destroyPost } from '../../services/posts';
+import DeletePost from '../../components/modal/DeletePost';
 
 
 export default function PostCreate(props) {
@@ -10,6 +11,7 @@ export default function PostCreate(props) {
     user_id: post.user_id,
     medium_id: post.medium_id
   })
+  const [deleteConfirm, setDeleteConfirm] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,14 +27,23 @@ export default function PostCreate(props) {
     setUpdated(!updated);
   }
 
-  const handleDelete = async (id) => {
-    await destroyPost(id)
-    setUpdated(!updated)
-  }
+  // const handleDelete = async (id) => {
+  //   await destroyPost(id)
+  //   setUpdated(!updated)
+  // }
 
   return (
     <>
       <div className="post">
+        {deleteConfirm ?
+          <DeletePost
+            updated={updated} 
+            setUpdated={setUpdated}
+            post={post}
+            setDeleteConfirm={setDeleteConfirm}
+          />
+          : <></>
+      }
         <form onSubmit={(e) => {
           e.preventDefault();
           handleSubmit(post.id, formData)
@@ -62,7 +73,11 @@ export default function PostCreate(props) {
             />
           </div>
           <div className="button-box">
-            <button id="delete" onClick={() => handleDelete(post.id)}>erase</button>
+            {/* <button id="delete" onClick={() => handleDelete(post.id)}>erase</button> */}
+            <button id="delete" onClick={(e) => {
+              e.preventDefault()
+              setDeleteConfirm(true)
+            }}>erase</button>
             <button type="submit">save</button>
           </div>
         </form>

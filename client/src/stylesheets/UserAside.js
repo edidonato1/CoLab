@@ -38,10 +38,14 @@ h4 {
 }
 
 select {
-width: 100%;
-background: #61485380;
-height: 30px;
-border: none;
+  width: 100%;
+  background: #61485380;
+  height: 30px;
+  border: none;
+}
+
+select:hover {
+  background: rgba(97, 72, 83, .7);
 }
 
 select:focus {
@@ -53,9 +57,6 @@ select:focus {
   flex-direction: column;
   align-items: center;
 }
-
-
-
 
 .button-box {
   display: flex;
@@ -77,26 +78,26 @@ button {
   
   .user-media {
     background:#F9EAE7;
-  margin-top: 15px;
-}
+    margin-top: 15px;
+  }
 
-h1 {
-  margin: 0;
-}
+  h1 {
+    margin: 0;
+  }
 
-h4 {
-  background: none;
-}
+  h4 {
+    background: none;
+  }
 
-ul {
-  background: white;
-  width: 50%;
-  height: fit-content;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
+  ul {
+    background: white;
+    width: 50%;
+    height: fit-content;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 
 }
 

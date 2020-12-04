@@ -27,7 +27,6 @@ export default function MediumDetail(props) {
     fetchMedium(id);
   }, [id, createPost, updated])
 
-
   return (
 
     <MediumStyles>

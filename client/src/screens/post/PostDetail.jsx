@@ -31,7 +31,7 @@ export default function PostDetail(props) {
 
 
   const showLess = mobile ? ` << read less` : ``
- 
+
   return (
     <>
       {!editPost ?
@@ -43,19 +43,18 @@ export default function PostDetail(props) {
             </div>
             <h3 className="subject">{post.subject}</h3>
             {loggedInUser?.id == post.user_id ?
-            <h6 onClick={() => setEditPost(!editPost)}>Edit</h6>
-            :
-            <> </>
-          }
+              <h6 onClick={() => setEditPost(!editPost)}>Edit</h6>
+              :
+              <> </>
+            }
           </div>
           <div id="content">
 
             {readLess && mobile ?
-              <p > {post.content.slice(0, 140)}<small id="read-more" onClick={() => setReadLess(!readLess)}>... read more >></small> </p>
+              <p > {post.content.slice(0, 140)}<small id="read-more" onClick={() => setReadLess(!readLess)}>... read more {">>"}</small> </p>
               :
               <p>{post.content}<small id="read-more" onClick={() => setReadLess(!readLess)}>{showLess}</small></p>}
-          {/* <p >{post.content}</p> */}
-          <small>posted: {updateCreatedAt(post.created_at)}</small>
+            <small>posted: {updateCreatedAt(post.created_at)}</small>
           </div>
         </div>
         :

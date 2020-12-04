@@ -7,9 +7,6 @@ width: 100vw;
 height: 100vh;
 background: #F1F0F0;
 
-
-
-
 .main {
   margin-top: 60px;
   height: calc(100% - 60px);
@@ -83,9 +80,9 @@ button {
 }
 
 button:hover {
-background: #614753;
-border-color: #092741;
-text-shadow: 1px 1px #092741;
+  background: #614753;
+  border-color: #092741;
+  text-shadow: 1px 1px #092741;
 }
 
 button:focus {
@@ -96,18 +93,18 @@ button:focus {
   width: 100vw;
   justify-content: center;
 
-  nav {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+nav {
+  position: fixed;
+  bottom: 0;  
+  width: 100%;
   height: 60px;
   background: #092741;
   justify-content: space-evenly;
-  }
+}
 
-  .nav-icon {
-    font-size: 30px;
-  }
+.nav-icon {
+  font-size: 30px;
+}
 
 }
 

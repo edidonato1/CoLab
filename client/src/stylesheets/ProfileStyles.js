@@ -148,7 +148,6 @@ label {
 display: flex;
 flex-direction: column;
 text-align: center;
-color: ;
 }
 
 input {
@@ -186,10 +185,6 @@ small {
   font-size: 12px;
 }
 
-small:hover {
-
-}
-
 h5 {
   background: #61485380;
   height: 30px;
@@ -199,7 +194,87 @@ h5 {
   text-align: center;
 }
 
+@media screen and (max-width: 600px) {
 
+.side-bar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: initial;
+  margin: 0 auto;
+}
+
+.mobile-edit-title {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: white;
+}
+
+form {
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.profile-pic {
+  margin: 20px 0;
+}
+
+.edit-profile-main {
+  flex-direction: column;
+  margin: initial;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: initial;
+  box-shadow: none;
+  padding: 0;
+}
+
+.edit-left, .edit-right, .edit-mid {
+  width: 80%;
+  line-height: 30px;
+}
+
+label {
+  margin-top: 5px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.edit-right {
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+ul {
+  background: white;
+  padding: 10px ;
+}
+
+h5 {
+  background: none;
+  margin-top: 20px;
+}
+
+.media-edit {
+  width: 100%;
+}
+
+
+button {
+  margin-top: 5px;
+}
+
+#update {
+justify-content: flex-start;
+}
+
+}
 
 
 `

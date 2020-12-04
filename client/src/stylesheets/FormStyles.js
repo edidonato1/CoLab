@@ -70,6 +70,11 @@ a {
   .form-main {
     box-shadow: none;
   }
+
+  .go-back {
+    position: absolute;
+    left: 10px;
+}
 }
 
 

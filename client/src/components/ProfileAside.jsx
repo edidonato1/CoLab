@@ -10,7 +10,6 @@ export default function ProfileAside(props) {
   const { loggedInUser, handleLogout, editProfile, setEditProfile } = props;
 
 
-  // navigate using select menu
   if (mediumLink) {
     setMediumLink(null)
     history.push(`/media/${mediumLink}`)

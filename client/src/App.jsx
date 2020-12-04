@@ -4,6 +4,7 @@ import Login from './screens/user/Login';
 import Register from './screens/user/Register';
 import MediumContainer from './containers/MediumContainer'
 import Profile from './screens/user/Profile';
+
 import { useEffect, useState, useContext } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import { getAllMedia } from './services/media'

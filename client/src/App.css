@@ -26,3 +26,7 @@ h6 {
 li {
   list-style-type: none;
 }
+
+.go-back {
+  cursor: default;
+}

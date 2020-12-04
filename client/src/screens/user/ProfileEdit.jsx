@@ -4,7 +4,7 @@ import { addMedium, removeMedium } from '../../services/media';
 import { putUser } from '../../services/users';
 
 export default function ProfileEdit(props) {
-  const { media, loggedInUser, setEditProfile, updated, setUpdated } = props;
+  const { media, loggedInUser, setEditProfile, updated, setUpdated, dashVersion } = props;
 
   const [newMedium, setNewMedium] = useState({})
   const [formData, setFormData] = useState({
@@ -45,18 +45,25 @@ export default function ProfileEdit(props) {
 
   return (
     <ProfileStyles>
-      <h2 id="update-title">update profile</h2>
-      <p onClick={() => setEditProfile(false)}>{goBack}</p>
+      {dashVersion !== 'web' ?
+        <div className="mobile-edit-title">
+          <img className="profile-pic" src={loggedInUser?.img_url} />
+          <h2 id="update-title">edit profile</h2>
+        </div>
+        :
+        <h2 id="update-title">edit profile</h2>
+      }
+      <p className="go-back" onClick={() => setEditProfile(false)}>{goBack}</p>
       <div className="edit-profile-main">
         <form onSubmit={(e) => {
           e.preventDefault();
           handleSubmit(loggedInUser.id, formData)
         }}>
           <div className="edit-left">
-            <img className="profile-pic" src={loggedInUser?.img_url} />
-
+            {dashVersion !== 'web' ? <h5>your info</h5> :
+              <img className="profile-pic" src={loggedInUser?.img_url} />}
             <label> image url
-        <input
+             <input
                 type='text'
                 name='img_url'
                 value={formData.img_url}
@@ -64,7 +71,7 @@ export default function ProfileEdit(props) {
               />
             </label>
             <label> username
-        <input
+              <input
                 type='text'
                 name='username'
                 value={formData.username}
@@ -72,7 +79,7 @@ export default function ProfileEdit(props) {
               />
             </label>
             <label> password
-        <input
+              <input
                 type='password'
                 name='password'
                 value={formData.password}
@@ -99,7 +106,7 @@ export default function ProfileEdit(props) {
         <form
           className="edit-right"
           onSubmit={handleAddMedium}>
-          <div>
+          <div className="media-edit">
             <h5>your media</h5>
             <ul>
               {loggedInUser?.media.map(medium =>
@@ -116,14 +123,13 @@ export default function ProfileEdit(props) {
             defaultValue='default'
             name='media'
             value={formData.media}
-            onChange={(e) => setNewMedium(e.target.value)}
-          >
+            onChange={(e) => setNewMedium(e.target.value)}>
             <option disabled value='default'>add a medium</option>
             {media?.map(medium =>
               <option value={medium.id} key={medium.id}>{medium.name}</option>
             )}
           </select>
-          <div className="button-box">
+          <div className="button-box" id="update">
             <button className="profile-update" type="submit">add</button>
           </div>
         </form>

@@ -56,6 +56,33 @@ button {
   margin: 10px;
 }
 
+@media screen and (max-width: 600px) {
+  position: initial;
+  width: 100%;
+  background: #F1F0F0;;
+}
+
+.profile-title {
+  background: white;
+}
+
+.user-media {
+  background:#F9EAE7;
+  margin-top: 15px;
+}
+
+h4 {
+  background: none;
+}
+
+ul {
+  background: white;
+  width: 50%;
+  height: fit-content;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
 
 `

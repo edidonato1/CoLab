@@ -191,6 +191,8 @@ small {
 .medium-title {
   flex-direction: column;
   min-width: initial;
+  background: white;
+  padding: 10px;
 }
 
 .title-right {

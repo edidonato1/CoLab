@@ -47,6 +47,8 @@ select:focus {
 }
 
 
+
+
 .button-box {
   display: flex;
   justify-content: flex-end;
@@ -60,15 +62,18 @@ button {
   position: initial;
   width: 100%;
   background: #F1F0F0;;
-}
-
-.profile-title {
-  background: white;
-}
-
-.user-media {
-  background:#F9EAE7;
+  
+  .profile-title {
+    background: white;
+  }
+  
+  .user-media {
+    background:#F9EAE7;
   margin-top: 15px;
+}
+
+h1 {
+  margin: 0;
 }
 
 h4 {
@@ -80,10 +85,12 @@ ul {
   width: 50%;
   height: fit-content;
   margin: 0 auto;
+  margin-bottom: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
+}
 
 `
 

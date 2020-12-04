@@ -4,7 +4,7 @@ import DeletePost from '../../components/modal/DeletePost';
 
 
 export default function PostCreate(props) {
-  const { post, updated, setUpdated,  editPost, setEditPost, user, updateCreatedAt } = props
+  const { post, updated, setUpdated,  editPost, setEditPost, user } = props
   const [formData, setFormData] = useState({
     subject: post.subject,
     content: post.content,
@@ -12,6 +12,8 @@ export default function PostCreate(props) {
     medium_id: post.medium_id
   })
   const [deleteConfirm, setDeleteConfirm] = useState(false);
+  const [open, setOpen] = useState(false);
+ 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,16 +29,15 @@ export default function PostCreate(props) {
     setUpdated(!updated);
   }
 
-  // const handleDelete = async (id) => {
-  //   await destroyPost(id)
-  //   setUpdated(!updated)
-  // }
+
 
   return (
     <>
       <div className="post">
         {deleteConfirm ?
           <DeletePost
+            open={open}
+            setOpen={setOpen}
             updated={updated} 
             setUpdated={setUpdated}
             post={post}
@@ -77,6 +78,7 @@ export default function PostCreate(props) {
             <button id="delete" onClick={(e) => {
               e.preventDefault()
               setDeleteConfirm(true)
+              setTimeout((()=> setOpen(true)), 500)
             }}>erase</button>
             <button type="submit">save</button>
           </div>

@@ -3,23 +3,28 @@ import Styled from './ModalStyles';
 import { destroyPost }  from '../../services/posts';
 
 export default function DeleteAccountConfirm(props) {
-  const {updated, setUpdated, post, setDeleteConfirm } = props
+  const {updated, setUpdated, post, setDeleteConfirm, open, setOpen } = props
 
   const handleDelete = async (id) => {
     await destroyPost(id)
     setUpdated(!updated)
     setDeleteConfirm(false)
+    setOpen(false)
   }
 
   return (
-    <Styled >
+    <Styled open={open} >
       <div className="modal-parent">
       <div className="modal">
         <form>
-          <h4>Are you sure you want to delete your post?</h4>
+          <h4>erase this post?</h4>
           <div className="confirm">
-            <button onClick={() => handleDelete(post.id)} className="confirm-button" id="confirm-delete">Yes, I'm sure</button>
-            <button onClick={() => setDeleteConfirm(false)} className="confirm-button" id="cancel-delete">Cancel</button>
+            <button onClick={() => handleDelete(post.id)} className="confirm-button" id="confirm-delete">yes, erase</button>
+              <button onClick={(e) => {
+                e.preventDefault()
+                setOpen(false)
+                setTimeout((() => setDeleteConfirm(false)), 500)
+              }} className="confirm-button" id="cancel-delete">cancel</button>
           </div>
         </form>
       </div>

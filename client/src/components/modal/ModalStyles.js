@@ -11,6 +11,7 @@ const Styled = styled.div`
     background: white;
     background-color: rgba(240, 240, 240, .8);
   }
+  
   .modal {
     position: fixed;
     top: 50%;
@@ -24,29 +25,22 @@ const Styled = styled.div`
     height: 300px;
     z-index: 2;
   }
+
   .confirm-button {
     position: relative;
     text-align: center;
     margin: 0 auto;
     margin-top: 15px;
-    /* min-width: 110px; */
-    /* padding: 10px; */
-    /* font-weight: 600; */
-    /* height: 50px; */
-    /* border-style: none; */
-    /* border-radius: 45px; */
     font-size: 20px;
-    /* color: white; */
-    /* width: 50px; */
-
-  padding: 5px;
-  width: fit-content;
-  background: #092741;
-  color: #E36562;
-  font-weight: 600;
-  border: 2px outset #614753;
-  border-radius: 10px;
+    padding: 5px;
+    width: fit-content;
+    background: #092741;
+    color: #E36562;
+    font-weight: 600;
+    border: 2px outset #614753;
+    border-radius: 10px;
   }
+
   .confirm-button:focus {
     outline: none;
   }
@@ -57,6 +51,7 @@ const Styled = styled.div`
     text-align: center;
     color: #092741;
   }
+
   .confirm {
     display: flex;
     flex-direction: column;
@@ -64,17 +59,15 @@ const Styled = styled.div`
   }
 
   #confirm-delete {
-  background: white;
-}
-
-#confirm-delete:hover {
-  background: #09274160;
-  color: #092741;
-  text-shadow: 1px 1px #E36562;
-}
-  #cancel-delete {
-    /* background-color: rgba(116, 159, 92, 0.75); */
+    background: white;
   }
+
+  #confirm-delete:hover {
+    background: #09274160;
+    color: #092741;
+    text-shadow: 1px 1px #E36562;
+  }
+
   `
 
   export default  Styled

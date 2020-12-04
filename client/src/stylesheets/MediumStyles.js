@@ -30,7 +30,7 @@ h1 {
 }
 
 h4 {
-margin-bottom: 7px;
+  margin-bottom: 7px;
 }
 
 h6 {
@@ -54,11 +54,11 @@ h6 {
 }
 
 img {
-border-radius: 50%;
-object-fit: cover;
-width: 150px;
-height: 150px;
-margin-right: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+  margin-right: 40px;
 }
 
 .create-post {
@@ -80,9 +80,9 @@ margin-right: 40px;
 }
 
 .post-container {
-background: #F9EAE7;
-padding: 10px 20px;
-min-height: 200px;
+  background: #F9EAE7;
+  padding: 10px 20px;
+  min-height: 200px;
 }
 
 .post {
@@ -90,7 +90,6 @@ min-height: 200px;
   flex-direction: column;
   margin: 30px 0;
   background: white;
-
 }
 
 .post-top {
@@ -127,7 +126,6 @@ small {
   color: #614853;
   padding: 2px;
 }
-
 
 .edit-input {
   min-width: 150px;
@@ -230,15 +228,14 @@ img {
 }
 
 h6 {
-/* bottom: 5px; */
-margin: 0;
-bottom: 0;
+  margin: 0;
+  bottom: 0;
 }
 
 .edit-input {
   margin-left: 5px;
-width: 100%;
-height: 60px;
+  width: 100%;
+  height: 60px;
 }
 
 }

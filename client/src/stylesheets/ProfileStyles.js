@@ -3,6 +3,10 @@ import styled from 'styled-components';
 const ProfileStyles = styled.div`
  padding-top: 20px;
 
+ * {
+  color: #092741;
+}
+
 .profile-pic {
   width: 100px;
   height: 100px;
@@ -11,8 +15,8 @@ const ProfileStyles = styled.div`
 }
 
 .side-bar {
-position: fixed;
-left: 50px;
+  position: fixed;
+  left: 50px;
 }
 
 h2 {
@@ -54,25 +58,24 @@ h2 {
   margin: 5px;
 }
 
+#top-left, #top-right, #bottom {
+  margin: 5px;
+  object-fit: cover;
+}
+
 #top-left {
   width: 40%;
   height: 95%;
-  object-fit: cover;
-  margin: 5px;
 }
 
 #top-right {
   width: 56%;
   height: 95%;
-  object-fit: cover;
-  margin: 5px;
 }
 
 #bottom {
   width: 98%;
-  object-fit: cover;
   height: 200px;
-  margin: 5px;
 }
 
 
@@ -118,7 +121,6 @@ form {
   width: 33%;
   display: flex; 
   flex-direction: column;
-  /* align-items: flex-end; */
   justify-content: space-between;
 }
 
@@ -129,35 +131,28 @@ form {
 }
 
 select {
-width: 100%;
-background: #61485380;
-height: 30px;
-border: none;
+  width: 100%;
+  background: #61485380;
+  height: 30px;
+  border: none;
 }
 
 select:hover {
   background: rgba(97, 72, 83, .7);
 }
 
-
 button {
   height: fit-content;
 }
 
-* {
-  color: #092741;
-}
-
 label {
-display: flex;
-flex-direction: column;
-text-align: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 input {
-  /* min-width: 160px; */
-  /* width: 170px; */
-width: 100%;
+  width: 100%;
   height: 40px;
   border: none;
 }
@@ -174,7 +169,6 @@ textarea {
   min-height: 100px;
   max-height: 220px;
   height: 100px;
-  /* resize: none; */
 }
 
 .medium-list {
@@ -197,6 +191,8 @@ h5 {
   font-size: 20px;
   text-align: center;
 }
+
+// mobile media query
 
 @media screen and (max-width: 600px) {
 
@@ -268,7 +264,6 @@ h5 {
 .media-edit {
   width: 100%;
 }
-
 
 button {
   margin-top: 5px;

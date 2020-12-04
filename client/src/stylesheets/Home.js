@@ -17,13 +17,12 @@ margin-bottom: -60px;
   display: flex;
   flex-direction: column;
   align-items: center;
-text-align: center;
-line-height: 40px;
-color: #092741;
-padding: 20px;
-background: rgba(249, 234, 231, .7);
-border: 4px solid rgba(249, 234, 231, .3);
-
+  text-align: center;
+  line-height: 40px;
+  color: #092741;
+  padding: 20px;
+  background: rgba(249, 234, 231, .7);
+  border: 4px solid rgba(249, 234, 231, .3);
 }
 
 h1 {
@@ -35,6 +34,7 @@ h1 {
 #home-flask {
   color: #E36562;
 }
+
 h2 {
   margin-top: 0;
   font-weight: 300;
@@ -57,12 +57,6 @@ p {
   color: #F1F0F0;
 }
 
-@media screen and (max-width: 500px) {
-
-
-}
-
-}
 
 `
 

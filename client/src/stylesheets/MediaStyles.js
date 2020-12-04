@@ -38,15 +38,14 @@ color: #092741;
 }
 
 .media-container {
-/* width: 75vw; */
-min-width: 750px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 15px;
-background: #F9EAE7;
-margin-left: 260px;
+  min-width: 750px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: #F9EAE7;
+  margin-left: 260px;
 }
 
 
@@ -87,7 +86,6 @@ h2 {
   min-width: 500px;
   max-width: 800px;
   height: 250px;
-
 }
 
 #image-container {
@@ -118,71 +116,68 @@ img {
 @media screen and (max-width: 600px) {
   justify-content: center;
 
-.mobile-select {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
+  .mobile-select {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 
-select {
-  width: 80%;
-  background: #61485380;
-  height: 30px;
-  border: none;
+  select {
+    width: 80%;
+    background: #61485380;
+    height: 30px;
+    border: none;
 
-}
+  }
 
-.mobile-select:focus {
-  outline: none;
-}
-  
+  .mobile-select:focus {
+    outline: none;
+  }
+    
   .user-aside {
-display: none;
-}
+    display: none;
+  }
 
-#add-request {
-  display: none;
-}
+  #add-request {
+    display: none;
+  }
 
-.all-media {
-}
+  .media-container {
+    margin: 0 auto;
+    min-width: initial;
+    width: 100vw;
+    margin-left: initial;
+    margin-bottom: 60px;
+    padding: initial;
+  }
 
-.media-container {
-  margin: 0 auto;
-  min-width: initial;
-  width: 100vw;
-  margin-left: initial;
-  margin-bottom: 60px;
-  padding: initial;
-}
+  .description {
+    display: none;
+  }
 
-.description {
-  display: none;
-}
+  .media-card {
+    flex-direction: column;
+    min-width: 300px;
+    max-width: 300px;
+    align-items: center;
+    background: white;
+    padding: 20px 0;
+  }
 
-.media-card {
-  flex-direction: column;
-  min-width: 300px;
-  max-width: 300px;
-  align-items: center;
-  background: white;
-  padding: 20px 0;
-}
+  h2 {
+    width: 250px;
+    object-fit: contain;
+  }
 
-h2 {
-  width: 250px;
-  object-fit: contain;
-}
+  .media-card-right {
+    justify-content: center;
+    min-width: initial;
+    width: initial;
+  }
 
-.media-card-right {
-justify-content: center;
-min-width: initial;
-width: initial;
-}
-
-#image-container {
-  width: 250px;
-}
+  #image-container {
+    width: 250px;
+  }
 
 
 }

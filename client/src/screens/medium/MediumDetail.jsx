@@ -49,7 +49,7 @@ export default function MediumDetail(props) {
           {loggedInUser ? 
           <p
             className="create-post"
-            onClick={() => setCreatePost(!createPost)}>new post <FontAwesomeIcon className="icon" icon={faPencilAlt} />
+            >new post <FontAwesomeIcon className="icon" onClick={() => setCreatePost(!createPost)} icon={faPencilAlt} />
             </p>
             : <p></p>
           }

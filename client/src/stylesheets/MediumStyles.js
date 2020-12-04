@@ -71,6 +71,10 @@ margin-right: 40px;
   color: #E36562;
 }
 
+.icon:hover {
+  color: #092741;
+}
+
 .no-posts {
   color: #614853;
 }

@@ -20,7 +20,7 @@ a {
 h6 {
   color: rgb(249, 234, 231);
   color: #61485380;
-  color: rgba(9, 39, 65, .5);
+  color: #092741;
 }
 
 li {
@@ -29,4 +29,13 @@ li {
 
 .go-back {
   cursor: default;
+}
+
+.go-back:hover {
+  color: #E36562;
+}
+
+textarea:focus {
+  outline: none;
+  background: rgba(97, 72, 83, .3);
 }

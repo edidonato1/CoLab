@@ -15,9 +15,17 @@ li {
   color: #092741;
 }
 
+li:hover {
+  color: #E36562;
+}
+
 h1 {
   font-size: 25px;
   color: #E36562;
+}
+
+h1:hover {
+  color: #092741;
 }
 
 h4 {

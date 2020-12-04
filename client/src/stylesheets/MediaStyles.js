@@ -23,6 +23,10 @@ color: #092741;
   color: #E36562;
 }
 
+.icon:hover {
+  color: #092741;
+}
+
 #add-request {
   position: fixed;
   left: 5px;

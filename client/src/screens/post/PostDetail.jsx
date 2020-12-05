@@ -5,11 +5,11 @@ import PostEdit from './PostEdit';
 
 export default function PostDetail(props) {
   const [mobile, setMobile] = useState(false)
-  const { post, loggedInUser, updated, setUpdated } = props;
   const [editPost, setEditPost] = useState(false);
   const [readLess, setReadLess] = useState(true);
-
   const [user, setUser] = useState({});
+  
+  const { post, loggedInUser, updated, setUpdated } = props;
 
   const handler = () => {
     window.innerWidth <= 600 ? setMobile(true) : setMobile(false)
@@ -21,6 +21,8 @@ export default function PostDetail(props) {
     return () => window.removeEventListener("resize", handler)
   }, [])
 
+
+  // get user info to join with post data
   useEffect(() => {
     const fetchUser = async (id) => {
       const user = await (getOneUser(id));
@@ -29,7 +31,7 @@ export default function PostDetail(props) {
     fetchUser(post.user_id)
   }, [editPost, post.user_id])
 
-
+  
   const showLess = mobile ? ` << read less` : ``
   const showMore = post.content.length > 140 ? `... read more >>` : ``
 
@@ -50,7 +52,6 @@ export default function PostDetail(props) {
             }
           </div>
           <div id="content">
-
             {readLess && mobile ?
               <p > {post.content.slice(0, 140)}<small id="read-more" onClick={() => setReadLess(!readLess)}>{showMore}</small> </p>
               :

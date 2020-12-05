@@ -190,7 +190,7 @@ small {
 
 .medium-parent {
   margin: 80px 0;
-  width: initial;
+  width: 100%;
   margin-left: 0;
 }
 

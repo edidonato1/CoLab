@@ -5,7 +5,7 @@ import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const DropDown = styled.div`
-  border-top: 2px solid #E36562;;
+  border-top: 2px solid #E36562;
   display: flex;
   position: absolute;
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
@@ -28,6 +28,8 @@ const DropDown = styled.div`
   @media screen and (max-width: 600px) {
     top: initial;
     bottom: 60px;
+    border-top: none;
+    border-bottom: 2px solid #E36562;
   }
 `
 

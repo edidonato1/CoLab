@@ -19,8 +19,10 @@ margin-bottom: -60px;
   align-items: center;
   text-align: center;
   line-height: 40px;
-  color: #092741;
   padding: 20px;
+/* background: #092741; */
+/* color: #F1F0F0; */
+  color: #092741;
   background: rgba(249, 234, 231, .7);
   border: 4px solid rgba(249, 234, 231, .3);
 }

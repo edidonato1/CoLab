@@ -4,7 +4,7 @@ import ProfileEdit from '../../screens/user/ProfileEdit';
 import ProfileAside from '../../components/ProfileAside';
 import ProfileStyles from '../../stylesheets/ProfileStyles';
 
-import flask from '../../assets/icons/images/flask.png'
+import flask from '../../assets/images/flask.png'
 
 
 export default function Profile(props) {

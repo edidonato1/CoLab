@@ -30,6 +30,9 @@ nav {
   display: flex;
   justify-content: space-between;
   width: 200px;
+  z-index: 3;
+  background: #092741;
+  
 }
 
 .logo {
@@ -55,6 +58,7 @@ nav {
   align-items: center;
   width: 40px;
   height: 60px;
+  z-index: 2;
 }
 
 .nav-icon {

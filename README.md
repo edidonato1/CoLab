@@ -180,8 +180,13 @@ The primary challenge will be managing the relationship between users and collab
 ***
 
 ## Code Showcase
+```
 
+```
 
 
 ## Code Issues & Resolutions
 
+We encountered an issue with rendering the full json object from the user table on authentication. Specifically, we needed to access the data from the associated join table, ```media``` Identifying the issue, I noticed that the custom method built around the ```@current_user``` variable was causing the issue.  The ```.attributes``` built-in method had a side-effect of not allowing additinoal methods to be applied. In our case, the ```include: :media``` was the method we needed.  
+
+To fix it, we implemented a different custom method in our ```users``` controller called ```return_data```, that customized the fields to be returned upon authentication, so that the media associated with the logged in user would return, and CRUD functionality could be built to include this data.

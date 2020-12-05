@@ -18,7 +18,7 @@ export default function UserAside(props) {
 
   return (
     <UserAsideStyles>
-      <h1><Link to="/profile" >{loggedInUser ? loggedInUser?.username : `nobody logged in`}</Link></h1>
+      <h1><Link to={loggedInUser ? "/profile" : "/login"} >{loggedInUser ? loggedInUser?.username : `nobody logged in`}</Link></h1>
       <div className="user-media">
         <h4>your media</h4>
         <ul>

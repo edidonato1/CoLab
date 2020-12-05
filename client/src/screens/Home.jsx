@@ -16,14 +16,8 @@ export default function Home() {
               <h2>connecting creative-doers of every medium</h2>
             </div>
             <small>[anything done with grace and passion is a work of art]</small>
-
           </div>
-          {/* <div className="home-button-container">
-            <Link to="/login" className="home-link"><button>log in</button></Link>
-            <Link to="/register" className="home-link"><button>create an account</button></Link>
-          </div> */}
         </div>
-
         <div className="home-about">
           <h2>About CoLab</h2>
           <h4>CoLab was born from the belief that the best art comes from collaboration.  </h4>
@@ -38,17 +32,7 @@ export default function Home() {
           people in the world can find each other.
           </p>
           <p>Interested? <Link className="start" to="/register">Let's get started.</Link></p>
-
         </div>
-
-        
-
-        {/* <h2>connecting creative-doers of every medium</h2>
-        <p>[anything done with grace and passion is a work of art]</p>
-        <div className="home-button-container">
-          <Link to="/login" className="home-link"><button>log in</button></Link>
-          <Link to="/register" className="home-link"><button>create an account</button></Link>
-        </div> */}
       </div>
     </HomeStyled>
 

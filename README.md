@@ -91,31 +91,38 @@ src
     |__ images
     |__ wireframes
 |__ components/
+    |__ modal
+        |__ DeletePosts.jsx
+        |__ Logout.jsx
+        |__ ModalStyles.js
     |__ shared
         |__ Nav.jsx
-        |__ Header.jsx
         |__ Layout.jsx
+        |__ ProfileAside.jsx
+        |__ UserAside.jsx
 |__ containers/
     |__ MediumContainer.jsx
     |__ CollabContainer.jsx
 |__ screens/
     Home.jsx
-    |__ medium
-        |__ Mediums.jsx
+    |__ medium/
+        |__ Media.jsx
         |__ MediumDetail.jsx
         |__ MediumRequest.jsx
-    |__ post
+    |__ post/
         |__ PostCreate.jsx
+        |__ PostDetail.jsx
         |__ PostEdit.jsx
-    |__ user
+    |__ user/
         |__ ProfileEdit.jsx
         |__ Profile.jsx
         |__ Login.jsx
         |__ Register.jsx
-    |__ collab
+    |__ collab/
         |__ Collaborations.jsx
         |__ CollabDetail.jsx
         |__ CreateCollab.jsx
+    |__ Home.jsx
 |__ services/
     |__ apiConfig.js
     |__ auth.js
@@ -123,7 +130,17 @@ src
     |__ mediums.js
     |__ collaborations.js
     |__ posts.js
+|__ stylesheets/
+    |__ FormStyles.js
+    |__ Home.js
+    |__ Layout.js
+    |__ MediaStyles.js
+    |__ ProfileStyles.js
+    |__ UserAside.js
+|__ utils/
+    |__ stringFunctions.js
   App.jsx
+  App.css
   index.js
 
 ```

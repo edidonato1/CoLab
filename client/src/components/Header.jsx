@@ -34,9 +34,12 @@ const DropDown = styled.div`
 `
 
 export default function Header(props) {
-  const [open, setOpen] = useState(false)
-
+  const [open, setOpen] = useState(false);
   const { loggedInUser } = props;
+  const activeLinkStyles = {
+    fontSize: "33px",
+    color: "#F9EAE7"
+  }
 
 
   return (
@@ -49,36 +52,27 @@ export default function Header(props) {
           <NavLink
             to="/media"
             className="nav-icon"
-            activeStyle={{
-              fontSize: "33px",
-              color: "#F9EAE7"
-            }}><FontAwesomeIcon icon={faPalette} /></NavLink>
+            activeStyle={activeLinkStyles}><FontAwesomeIcon icon={faPalette} /></NavLink>
         </div>
         <div className="icon-box">
           <NavLink
             exact to="/"
             className="nav-icon"
-            activeStyle={{
-              fontSize: "33px",
-              color: "#F9EAE7"
-            }}><FontAwesomeIcon icon={faHome} /></NavLink>
+            activeStyle={activeLinkStyles}><FontAwesomeIcon icon={faHome} /></NavLink>
         </div>
+
         {loggedInUser ?
-          
           <div className="icon-box">
             <NavLink
               to="/profile"
               className="nav-icon"
-              activeStyle={{
-                fontSize: "33px",
-                color: "#F9EAE7"
-              }}><FontAwesomeIcon icon={faUser} /></NavLink>
+              activeStyle={activeLinkStyles}><FontAwesomeIcon icon={faUser} /></NavLink>
           </div>
           :
           <>
-          <div className="icon-box">
-            <div className="nav-icon" onClick={() => setOpen(!open)}>
-              <FontAwesomeIcon icon={faUser} />
+            <div className="icon-box">
+              <div className="nav-icon" onClick={() => setOpen(!open)}>
+                <FontAwesomeIcon icon={faUser} />
               </div>
             </div>
             <DropDown open={open}>
@@ -88,6 +82,7 @@ export default function Header(props) {
               </ul>
             </DropDown>
           </>}
+        
       </nav>
 
     </div>

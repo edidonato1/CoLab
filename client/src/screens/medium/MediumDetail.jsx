@@ -11,13 +11,11 @@ import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 export default function MediumDetail(props) {
   const [medium, setMedium] = useState(null);
   const [createPost, setCreatePost] = useState(false);
-  const [updated, setUpdated] = useState(false)
+  const [updated, setUpdated] = useState(false);
 
   const { id } = useParams();
 
   const { loggedInUser, media } = props;
-
-
 
   useEffect(() => {
     const fetchMedium = async () => {
@@ -25,10 +23,9 @@ export default function MediumDetail(props) {
       setMedium(mediumData);
     }
     fetchMedium(id);
-  }, [id, createPost, updated])
+  }, [id, createPost, updated]);
 
   return (
-
     <MediumStyles>
       <div className="user-aside">
         <UserAside
@@ -45,9 +42,9 @@ export default function MediumDetail(props) {
               <h4>{medium?.posts.length} posts</h4>
             </div>
           </div>
+          
           {loggedInUser ? 
-          <p
-            className="create-post"
+          <p className="create-post"
             >new post <FontAwesomeIcon className="icon" onClick={() => setCreatePost(!createPost)} icon={faPencilAlt} />
             </p>
             : <p></p>

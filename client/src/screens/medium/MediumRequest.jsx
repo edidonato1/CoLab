@@ -31,7 +31,7 @@ const MediumRequest = () => {
       subject: '',
       message: '',
     })
-    setSent(true)
+    setSent(true);
   };
 
   const handleChange = (e) => {

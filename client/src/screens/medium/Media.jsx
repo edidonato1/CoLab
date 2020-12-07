@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 export default function Media(props) {
-  const [mediumLink, setMediumLink] = useState('')
+  const [mediumLink, setMediumLink] = useState('');
   const history = useHistory();
 
   if (mediumLink) {

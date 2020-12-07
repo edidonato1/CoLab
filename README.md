@@ -141,14 +141,14 @@ src
 | build routes        |    H     |     2 hrs      |      2 hrs    |
 | create associations |    H     |     6 hrs      |      4 hrs    |
 | seed data           |    L     |     2 hrs      |     .5 hrs   |
-| add React services  |    H     |     2 hrs      |      TBD      |
-| build frontend skeleton |    H     |     3 hrs      |      TBD      |
-| build frontend forms|    H     |     5 hrs      |      TBD      |
-| test frontend CRUD  |    M     |     3 hrs      |      TBD      |
-| streamline functionality |    H     |     6 hrs      |      TBD      |
-| CSS styling         |    H     |     16 hrs      |      TBD      |
-| post-MVP - collaborations |   L   |     10    |     TBD     |
-| TOTAL               |          |     57 hrs      |      TBD       |
+| add React services  |    H     |     2 hrs      |      1 hr      |
+| build frontend skeleton |    H     |     3 hrs      |      2 hrs    |
+| build frontend forms|    H     |     5 hrs      |      5 hrs      |
+| test frontend CRUD  |    M     |     3 hrs      |     7 hrs      |
+| streamline functionality |    H     |     6 hrs      |      18 hrs      |
+| CSS styling         |    H     |     16 hrs      |      18 hrs      |
+| post-MVP - collaborations |   L   |     10    |     n/a     |
+| TOTAL               |          |     57 hrs      |      58.5 hrs       |
 
 
 
@@ -169,7 +169,7 @@ src
 
 _As my proposed project is becoming a bit more ambitious than I had originally imagined, There are certain components and features that I'm considering now to be a part of the Post-MVP, or second iteration.  For instance, the **Collaborations** feature is starting to seem more complex as I further develop the concept._
 
-#### Collaborations
+### Collaborations
 For Post-MVP, the collaborations model will be exclusive to the users that are participating in it, meaning it will only be accessible through the user's profile.
 
 The primary challenge will be managing the relationship between users and collaborations. Through a non-programmatic lens of association it would seem that the user belongs to a collaboration, in the sense that they are a contributing member, but the more I think about it, it will have to be the other way around, where a single collaboration must be created by one user, and then can belong to many users.  
@@ -180,7 +180,46 @@ The primary challenge will be managing the relationship between users and collab
 ***
 
 ## Code Showcase
+This particular chunk of code is an example of the built-in navigation user experience-focused functionality.  They can quickly navigate using their associated media links, and I was able to interpolate the medium id into the route, a useful side-effect of having the entire json object at my disposal when mapping through to display the media names as options.
+
 ```
+export default function UserAside(props) {
+  const [mediumLink, setMediumLink] = useState(null);
+  const history = useHistory();
+
+  const { loggedInUser, media } = props;
+
+  // navigate using select menu
+  if (mediumLink) {
+    setMediumLink(null)
+    history.push(`/media/${mediumLink}`)
+  }
+
+  return (
+    <UserAsideStyles>
+      <h1><Link to={loggedInUser ? "/profile" : "/login"} >{loggedInUser ? loggedInUser?.username : `nobody logged in`}</Link></h1>
+      <div className="user-media">
+        <h4>your media</h4>
+        <ul>
+          {loggedInUser?.media.map(medium =>
+            <Link key={medium.id} to={`/media/${medium.id}`} ><li key={medium.id}>{medium.name}</li></Link>
+          )}
+        </ul>
+        {/* link the drop-down selection to the coinciding medium messageboard */}
+        <select
+          defaultValue='default'
+          name='media'
+          onChange={(e) => setMediumLink(e.target.value)}
+        >
+          <option disabled value='default' >browse media</option>
+          {media?.map(medium =>
+            <option value={medium.id} key={medium.id}>{medium.name}</option>
+          )}
+        </select>
+      </div>
+    </UserAsideStyles>
+  )
+}
 
 ```
 

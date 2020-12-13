@@ -14,14 +14,14 @@ export default function ProfileAside(props) {
   const { loggedInUser, handleLogout, editProfile, setEditProfile } = props;
 
 
-  if (mediumLink) {
+  if (mediumLink) { // listen for selection from <select> menu to link upon selection
     setMediumLink(null);
     history.push(`/media/${mediumLink}`);
   }
 
   return (
     <UserAsideStyles>
-
+      {/* render logout modal if triggered */}
       {logoutConfirm ?
         <Logout
           open={open}
@@ -37,6 +37,7 @@ export default function ProfileAside(props) {
       <div className="user-media">
         <h4>your media</h4>
         <ul>
+          {/* easy access to user's associated media */}
           {loggedInUser?.media.map(medium =>
             <Link key={medium.id} to={`/media/${medium.id}`} ><li key={medium.id}>{medium.name}</li></Link>
           )}
@@ -45,7 +46,7 @@ export default function ProfileAside(props) {
           <button onClick={() => setEditProfile(!editProfile)}>edit</button>
           <button onClick={(e) => {
             e.preventDefault();
-            setLogoutConfirm(true);
+            setLogoutConfirm(true); // trigger modal
             setTimeout((() => setOpen(true)), 200);
           }}>log out</button>
         </div>

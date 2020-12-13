@@ -9,7 +9,7 @@ export default function Register(props) {
     password: '',
     img_url: '',
     bio: '',
-    media: []
+    media: [] // user will add media to profile after registration 
   })
 
 

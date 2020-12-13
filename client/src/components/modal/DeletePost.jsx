@@ -5,11 +5,12 @@ import { destroyPost } from '../../services/posts';
 export default function DeleteAccountConfirm(props) {
   const { updated, setUpdated, post, setDeleteConfirm, open, setOpen } = props;
 
+
   const handleDelete = async (id) => {
     await destroyPost(id);
-    setUpdated(!updated);
-    setDeleteConfirm(false);
-    setOpen(false);
+    setUpdated(!updated);  // pass updated status up to App.jsx
+    setDeleteConfirm(false); // no longer render modal
+    setOpen(false); // pass to styled div for transition on open
   }
 
   return (

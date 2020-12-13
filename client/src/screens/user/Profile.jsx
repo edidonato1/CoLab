@@ -29,11 +29,10 @@ export default function Profile(props) {
     return (<Redirect to="/" />)
   }
 
-
   return (
     <>
       {
-        editProfile
+        editProfile // toggle display between profile and edit profile
           ?
           <ProfileEdit
             dashVersion={dashVersion}
@@ -55,7 +54,7 @@ export default function Profile(props) {
                   setEditProfile={setEditProfile} />
               </aside>
               {
-                dashVersion === 'web'
+                dashVersion === 'web'  // dashboard of user media-associated images displays only on web breakpoint
                   ?
                   <div className="dash-parent">
                     <h2>dashboard</h2>

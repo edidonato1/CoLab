@@ -16,6 +16,8 @@ const MediumRequest = () => {
 
   const history = useHistory();
 
+
+  // third-party client-side email form requests developers to add user's desired medium to the application
   const sendEmail = event => {
     event.preventDefault();
     const { name, email, subject, message } = form;

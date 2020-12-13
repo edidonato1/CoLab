@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const HomeStyled = styled.div`
 height: 100%;
 width: 100%;
-/* display: flex; */
 flex-direction: column;
 align-items: center;
 justify-content: center;
@@ -20,7 +19,6 @@ background: #F1F0F0;
   position: relative;
   height:90vh;
   width: 100vw;
-  /* margin-top: 170px; */
 }
 
 #home-title {

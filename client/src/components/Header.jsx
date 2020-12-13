@@ -61,6 +61,8 @@ export default function Header(props) {
             activeStyle={activeLinkStyles}><FontAwesomeIcon icon={faHome} /></NavLink>
         </div>
 
+        
+        {/* if user is logged in, profile icon links to profile */}
         {loggedInUser ?
           <div className="icon-box">
             <NavLink
@@ -69,6 +71,7 @@ export default function Header(props) {
               activeStyle={activeLinkStyles}><FontAwesomeIcon icon={faUser} /></NavLink>
           </div>
           :
+          //  if nobody logged in, profile icon links to login/register option drop-down
           <>
             <div className="icon-box">
               <div className="nav-icon" onClick={() => setOpen(!open)}>

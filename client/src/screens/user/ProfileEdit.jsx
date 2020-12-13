@@ -60,7 +60,10 @@ export default function ProfileEdit(props) {
           handleSubmit(loggedInUser.id, formData)
         }}>
           <div className="edit-left">
-            {dashVersion !== 'web' ? <h5>your info</h5> :
+            {dashVersion !== 'web'
+              ?
+              <h5>your info</h5>
+              :
               <img alt="profile pic" className="profile-pic" src={loggedInUser?.img_url} />}
             <label> image url
              <input
@@ -107,18 +110,22 @@ export default function ProfileEdit(props) {
           className="edit-right"
           onSubmit={handleAddMedium}>
           <div className="media-edit">
+
+            {/* display user media with option to remove */}
             <h5>your media</h5>
             <ul>
               {loggedInUser?.media.map(medium =>
-                <div key={ medium.id} className="medium-list"> <li  value={medium.id}>{medium.name}</li>
+                <div key={medium.id} className="medium-list"> <li value={medium.id}>{medium.name}</li>
                   <small
                     onClick={(e) => {
                       e.preventDefault();
                       handleRemoveMedium(medium.id, loggedInUser.id)
-                    }}>remove</small></div>
+                    }}>remove</small>
+                </div>
               )}
             </ul>
           </div>
+        {/* select menu to add medium to user profile */}
           <select
             defaultValue='default'
             name='media'

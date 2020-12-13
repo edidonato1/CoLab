@@ -23,8 +23,10 @@ export default function Media(props) {
         request to add one here <Link to="/media/request" ><FontAwesomeIcon className="icon" icon={faPlusCircle} /></Link>
       </p>
 
-      <h1>all media</h1>
-      <div className="mobile-select">
+      <h1>all media</h1> 
+      
+      {/* user aside with <select> menu not rendered on mobile. This menu replaces it. */}
+      <div className="mobile-select">   
         <select
           defaultValue='default'
           name='media'
@@ -38,7 +40,7 @@ export default function Media(props) {
       </div>
       <div className="all-media">
         <div className="user-aside">
-          <UserAside
+          <UserAside // user aside component renders user-specific data for easy navigation
             media={media}
             loggedInUser={loggedInUser} />
         </div>

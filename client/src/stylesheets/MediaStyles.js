@@ -6,7 +6,7 @@ flex-direction: column;
 flex-wrap: wrap;
 align-items: center;
 width: 100vw;
-/* background: red; */
+
 .mobile-select {
   display: none;
 }
@@ -114,6 +114,7 @@ img {
 }
 
 @media screen and (max-width: 600px) {
+
   justify-content: center;
 
   .mobile-select {
@@ -178,8 +179,7 @@ img {
   #image-container {
     width: 250px;
   }
-
-
+  
 }
 
 `

@@ -27,7 +27,7 @@ h2 {
   margin-left: 270px;
 }
 
-// Dashboard photos
+// Dashboard images
 
 .dashboard {
   margin: 0 auto;

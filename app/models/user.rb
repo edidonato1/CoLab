@@ -9,7 +9,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy  
   has_and_belongs_to_many :media
 
-  def return_data
+
+  def return_data  # custom return on verification, exclude password 
     {
       id: id,
       img_url: img_url,

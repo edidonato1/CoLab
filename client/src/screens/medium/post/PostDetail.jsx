@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { getOneUser } from '../../services/users';
-import { updateCreatedAt } from '../../utils/stringFunctions'
+import { getOneUser } from '../../../services/users';
+import { updateCreatedAt } from '../../../utils/stringFunctions'
 import PostEdit from './PostEdit';
 
 export default function PostDetail(props) {
@@ -56,12 +56,12 @@ export default function PostDetail(props) {
               <p > {post.content.slice(0, 140)}<small id="read-more" onClick={() => setReadLess(!readLess)}>{showMore}</small> </p>
               :
               <p>{post.content}<small id="read-more" onClick={() => setReadLess(!readLess)}>{showLess}</small></p>}
-            <small>posted: {updateCreatedAt(post.created_at)}</small>
+           {/* updateCreatedAt util function returns legible date from database */}
+            <small>posted: {updateCreatedAt(post.created_at)}</small>  
           </div>
         </div>
         :
         <PostEdit
-          updateCreatedAt={updateCreatedAt}
           editPost={editPost}
           setEditPost={setEditPost}
           post={post}

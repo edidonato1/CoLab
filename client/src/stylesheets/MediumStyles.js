@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const MediumStyled = styled.div`
+
 margin-top: -18px;
 display: flex;
 flex-direction: column;

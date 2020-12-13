@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import { addPost } from '../../services/posts';
-import FormStyles from '../../stylesheets/FormStyles';
+import { addPost } from '../../../services/posts';
+import FormStyles from '../../../stylesheets/FormStyles';
 
 export default function PostCreate(props) {
   const { loggedInUser, medium, mediumId, createPost, setCreatePost } = props
   const [formData, setFormData] = useState({
     subject: '',
     content: '',
-    user_id: Number(loggedInUser?.id),
-    medium_id: Number(mediumId)
+    user_id: Number(loggedInUser?.id), // add logged in user's id as FRK to post
+    medium_id: Number(mediumId) //  add current medium id as FRK to post
   })
 
   const handleChange = (e) => {

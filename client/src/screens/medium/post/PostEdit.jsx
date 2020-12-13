@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { putPost, destroyPost } from '../../services/posts';
-import DeletePost from '../../components/modal/DeletePost';
+import { putPost } from '../../../services/posts';
+import DeletePost from '../../../components/modal/DeletePost';
 
 
 export default function PostCreate(props) {
@@ -28,7 +28,6 @@ export default function PostCreate(props) {
     setEditPost(!editPost);
     setUpdated(!updated);
   }
-
 
 
   return (
@@ -74,7 +73,6 @@ export default function PostCreate(props) {
             />
           </div>
           <div className="button-box">
-            {/* <button id="delete" onClick={() => handleDelete(post.id)}>erase</button> */}
             <button id="delete" onClick={(e) => {
               e.preventDefault()
               setDeleteConfirm(true)

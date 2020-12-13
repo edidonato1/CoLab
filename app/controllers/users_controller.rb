@@ -34,14 +34,14 @@ class UsersController < ApplicationController
     end
   end
 
-  def add_medium
+  def add_medium # see custom route in config -> routes.rb
     @medium = Medium.find(params[:medium_id])
     @user.media << @medium
 
     render json: @user, include: :media
   end
 
-  def remove_medium
+  def remove_medium # see custom route in config -> routes.rb
     @medium = Medium.find(params[:medium_id])
     @user.media.delete(@medium)
 

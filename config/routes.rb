@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   patch 'media/:medium_id/users/:id', to: 'users#remove_medium'
 
 
+  resources :collaborations do 
+    resources :colab_posts
+  end
 
   resources :media do
     resources :posts

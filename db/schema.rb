@@ -10,7 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_193858) do
+ActiveRecord::Schema.define(version: 2020_12_18_003911) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "colab_posts", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "collaboration_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["collaboration_id"], name: "index_colab_posts_on_collaboration_id"
+    t.index ["user_id"], name: "index_colab_posts_on_user_id"
+  end
+
+  create_table "collaborations", force: :cascade do |t|
+    t.string "title"
+    t.integer "status"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_collaborations_on_user_id"
+  end
+
+  create_table "collaborations_media", id: false, force: :cascade do |t|
+    t.bigint "medium_id", null: false
+    t.bigint "collaboration_id", null: false
+  end
 
   create_table "media", force: :cascade do |t|
     t.string "name"
@@ -46,6 +73,9 @@ ActiveRecord::Schema.define(version: 2020_11_30_193858) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "colab_posts", "collaborations"
+  add_foreign_key "colab_posts", "users"
+  add_foreign_key "collaborations", "users"
   add_foreign_key "posts", "media"
   add_foreign_key "posts", "users"
 end

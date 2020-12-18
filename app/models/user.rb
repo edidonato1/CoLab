@@ -7,6 +7,8 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }
 
   has_many :posts, dependent: :destroy  
+  has_many :colab_posts, dependent: :destroy
+
   has_and_belongs_to_many :media
 
 

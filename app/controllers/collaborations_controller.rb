@@ -1,5 +1,6 @@
 class CollaborationsController < ApplicationController
-  before_action :set_collaboration, only: [:show, :update, :destroy]
+  before_action :set_collaboration, only: [:show, :update, :destroy, :add_user]
+  before_action :authorize_request, only: [:create, :destroy]
 
   def index
     @collaborations = Collaboration.all
@@ -14,8 +15,18 @@ class CollaborationsController < ApplicationController
   end
 
 
+
+  def add_user # see custom route in config -> routes.rb
+    @user = User.find(params[:user_id])
+    @collaboration.users << @user
+
+    render json: @collaboration, include: :users
+  end
+
+
   def create
     @collaboration = Collaboration.new(collaboration_params)
+    @collaboration.user_id = @current_user.id
 
     if @collaboration.save
       render json: @collaboration, status: :created

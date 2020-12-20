@@ -8,8 +8,12 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy  
   has_many :colab_posts, dependent: :destroy
+  has_many :collaborations, dependent: :destroy
 
   has_and_belongs_to_many :media
+  has_and_belongs_to_many :collaborations
+
+  # has_and_belongs_to_many :collaborations
 
 
   def return_data  # custom return on verification, exclude password 
@@ -19,7 +23,8 @@ class User < ApplicationRecord
       username: username, 
       email: email,
       media: media,
-      bio: bio
+      bio: bio,
+      colab_posts: colab_posts,
     }
   end
 

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :add_medium, :remove_medium]
+  before_action :set_user, only: [:show, :update, :add_collaboration, :add_medium, :remove_medium]
 
   def create
     @user = User.new(user_params)
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
 
   def show 
-    render json: @user, include: :media
+    render json: @user, include: :collaborations
   end
 
   def update 
@@ -33,6 +33,14 @@ class UsersController < ApplicationController
       render json: @user.errors, status: :unprocessable_entity
     end
   end
+
+  def add_collaboration 
+    @collaboration = Collaboration.find(params[:collaboration_id])
+    @user.collaborations << @collaboration
+
+    render json: @user, include: :collaborations
+  end
+
 
   def add_medium # see custom route in config -> routes.rb
     @medium = Medium.find(params[:medium_id])

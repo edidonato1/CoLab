@@ -14,10 +14,11 @@ export const addPost = async (mediumId, postData) => {
 }
 
 export const putPost = async (id, postData) => {
-  const resp = await api.put(`/posts/${id}`, {post: postData})
+  const resp = await api.put(`/posts/${id}`, { post: postData })
+  return resp.data;
 }
 
 export const destroyPost = async (id) => {
-  const resp = await api.delete(`posts/${id}`);
+  const resp = await api.delete(`/posts/${id}`);
   return resp;
 }

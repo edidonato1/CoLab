@@ -2,7 +2,8 @@ import Home from './screens/Home';
 import Layout from './components/Layout';
 import Login from './screens/user/Login';
 import Register from './screens/user/Register';
-import MediumContainer from './containers/MediumContainer'
+import MediumContainer from './containers/MediumContainer';
+import UsersContainer from './containers/UsersContainer';
 import Profile from './screens/user/Profile';
 
 import { useEffect, useState } from 'react';
@@ -84,6 +85,11 @@ function App() {
           <MediumContainer
             media={media}
             loggedInUser={loggedInUser} />
+        </Route>
+        <Route path='/users'>
+          <UsersContainer
+            loggedInUser={loggedInUser}
+          />
         </Route>
       </Switch>
     </Layout>

@@ -42,6 +42,12 @@ export default function ProfileAside(props) {
             <Link key={medium.id} to={`/media/${medium.id}`} ><li key={medium.id}>{medium.name}</li></Link>
           )}
         </ul>
+        <h4>your collaborations</h4>
+        <ul>
+          {loggedInUser?.collaborations.map(colab =>
+            <li>{colab.title}</li>
+            )}
+        </ul>
         <div className="button-box">
           <button onClick={() => setEditProfile(!editProfile)}>edit</button>
           <button onClick={(e) => {

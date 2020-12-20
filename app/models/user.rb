@@ -25,6 +25,7 @@ class User < ApplicationRecord
       media: media,
       bio: bio,
       colab_posts: colab_posts,
+      collaborations: collaborations,
     }
   end
 

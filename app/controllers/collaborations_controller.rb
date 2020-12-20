@@ -1,5 +1,5 @@
 class CollaborationsController < ApplicationController
-  before_action :set_collaboration, only: [:show, :update, :destroy, :add_user]
+  before_action :set_collaboration, only: [:show, :update, :destroy, :add_user, :add_medium]
   before_action :authorize_request, only: [:create, :destroy]
 
   def index
@@ -23,6 +23,12 @@ class CollaborationsController < ApplicationController
     render json: @collaboration, include: :users
   end
 
+  def add_medium
+    @medium = Medium.find(params[:medium_id])
+    @collaboration.media << @medium
+
+    render json: @collaboration, include: :media
+  end
 
   def create
     @collaboration = Collaboration.new(collaboration_params)

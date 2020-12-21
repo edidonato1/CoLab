@@ -11,7 +11,7 @@ export default function Media(props) {
 
   if (mediumLink) {
     setMediumLink(null)
-    history.push(`/media/${mediumLink}`)
+    history.push(`/media/${mediumLink}`)  // navigate using value of <select> menu
   }
 
   const { media, loggedInUser } = props

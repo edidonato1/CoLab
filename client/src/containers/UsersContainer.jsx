@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react'
-import { getAllUsers } from '../services/users'
+import { Route, Switch } from 'react-router-dom';
+import Users from '../screens/user/Users';
+import UserDetail from '../screens/user/UserDetail';
+import { getAllUsers } from '../services/users';
 
-export default function Users() {
+export default function UsersContainer() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -14,14 +17,16 @@ export default function Users() {
   
   
   return (
-    <div>
-      {users.map(user => 
-        <>
-          <p>{user.username}</p>
-          <p>collaborations: {user.collaborations.length > 0 ? user.collaborations.map(colab => <p>{colab.title}</p>) : <p>none at this time</p> }</p>
-          </>
-        )}
-    </div>
+    <Switch>
+      <Route exact path="/users">
+        <Users
+          users={users}
+        />
+      </Route>
+      <Route path="/users/:id">
+        <UserDetail />
+      </Route>
 
+    </Switch>
   )
 }

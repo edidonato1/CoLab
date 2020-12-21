@@ -18,12 +18,12 @@ class UsersController < ApplicationController
   def index 
     @users = User.all
 
-    render json: @users, include: :collaborations
+    render json: @users, include: [:collaborations, :media]
   end
 
 
   def show 
-    render json: @user, include: :collaborations
+    render json: @user, include: [:collaborations, :media]
   end
 
   def update 

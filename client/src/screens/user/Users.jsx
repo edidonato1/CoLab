@@ -50,6 +50,7 @@ export default function Users(props) {
                 id="user-search"
                 type="text"
                 value={searchUser}
+                placeholder=" we'll search as you type"
                 onChange={(e) => setSearchUser(e.target.value)}
               />
             </label>
@@ -86,7 +87,7 @@ export default function Users(props) {
             </Link>
             <div className="matches">
               <h4 className="matches-title">matches:</h4>
-              <ul>
+              <ul className="matches-ul">
                 {user.media.filter(medium =>
                   mediaFilter.includes(medium.name)
                 ).map(medium =>

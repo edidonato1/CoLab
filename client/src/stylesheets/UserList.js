@@ -21,13 +21,15 @@ flex-direction: column;
   margin: 0 auto;
   margin-top: 50px;
   background: white;
+  padding: 40px;
 }
 
 .user-thumbnail {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 400px;
   margin: 10px;
+  border-bottom: 1px solid lightgray;
 }
 
 .user-link {
@@ -97,9 +99,19 @@ ul {
   padding-left: 0;
 }
 
-.matches-title {
-  margin-bottom: 0px;
+.matches, .matches-ul {
+  display: flex;
+  align-items: center;
+}
 
+.matches-title {
+  margin-right: 10px;
+}
+
+.matches-li {
+  background: #F9EAE7;
+  padding: 0px 3px;
+  margin: 0px 5px;
 }
 
 `

@@ -88,6 +88,7 @@ function App() {
         </Route>
         <Route path='/users'>
           <UsersContainer
+            media={media}
             loggedInUser={loggedInUser}
           />
         </Route>

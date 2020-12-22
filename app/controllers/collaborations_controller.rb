@@ -5,7 +5,7 @@ class CollaborationsController < ApplicationController
   def index
     @collaborations = Collaboration.all
 
-    render json: @collaborations 
+    render json: @collaborations
   end
 
   def show 

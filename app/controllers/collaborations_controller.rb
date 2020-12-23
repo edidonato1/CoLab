@@ -11,9 +11,8 @@ class CollaborationsController < ApplicationController
   def show 
     @collaboration = Collaboration.find(params[:id])
 
-    render json: @collaboration, include: :colab_posts
+    render json: @collaboration, include: [:colab_posts, :media]
   end
-
 
 
   def add_user # see custom route in config -> routes.rb

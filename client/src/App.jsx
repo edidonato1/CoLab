@@ -4,6 +4,7 @@ import Login from './screens/user/Login';
 import Register from './screens/user/Register';
 import MediumContainer from './containers/MediumContainer';
 import UsersContainer from './containers/UsersContainer';
+import CollaborationsContainer from './containers/CollaborationsContainer.jsx';
 import Profile from './screens/user/Profile';
 
 import { useEffect, useState } from 'react';
@@ -90,6 +91,12 @@ function App() {
           <UsersContainer
             media={media}
             loggedInUser={loggedInUser}
+          />
+        </Route>
+        <Route >
+          <CollaborationsContainer
+            loggedInUser={loggedInUser}
+            media={media}
           />
         </Route>
       </Switch>

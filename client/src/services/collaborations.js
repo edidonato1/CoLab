@@ -5,7 +5,7 @@ export const getAllCollaborations = async () => {
   return resp.data;
 }
 
-export const getOneCollaboration = async () => {
+export const getOneCollaboration = async (id) => {
   const resp = await api.get(`/collaborations/${id}`);
   return resp.data;
 }

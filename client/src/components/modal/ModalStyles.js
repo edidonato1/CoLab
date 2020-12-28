@@ -77,6 +77,24 @@ const Styled = styled.div`
     text-shadow: 1px 1px #E36562;
   }
 
+  #modal-username {
+    margin-left: 40px;
+    cursor: pointer;
+  }
+
+  #modal-username:hover {
+    color: #E36562;
+  }
+
+  .modal-user {
+    display: flex;
+    background: white;
+    padding: 10px;
+    margin: 0;
+    border: 2px solid #092741;
+    border-radius: 5px;
+  }
+
   `
 
 export default Styled

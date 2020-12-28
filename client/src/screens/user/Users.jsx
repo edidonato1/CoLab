@@ -26,7 +26,7 @@ export default function Users(props) {
     ))
   }, [users, mediaFilter, searchUser, searchByUser, updatedFilter])
 
-  const removeFilter = (idx) => {
+  const removeFilter = (idx) => { // removes previously added media added to search
     mediaFilter.splice(idx, 1)
     setMediaFilter(mediaFilter)
     setUpdatedFilter(!updatedFilter);

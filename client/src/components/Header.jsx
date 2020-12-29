@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFlask, faUser, faPalette, faHome } from '@fortawesome/free-solid-svg-icons';
+import { faFlask, faUser, faPalette, faHome, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -48,6 +48,12 @@ export default function Header(props) {
         <Link to="/" className="nav-logo"> C o L <FontAwesomeIcon icon={faFlask} /> b </Link>
       </div>
       <nav>
+      <div className="icon-box">
+          <NavLink
+            to="/users"
+            className="nav-icon"
+            activeStyle={activeLinkStyles}><FontAwesomeIcon icon={faUsers} /></NavLink>
+        </div>
         <div className="icon-box">
           <NavLink
             to="/media"
@@ -60,8 +66,6 @@ export default function Header(props) {
             className="nav-icon"
             activeStyle={activeLinkStyles}><FontAwesomeIcon icon={faHome} /></NavLink>
         </div>
-
-        
         {/* if user is logged in, profile icon links to profile */}
         {loggedInUser ?
           <div className="icon-box">

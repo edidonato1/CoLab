@@ -45,8 +45,10 @@ export default function ProfileAside(props) {
         <h4>your collaborations</h4>
         <ul>
           {loggedInUser?.collaborations.map(colab =>
-            <li>{colab.title}</li>
-            )}
+            <Link to={`/collaborations/${colab.id}`}>
+              <li>{colab.title}</li>
+            </Link>
+          )}
         </ul>
         <div className="button-box">
           <button onClick={() => setEditProfile(!editProfile)}>edit</button>

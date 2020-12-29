@@ -29,7 +29,7 @@ nav {
   margin-right: 40px;
   display: flex;
   justify-content: space-between;
-  width: 200px;
+  width: 270px;
   z-index: 3;
   background: #092741;
   

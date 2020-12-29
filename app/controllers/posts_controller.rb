@@ -5,7 +5,7 @@ before_action :authorize_request, only: [:create, :update, :destroy]
   def index
     @posts = Post.all
 
-    render json: @posts
+    render json: @posts.sort_by { |m| m[:created_at]}
   end
 
   def show

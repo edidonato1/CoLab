@@ -24,6 +24,16 @@ flex-direction: column;
   padding: 40px;
 }
 
+#thumbnail-username-container{
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-left: 5px; 
+  color: #E36562;
+}
+
 .user-thumbnail {
   display: flex;
   flex-direction: column;
@@ -39,7 +49,6 @@ flex-direction: column;
 .user-link {
   display: flex;
   align-items: center;
-  transition: .3s;
 }
 
 .user-link:hover {
@@ -56,7 +65,6 @@ flex-direction: column;
 
 .thumbnail-username {
   font-size: 18px;
-  transition: .4s;
 }
 
 
@@ -86,6 +94,7 @@ select:focus {
   border: 1px solid rgba(97, 72, 83, .4);;
   margin: 10px;
   background: #F1F0F0;
+  cursor: default;
 }
 
 .filter-list:hover {

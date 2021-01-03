@@ -6,18 +6,19 @@ import MediumContainer from './containers/MediumContainer';
 import UsersContainer from './containers/UsersContainer';
 import CollaborationsContainer from './containers/CollaborationsContainer.jsx';
 import Profile from './screens/user/Profile';
-
 import { useEffect, useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
-import { getAllMedia } from './services/media'
+import { getAllUsers } from './services/users';
+import { getAllMedia } from './services/media';
 import { verifyUser, loginUser, registerUser, removeToken } from './services/auth';
 import './App.css';
 
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState(null)
-  const [media, setMedia] = useState([])
-  const [updated, setUpdated] = useState(false)
+  const [loggedInUser, setLoggedInUser] = useState(null);
+  const [media, setMedia] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [updated, setUpdated] = useState(false);
 
   const history = useHistory();
 
@@ -39,7 +40,12 @@ function App() {
         return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
       }));
     }
+    const fetchUsers = async () => {
+      const usersData = await getAllUsers();
+      setUsers(usersData);
+    }
     fetchMedia();
+    fetchUsers();
   }, [])
 
   const handleLogin = async (loginData) => {
@@ -64,8 +70,7 @@ function App() {
   return (
     <Layout
       loggedInUser={loggedInUser}
-      handleLogout={handleLogout}
-    >
+      handleLogout={handleLogout}>
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/login' >
@@ -89,15 +94,16 @@ function App() {
         </Route>
         <Route path='/users'>
           <UsersContainer
+            users={users}
+            setUsers={setUsers}
             media={media}
-            loggedInUser={loggedInUser}
-          />
+            loggedInUser={loggedInUser} />
         </Route>
-        <Route >
+        <Route>
           <CollaborationsContainer
+            users={users}
             loggedInUser={loggedInUser}
-            media={media}
-          />
+            media={media} />
         </Route>
       </Switch>
     </Layout>

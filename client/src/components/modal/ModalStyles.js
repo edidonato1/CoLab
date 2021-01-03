@@ -80,6 +80,7 @@ const Styled = styled.div`
   #modal-username {
     margin-left: 40px;
     cursor: pointer;
+    background: none;
   }
 
   #modal-username:hover {

@@ -1,41 +1,34 @@
 import { useState, useEffect } from 'react';
 import { getAllUsers } from '../services/users';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import UserAside from '../stylesheets/UserAside';
 import UserInfo from '../components/modal/UserInfo';
 
 
 export default function ColabAside(props) {
-  const [users, setUsers] = useState()
   const [searchUser, setSearchUser] = useState('');
   const [showUsers, setShowUsers] = useState([]);
   const [open, setOpen] = useState(null);
 
-  const { collaboration } = props
+  const { collaboration, users } = props
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      const usersData = await getAllUsers();
-      setUsers(usersData);
-    }
-    fetchUsers();
-  }, [])
-
-  useEffect(() => {
-    searchUser !== '' 
-    ?
-    setShowUsers(users?.filter(user =>
-      user.username.toLowerCase().includes(searchUser.toLowerCase())))
-    : 
-    setShowUsers([])
-  },[searchUser])
+    searchUser !== ''
+      ?
+      setShowUsers(users?.filter(user =>
+        user.username.toLowerCase().includes(searchUser.toLowerCase())))
+      :
+      setShowUsers([])
+  }, [searchUser])
 
   const handleSubmit = (e) => {
     e.preventDefault();
   }
 
   return (
-    <UserAside>
-      {open ? 
+    <UserAside >
+      {open ?
         <UserInfo
           collaboration={collaboration}
           open={open}
@@ -43,12 +36,27 @@ export default function ColabAside(props) {
         />
         :
         <></>
-    }
-      <div className="user-media">
-        <h4>heyyy</h4>
+      }
+      <div className="user-media" id="colab-aside-main">
+        <h4>collaborators</h4>
+        <ul>
+          {collaboration?.users.map(user =>
+            <li>{user.username}</li>
+          )}
+        </ul>
+        <h4>media</h4>
+        <ul>
+          {collaboration?.media.map(medium =>
+            <li>{medium.name}</li>
+          )}
+        </ul>
         <form onSubmit={handleSubmit}>
-          <label id="username">search username
-          <input
+          <h4 id="add-user">add collaborator</h4>
+          <div className="search">
+            <FontAwesomeIcon
+              id="search-icon"
+              icon={faSearch} />
+            <input
               name="user-search"
               id="user-search"
               type="text"
@@ -56,16 +64,17 @@ export default function ColabAside(props) {
               placeholder=" we'll search as you type"
               onChange={(e) => setSearchUser(e.target.value)}
             />
-          </label>
+          </div>
         </form>
         <div className="searched-users">
-          {showUsers?.map(user => 
-            <p
-              className="user-option"
-              onClick={() => setOpen(user)}
-            >{user.username}</p>
-
+          <ul id="user-options">
+            {showUsers?.map(user =>
+              <li
+                className="user-option"
+                onClick={() => setOpen(user)}
+              >{user.username}</li>
             )}
+          </ul>
         </div>
       </div>
 

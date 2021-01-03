@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { getOneUser } from '../../services/users';
 import UserStyles from '../../stylesheets/UserDetail';
 
-export default function UserDetail(props) {
+export default function UserDetail({loggedInUser}) {
   const [user, setUser] = useState(null);
 
   const { id } = useParams();

@@ -6,6 +6,7 @@ flex-direction: column;
 flex-wrap: wrap;
 align-items: center;
 width: 100vw;
+overflow: hidden;
 
 .mobile-select {
   display: none;

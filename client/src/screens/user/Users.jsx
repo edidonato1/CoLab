@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar} from '@fortawesome/free-solid-svg-icons';
 import UserList from '../../stylesheets/UserList';
 import FormStyles from '../../stylesheets/FormStyles';
 
 export default function Users(props) {
-  const { users, media } = props;
+  const { users, media, loggedInUser } = props;
 
   const [showUsers, setShowUsers] = useState(users)
   const [mediaFilter, setMediaFilter] = useState([])
@@ -13,14 +15,15 @@ export default function Users(props) {
   const [updatedFilter, setUpdatedFilter] = useState(false);
 
   useEffect(() => {
-    searchUser.length ? setSearchByUser(true) : setSearchByUser(false)
+   
+    searchUser.length ? setSearchByUser(true) : setSearchByUser(false)  // only filter by user if user has typed in input field
     setShowUsers(users.filter(user =>
       user.media.some(medium =>
         mediaFilter.includes(medium.name)
       )
         ||
         searchByUser ?
-        user.username.toLowerCase().includes(searchUser.toLowerCase())
+        user.username.toLowerCase().includes(searchUser.toLowerCase()) // searchByUser filters users regardless of current media filters
         :
         null
     ))
@@ -86,7 +89,14 @@ export default function Users(props) {
           <div className="user-thumbnail">
             <Link className="user-link" key={user.id} to={`/users/${user.id}`}>
               <img className="user-thumbnail-img" src={user.img_url ? user.img_url : `https://images.unsplash.com/photo-1569172122301-bc5008bc09c5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60`} />
-              <h3 className="thumbnail-username">{user.username}</h3>
+              <span id="thumbnail-username-container">
+                <h3 className="thumbnail-username">{user.username}</h3>
+                {loggedInUser.id === user.id ?
+                  <FontAwesomeIcon className="icon" icon={faStar} />
+                  : 
+                  <></>
+              }
+              </span>
             </Link>
             <div className="matches">
               <h4 className="matches-title">matches:</h4>

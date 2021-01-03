@@ -45,7 +45,7 @@ export default function Profile(props) {
           <React.Fragment>
             <ProfileStyles >
               <aside className="side-bar">
-                <h1 id="profile-title">your profile</h1>
+                <h1 id="profile-title">your dashboard</h1>
                 <ProfileAside
                   media={media}
                   loggedInUser={loggedInUser}
@@ -57,7 +57,7 @@ export default function Profile(props) {
                 dashVersion === 'web'  // dashboard of user media-associated images displays only on web breakpoint
                   ?
                   <div className="dash-parent">
-                    <h2>dashboard</h2>
+                    <h2>at a glance</h2>
                     <div className="dashboard">
                       <div className="dash-photo-box">
                         <div className="photo-box-top">

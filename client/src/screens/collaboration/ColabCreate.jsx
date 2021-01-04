@@ -6,8 +6,8 @@ import FormStyles from '../../stylesheets/FormStyles';
 export default function ColabCreate(props) {
   const { loggedInUser, media, users } = props;
 
+  const [refresh, setRefresh] = useState(false) // refresh to update state of array data
   const [showUsers, setShowUsers] = useState([])
-  const [colabUsers, setColabUsers] = useState([])
   const [searchUser, setSearchUser] = useState('')
   const [formData, setFormData] = useState({
     title: '',
@@ -17,17 +17,17 @@ export default function ColabCreate(props) {
   })
 
   useEffect(() => {
-    if (!colabUsers.includes(loggedInUser)) {
-      setColabUsers([loggedInUser])
+
+    if (!formData.users.includes(loggedInUser)) {
+      setFormData({ ...formData, users: [loggedInUser] }) // initialize array to include loggedInUser
     }
-    
+
     searchUser !== ""
-    ?
-    setShowUsers(users.filter(user => 
-        user.username.toLowerCase().includes(searchUser.toLowerCase())
-    ))
+      ?
+    setShowUsers(users.filter(user => user.username.toLowerCase().includes(searchUser.toLowerCase())))
       : 
       setShowUsers([])
+    
   },[searchUser, loggedInUser])
 
   const handleChange = (e) => {
@@ -35,10 +35,8 @@ export default function ColabCreate(props) {
     setFormData(prevState => ({
       ...prevState,
       [name]: value,
-      users: [colabUsers]
     }))
   }
-
 
   return (
     <FormStyles>
@@ -68,7 +66,10 @@ export default function ColabCreate(props) {
               className="user-thumbnail">
               <h3
                 onClick={() => {
-                  setColabUsers([...colabUsers, user])
+                  if (!formData.users.includes(user)) {
+                    formData.users.push(user)
+                    setRefresh(!refresh)
+                  }
                 }}
               >{user.username}</h3>
               </div>
@@ -80,13 +81,17 @@ export default function ColabCreate(props) {
           >
             <option disabled value="default"></option>
             {media.map(medium => 
-              <option key={medium.id}>{medium.name}</option>
+              <option
+                key={medium.id}
+                onClick={() => {
+                  if (!formData.media.includes(medium)) {
+                    formData.media.push(medium)
+                    setRefresh(!refresh)
+                  }
+                }}
+              >{medium.name}</option>
               )}
           </select>
-          <input
-            type="hidden"
-            // value={}
-          />
         </label>
       </form>
     </FormStyles>

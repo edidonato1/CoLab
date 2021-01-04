@@ -64,7 +64,11 @@ export default function Users(props) {
                 onChange={(e) => setMediaFilter([...mediaFilter, e.target.value])}>
                 <option disabled value='default' ></option>
                 {media.map(medium =>
-                  <option value={medium.name}>{medium.name}</option>
+                  <option
+                    key={medium.id}
+                    value={medium.name} >
+                    {medium.name}
+                  </option>
                 )}
               </select>
             </label>

@@ -5,25 +5,44 @@ import FormStyles from '../../stylesheets/FormStyles';
 
 export default function ColabCreate(props) {
   const { loggedInUser, media, users } = props;
+
+  const [showUsers, setShowUsers] = useState([])
+  const [colabUsers, setColabUsers] = useState([])
+  const [searchUser, setSearchUser] = useState('')
   const [formData, setFormData] = useState({
     title: '',
     status: 1,
-    user_id: Number(loggedInUser?.id),
-    users: [loggedInUser],
-    media: [],
+    users: [],
+    media: []
   })
+
+  useEffect(() => {
+    setColabUsers([loggedInUser])
+  },[loggedInUser])
+
+  useEffect(() => {
+    searchUser !== ""
+    ?
+    setShowUsers(users.filter(user => 
+        user.username.toLowerCase().includes(searchUser.toLowerCase())
+    ))
+      : 
+      setShowUsers([])
+  },[searchUser])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
       ...prevState,
-      [name]: value
+      [name]: value,
+      users: [colabUsers]
     }))
   }
 
+
   const handleSelect = (e) => {
-    formData.users.push(e.target.value)
-  }
+    setColabUsers([...colabUsers, e.target.value])
+}
 
   return (
     <FormStyles>
@@ -39,14 +58,26 @@ export default function ColabCreate(props) {
         </label>
 
         <label> users
-          <select>
-            {users.map(user => 
-              <option value={user} onClick={handleSelect}>{user.username}</option>
+         <input
+            type="text"
+            value={searchUser}
+            placeholder="we'll search as you type"
+            onChange={(e) => setSearchUser(e.target.value)}
+          />
+        </label>
+        <label> media
+          <select
+            defaultValue="default"
+          >
+            <option disabled value="default"></option>
+            {media.map(medium => 
+              <option key={medium.id}>{medium.name}</option>
               )}
           </select>
-          {formData.users?.map(user => 
-            <li>{user?.username}</li>
-            )}
+          <input
+            type="hidden"
+            // value={}
+          />
         </label>
       </form>
     </FormStyles>

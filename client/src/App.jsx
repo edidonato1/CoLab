@@ -99,7 +99,7 @@ function App() {
             media={media}
             loggedInUser={loggedInUser} />
         </Route>
-        <Route>
+        <Route path="/collaborations">
           <CollaborationsContainer
             users={users}
             loggedInUser={loggedInUser}

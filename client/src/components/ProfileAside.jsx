@@ -1,23 +1,15 @@
 import { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import UserAsideStyles from '../stylesheets/UserAside';
 import Logout from '../components/modal/Logout';
 
 
 export default function ProfileAside(props) {
-  const [mediumLink, setMediumLink] = useState(null);
   const [logoutConfirm, setLogoutConfirm] = useState(false);
   const [open, setOpen] = useState(false);
 
-  const history = useHistory();
 
   const { loggedInUser, handleLogout, editProfile, setEditProfile } = props;
-
-
-  if (mediumLink) { // listen for selection from <select> menu to link upon selection
-    setMediumLink(null);
-    history.push(`/media/${mediumLink}`);
-  }
 
   return (
     <UserAsideStyles>

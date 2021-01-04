@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Collaboration from '../screens/collaboration/Collaboration';
 import ColabCreate from '../screens/collaboration/ColabCreate';
@@ -13,8 +12,8 @@ export default function CollaborationsContainer(props) {
     <Switch>
       <Route path="/collaborations/create">
         <ColabCreate
-          users={users}
           loggedInUser={loggedInUser}
+          users={users}
           media={media}
         />
       </Route>

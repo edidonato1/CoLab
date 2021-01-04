@@ -17,10 +17,10 @@ export default function ColabCreate(props) {
   })
 
   useEffect(() => {
-    setColabUsers([loggedInUser])
-  },[loggedInUser])
-
-  useEffect(() => {
+    if (!colabUsers.includes(loggedInUser)) {
+      setColabUsers([loggedInUser])
+    }
+    
     searchUser !== ""
     ?
     setShowUsers(users.filter(user => 
@@ -28,7 +28,7 @@ export default function ColabCreate(props) {
     ))
       : 
       setShowUsers([])
-  },[searchUser])
+  },[searchUser, loggedInUser])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,10 +39,6 @@ export default function ColabCreate(props) {
     }))
   }
 
-
-  const handleSelect = (e) => {
-    setColabUsers([...colabUsers, e.target.value])
-}
 
   return (
     <FormStyles>
@@ -65,6 +61,19 @@ export default function ColabCreate(props) {
             onChange={(e) => setSearchUser(e.target.value)}
           />
         </label>
+        <div className="show-users-container">
+          {showUsers?.map(user => 
+            <div
+              key={user.id}
+              className="user-thumbnail">
+              <h3
+                onClick={() => {
+                  setColabUsers([...colabUsers, user])
+                }}
+              >{user.username}</h3>
+              </div>
+            )}
+        </div>
         <label> media
           <select
             defaultValue="default"

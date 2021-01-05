@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar} from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import UserList from '../../stylesheets/UserList';
 import FormStyles from '../../stylesheets/FormStyles';
 
@@ -15,7 +15,7 @@ export default function Users(props) {
   const [updatedFilter, setUpdatedFilter] = useState(false);
 
   useEffect(() => {
-   
+
     searchUser.length ? setSearchByUser(true) : setSearchByUser(false)  // only filter by user if user has typed in input field
     setShowUsers(users.filter(user =>
       user.media.some(medium =>
@@ -64,11 +64,7 @@ export default function Users(props) {
                 onChange={(e) => setMediaFilter([...mediaFilter, e.target.value])}>
                 <option disabled value='default' ></option>
                 {media.map(medium =>
-                  <option
-                    key={medium.id}
-                    value={medium.name} >
-                    {medium.name}
-                  </option>
+                  <option key={medium.id}> {medium.name} </option>
                 )}
               </select>
             </label>
@@ -84,11 +80,11 @@ export default function Users(props) {
         </ul>
       </div>
       <div className="show-users-container">
-        {!showUsers.length ? 
+        {!showUsers.length ?
           <p>no users match criteria</p>
-          : 
+          :
           <></>
-          }
+        }
         {showUsers?.map(user =>
           <div className="user-thumbnail">
             <Link className="user-link" key={user.id} to={`/users/${user.id}`}>
@@ -97,9 +93,9 @@ export default function Users(props) {
                 <h3 className="thumbnail-username">{user.username}</h3>
                 {loggedInUser.id === user.id ?
                   <FontAwesomeIcon className="icon" icon={faStar} />
-                  : 
+                  :
                   <></>
-              }
+                }
               </span>
             </Link>
             <div className="matches">

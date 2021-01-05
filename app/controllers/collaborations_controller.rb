@@ -1,6 +1,6 @@
 class CollaborationsController < ApplicationController
   before_action :set_collaboration, only: [:show, :update, :destroy, :add_user, :add_medium]
-  before_action :authorize_request, only: [:create, :destroy]
+  before_action :authorize_request, only: [:create]
 
   def index
     @collaborations = Collaboration.all

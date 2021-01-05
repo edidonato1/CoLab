@@ -13,8 +13,6 @@ class User < ApplicationRecord
   has_and_belongs_to_many :media
   has_and_belongs_to_many :collaborations
 
-  # has_and_belongs_to_many :collaborations
-
 
   def return_data  # custom return on verification, exclude password 
     {

@@ -1,6 +1,6 @@
 class CollaborationsController < ApplicationController
   before_action :set_collaboration, only: [:show, :update, :destroy, :add_user, :add_medium]
-  before_action :authorize_request, only: [:create]
+  before_action :authorize_request, only: [:create, :destroy]
 
   def index
     @collaborations = Collaboration.all
@@ -52,7 +52,12 @@ class CollaborationsController < ApplicationController
   end
 
   def collaboration_params
-    params.require(:collaboration).permit(:title, :status, :user_id)
+    params.require(:collaboration)
+    .permit(
+      :title, 
+      :status, 
+      :user_id
+    )
   end
 
 end

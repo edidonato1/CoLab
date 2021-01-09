@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { getAllUsers } from '../services/users';
+import { addMediumToColab } from '../services/collaborations';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import UserAside from '../stylesheets/UserAside';
@@ -7,11 +9,15 @@ import UserInfo from '../components/modal/UserInfo';
 
 
 export default function ColabAside(props) {
+  const [newMedium, setNewMedium] = useState(null)
   const [searchUser, setSearchUser] = useState('');
   const [showUsers, setShowUsers] = useState([]);
   const [open, setOpen] = useState(null);
+  const [update, setUpdate] = useState(false);
 
-  const { collaboration, users } = props
+  const { collaboration, users, media, refresh, setRefresh } = props
+
+  const id = useParams();
 
   useEffect(() => {
     searchUser !== ''
@@ -20,7 +26,20 @@ export default function ColabAside(props) {
         user.username.toLowerCase().includes(searchUser.toLowerCase())))
       :
       setShowUsers([])
-  }, [searchUser])
+    
+    if (newMedium) {
+      handleAddMedium()
+      setNewMedium(null)
+    }
+
+  }, [searchUser, newMedium, collaboration])
+
+  const handleAddMedium = async () => {
+    const added = await addMediumToColab(newMedium, collaboration.id)
+    if (added) {
+      setRefresh(!refresh)
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,6 +70,20 @@ export default function ColabAside(props) {
           )}
         </ul>
         <form onSubmit={handleSubmit}>
+          <h4>add media</h4>
+          <select
+            defaultValue="default"
+            onChange={(e) => {
+              setNewMedium(e.target.value)
+            }}
+          >
+            <option disabled value="default"></option>
+            {media.map(medium =>
+              <option
+              value={medium.id}
+                key={medium.name}>{medium.name}</option>
+            )}
+          </select>
           <h4 id="add-user">add collaborator</h4>
           <div className="search">
             <FontAwesomeIcon

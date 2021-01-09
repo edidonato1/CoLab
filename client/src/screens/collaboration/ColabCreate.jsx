@@ -1,33 +1,38 @@
-import { useState, useEffect } from 'react';
-import { createCollaboration } from '../../services/collaborations';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import { createCollaboration, addUserToColab, addMediumToColab, getOneCollaboration } from '../../services/collaborations';
 import FormStyles from '../../stylesheets/FormStyles';
 
 
 export default function ColabCreate(props) {
   const { loggedInUser, media, users } = props;
 
-  const [refresh, setRefresh] = useState(false); // refresh to update state of array data
-  const [showUsers, setShowUsers] = useState([]);
+  const [colabId, setColabId] = useState(null)
+  const [created, setCreated] = useState(false);
+  // const [showUsers, setShowUsers] = useState([]);
   const [searchUser, setSearchUser] = useState('');
   const [formData, setFormData] = useState({
     title: '',
     status: 1,
-    users: [],
-    media: []
   });
 
+  const history = useHistory();
+
+  const colabCreate = async () => {
+    const resp = await createCollaboration(formData);
+    setColabId(resp.id)
+  };
+
   useEffect(() => {
-
-    if (!formData.users.includes(loggedInUser)) {
-      setFormData({ ...formData, users: [loggedInUser] }) // initialize array to include loggedInUser
+    const addUser = async () => {
+      await addUserToColab(loggedInUser.id, colabId)
+      setCreated(true)
     }
-    searchUser !== ""
-      ?
-      setShowUsers(users.filter(user => user.username.toLowerCase().includes(searchUser.toLowerCase())))
-      :
-      setShowUsers([])
-
-  }, [searchUser, loggedInUser, formData])
+    if (colabId) {
+      addUser();
+      history.push(`/collaborations/${colabId}`)
+    }
+  }, [colabId,])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,10 +42,10 @@ export default function ColabCreate(props) {
     }))
   }
 
-  const removeFilter = (field, idx) => { // removes item from formData, taking 'field' as argument to target key value pair
-    formData[field].splice(idx, 1)
-    setRefresh(!refresh);
-  }
+  // const removeFilter = (field, idx) => { // removes item from formData, taking 'field' as argument to target key value pair
+  //   formData[field].splice(idx, 1)
+  //   setRefresh(!refresh);
+  // }
 
   return (
 
@@ -49,7 +54,7 @@ export default function ColabCreate(props) {
       <div className="colab-create-main">
         <form onSubmit={(e => {
           e.preventDefault();
-          createCollaboration(formData)
+          colabCreate()
         })}>
           <label> title
           <input
@@ -59,74 +64,11 @@ export default function ColabCreate(props) {
               onChange={handleChange}
             />
           </label>
-          <label> media
-          <select
-              defaultValue="default"
-              onChange={(e) => {
-                formData.media.push(e.target.value)
-                setRefresh(!refresh)
-              }}
-            >
-              <option disabled value="default"></option>
-              {media.map(medium =>
-                <option key={medium.name}>{medium.name}</option>
-              )}
-            </select>
-          </label>
-          <label> users
-         <input
-              type="text"
-              value={searchUser}
-              placeholder="we'll search as you type"
-              onChange={(e) => setSearchUser(e.target.value)}
-            />
-          </label>
-          <div className="show-users-container">
-            {showUsers?.map(user =>
-              <li
-                key={user.username}
-                className="user-option"
-                onClick={() => {
-                  if (!formData.users.includes(user) && user.id !== loggedInUser?.id) {
-                    formData.users.push(user)
-                    setRefresh(!refresh)
-                  }
-                }}
-              >{user.username}</li>
-            )}
-          </div>
-          <button type="submit">create</button>
+         
+            <div>
+              <button type="submit">create</button>
+            </div>
         </form>
-
-        <div className="colab-preview">
-          <div className="added-media">
-            <h3>title: {formData.title}</h3>
-            <h3>media: </h3>
-            <ul className="media-filters">
-              {formData.media.map((medium, idx) =>
-                <div key={medium.id} className="filter-list">
-                  <li className="filter-medium-name">{medium}</li>
-                  <small className="remove-filter" onClick={() => removeFilter( 'media', idx)}>x</small>
-                </div>
-              )}
-            </ul>
-          </div>
-          <div className="added-users">
-            <h3>collaborators: </h3>
-            <ul className="media-filters">
-              {formData.users.map((user, idx) => 
-                <div className="filter-list">
-                  <li className="added-users-li"> {user?.username} </li>
-                  {user?.id !== loggedInUser?.id ? // remove option for user to remove themselves from collaboration
-                  <small className="remove-filter" onClick={() => removeFilter('users', idx)} >x</small>
-                    : 
-                    <></>
-                }
-                </div>
-                  )}
-            </ul>
-          </div>
-        </div>
       </div>
     </FormStyles >
   )

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :add_collaboration, :remove_collaboration, :add_medium, :remove_medium]
 
+
   def create
     @user = User.new(user_params)
 

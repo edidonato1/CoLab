@@ -6,10 +6,11 @@ import ColabAside from '../../components/ColabAside';
 import { Link, useParams, Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
-import { getOneCollaboration, addUserToColab } from '../../services/collaborations';
+import { getOneCollaboration } from '../../services/collaborations';
 
 export default function Collaboration(props) {
   const [collaboration, setCollaboration] = useState(null);
+  const [refresh, setRefresh] = useState(false);
   const [createPost, setCreatePost] = useState(false);
 
   const { id } = useParams();
@@ -21,15 +22,19 @@ export default function Collaboration(props) {
       const collabData = await getOneCollaboration(id);
       setCollaboration(collabData);
     }
+
     fetchCollaboration()
-  }, [id, createPost])
+  }, [id, createPost, refresh])
 
 
   return (
     <ColabStyles>
       <ColabAside
+        media={media}
         users={users}
         collaboration={collaboration}
+        refresh={refresh}
+        setRefresh={setRefresh}
       />
       {!createPost ?
         <div className="main-div">

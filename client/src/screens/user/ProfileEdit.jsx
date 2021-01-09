@@ -110,7 +110,6 @@ export default function ProfileEdit(props) {
           className="edit-right"
           onSubmit={handleAddMedium}>
           <div className="media-edit">
-
             {/* display user media with option to remove */}
             <h5>your media</h5>
             <ul>

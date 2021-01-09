@@ -17,14 +17,18 @@ class CollaborationsController < ApplicationController
 
   def add_user # see custom route in config -> routes.rb
     @user = User.find(params[:user_id])
-    @collaboration.users << @user
-
+    if @collaboration.users.length <= 5
+       @collaboration.users << @user
+    end
+    
     render json: @collaboration, include: :users
   end
 
   def add_medium
     @medium = Medium.find(params[:medium_id])
-    @collaboration.media << @medium
+    if @collaboration.media.length <= 3
+      @collaboration.media << @medium
+    end
 
     render json: @collaboration, include: :media
   end

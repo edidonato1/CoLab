@@ -64,7 +64,6 @@ const Styled = styled.div`
   .confirm {
     display: flex;
     flex-direction: column;
-    margin-top: 25px;
   }
 
   #confirm-delete {

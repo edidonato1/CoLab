@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import ColabPost from './ColabPost/ColabPost';
 import ColabPostCreate from './ColabPost/ColabPostCreate';
 import ColabStyles from '../../stylesheets/Collaboration';
-import ColabAside from '../../components/ColabAside';
+import ColabAside from '../../components/aside/ColabAside';
 import { Link, useParams, Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
@@ -38,11 +38,11 @@ export default function Collaboration(props) {
       />
       {!createPost ?
         <div className="main-div">
-          <h1>collaboration</h1>
+          <h1 id="colab-page-title">collaboration</h1>
           <div className="header-container">
-            <img className="media-images" src={collaboration?.media[0]?.img_url} />
+            {/* <img className="media-images" src={collaboration?.media[0]?.img_url} /> */}
             <div className="title-user-pics">
-              <h1>{collaboration?.title}</h1>
+              <h1 id="colab-title">{collaboration?.title}</h1>
               <div className="collaborator-pics">
                 {/* <img
                   alt="main user"
@@ -51,13 +51,14 @@ export default function Collaboration(props) {
                 /> */}
                 {collaboration?.users.map(user =>
                   <img
+                    key={user.id}
                     alt="user image"
                     className="collaborator-image-small"
                     src={user.img_url ? user.img_url : `https://images.unsplash.com/photo-1569172122301-bc5008bc09c5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60`} />
                 )}
               </div>
             </div>
-            <img className="media-images" src={collaboration?.media[1]?.img_url} />
+            {/* <img className="media-images" src={collaboration?.media[1]?.img_url} /> */}
           </div>
           <div className="create-post-container">
             <h3>{collaboration?.colab_posts.length} posts</h3>

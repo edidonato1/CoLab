@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import ProfileEdit from '../../screens/user/ProfileEdit';
-import ProfileAside from '../../components/ProfileAside';
+import ProfileAside from '../../components/aside/ProfileAside';
 import ProfileStyles from '../../stylesheets/ProfileStyles';
 
 import flask from '../../assets/images/flask.png'

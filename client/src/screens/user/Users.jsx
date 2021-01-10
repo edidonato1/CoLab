@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faSearch } from '@fortawesome/free-solid-svg-icons';
 import UserList from '../../stylesheets/UserList';
 import FormStyles from '../../stylesheets/FormStyles';
 
@@ -28,7 +28,6 @@ export default function Users(props) {
         null
     ))
   }, [mediaFilter, users, searchUser, searchByUser, updatedFilter])
-  // users, mediaFilter, searchUser, searchByUser, updatedFilter]
 
   const removeFilter = (idx) => { // removes previously added media added to search
     mediaFilter.splice(idx, 1)
@@ -42,8 +41,13 @@ export default function Users(props) {
         <h1>find users</h1>
         <FormStyles>
           <form className="form-main" id="user-filter" onSubmit={(e) => e.preventDefault()}>
-            <label id="username">search username
-          <input
+            <label
+              className="search"
+              id="username">search username
+                <FontAwesomeIcon
+                id="search-icon"
+                icon={faSearch} />
+              <input
                 name="user-search"
                 id="user-search"
                 type="text"
@@ -52,6 +56,7 @@ export default function Users(props) {
                 onChange={(e) => setSearchUser(e.target.value)}
               />
             </label>
+
             <label> filter by media
               <select
                 defaultValue="default"
@@ -67,7 +72,9 @@ export default function Users(props) {
         </FormStyles>
         <ul className="media-filters">
           {mediaFilter.map((medium, idx) =>
-            <div className="filter-list">
+            <div
+              key={idx}
+              className="filter-list">
               <li className="filter-medium-name">{medium}</li>
               <small className="remove-filter" onClick={() => removeFilter(idx)}>x</small>
             </div>
@@ -81,9 +88,14 @@ export default function Users(props) {
           <></>
         }
         {showUsers?.map(user =>
-          <div className="user-thumbnail">
-            <Link className="user-link" key={user.id} to={`/users/${user.id}`}>
-              <img className="user-thumbnail-img" src={user.img_url ? user.img_url : `https://images.unsplash.com/photo-1569172122301-bc5008bc09c5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60`} />
+          <div
+            key={user.id}
+            className="user-thumbnail">
+            <Link className="user-link"  to={`/users/${user.id}`}>
+              <img
+                alt="user thumbnail"
+                className="user-thumbnail-img"
+                src={user.img_url ? user.img_url : `https://images.unsplash.com/photo-1569172122301-bc5008bc09c5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60`} />
               <span id="thumbnail-username-container">
                 <h3 className="thumbnail-username">{user.username}</h3>
                 {loggedInUser.id === user.id ?
@@ -99,7 +111,7 @@ export default function Users(props) {
                 {user.media.filter(medium =>
                   mediaFilter.includes(medium.name)
                 ).map(medium =>
-                  <li className="matches-li">{medium.name}</li>
+                  <li key={ medium.id }className="matches-li">{medium.name}</li>
                 )}
               </ul>
             </div>

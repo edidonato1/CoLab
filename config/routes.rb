@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   patch 'collaborations/:collaboration_id/users/:id', to: 'users#remove_collaboration'
 
   put 'media/:medium_id/collaborations/:id', to: 'collaborations#add_medium'
+  patch 'media/:medium_id/collaborations/:id', to: 'collaborations#remove_medium'
 
   resources :collaborations do 
     resources :colab_posts

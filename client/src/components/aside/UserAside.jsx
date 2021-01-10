@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import UserAsideStyles from '../stylesheets/UserAside';
+import UserAsideStyles from '../../stylesheets/UserAside';
 
 
 export default function UserAside(props) {

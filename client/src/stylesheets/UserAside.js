@@ -61,12 +61,30 @@ input:focus {
   border-bottom: 2px solid #092741;
 }
 
-// User search for Colab Aside
-
+ // Colab Aside
 
 #add-user {
-  margin: 10px 0;
+  margin: 20px 0 10px 0;
 }
+
+.list-span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+small {
+  cursor: default;
+  margin-right: 8px;
+  
+}
+
+small:hover {
+  color: #E36562;
+}
+
+
+
 .search {
   height: 35px;
   position: relative;

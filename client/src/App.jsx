@@ -50,15 +50,23 @@ function App() {
   }, [])
 
   const handleLogin = async (loginData) => {
-    const userData = await loginUser(loginData);
-    setLoggedInUser(userData);
-    history.push('/');
+    try {
+      const userData = await loginUser(loginData);
+      setLoggedInUser(userData);
+      history.push('/');
+    } catch (e){
+        alert("username or password incorrect")
+    }
   }
 
   const handleRegister = async (registerData) => {
-    const userData = await registerUser(registerData);
-    setLoggedInUser(userData)
-    history.push('/');
+    try {
+      const userData = await registerUser(registerData);
+      setLoggedInUser(userData)
+      history.push('/');
+    } catch (e) {
+      alert("please fill in all the fields")
+    }
   }
 
   const handleLogout = async () => {

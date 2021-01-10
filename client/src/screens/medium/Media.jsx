@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import MediaStyles from '../../stylesheets/MediaStyles';
-import UserAside from '../../components/UserAside';
+import UserAside from '../../components/aside/UserAside';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 

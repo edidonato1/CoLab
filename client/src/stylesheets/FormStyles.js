@@ -69,63 +69,21 @@ a {
 // Create Collaboration Styles
 .colab-create-main {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.user-option {
-  background: white;
-  background: rgba(97, 72, 83, .4);
-  border: 1px solid #092741;
-  margin: 10px 0;
-  padding: 2px 5px;
+#colab-create-title {
+  margin-bottom: 20px;
+  width: 300px;
   text-align: center;
-  cursor: pointer;
-  width: 90%;
 }
 
-.colab-preview {
-  background: lightgreen;
-  width: 500px;
-  height: 300px;
+#colab-create-title:focus {
+  background: white;
+  border-bottom: 2px solid #092741;
+  margin-bottom: 18px;
 }
-
-.media-filters {
-  display: flex;
-}
-
-.filter-list {
-  display: flex;
-  align-items: center;
-  padding: 5px;
-  border: 1px solid rgba(97, 72, 83, .4);;
-  margin: 10px;
-  background: #F1F0F0;
-  width: fit-content;
-  cursor: default;
-}
-
-.filter-list:hover {
-  background: rgba(97, 72, 83, .4);
-  border: 1px solid white;
-}
-
-.remove-filter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 10px;
-  cursor: default;
-  font-weight: 600;
-  font-size: 15px;
-  background: #F1F0F0;
-  padding: 5px;
-  height: 15px;
-  width: 15px;
-}
-
-.remove-filter:hover {
-  color: #E36562;
-}
-
 
 
 @media screen and (max-width: 600px) {

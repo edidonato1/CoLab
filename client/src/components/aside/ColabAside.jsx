@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { getAllUsers } from '../services/users';
-import { addMediumToColab } from '../services/collaborations';
+import { Link } from 'react-router-dom';
+import { addMediumToColab, removeMediumFromColab } from '../../services/collaborations';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import UserAside from '../stylesheets/UserAside';
-import UserInfo from '../components/modal/UserInfo';
+import UserAside from '../../stylesheets/UserAside';
+import UserInfo from '../modal/UserInfo';
 
 
 export default function ColabAside(props) {
@@ -13,11 +12,8 @@ export default function ColabAside(props) {
   const [searchUser, setSearchUser] = useState('');
   const [showUsers, setShowUsers] = useState([]);
   const [open, setOpen] = useState(null);
-  const [update, setUpdate] = useState(false);
 
   const { collaboration, users, media, refresh, setRefresh } = props
-
-  const id = useParams();
 
   useEffect(() => {
     searchUser !== ''
@@ -26,7 +22,7 @@ export default function ColabAside(props) {
         user.username.toLowerCase().includes(searchUser.toLowerCase())))
       :
       setShowUsers([])
-    
+
     if (newMedium) {
       handleAddMedium()
       setNewMedium(null)
@@ -37,13 +33,17 @@ export default function ColabAside(props) {
   const handleAddMedium = async () => {
     const added = await addMediumToColab(newMedium, collaboration.id)
     if (added) {
-      setRefresh(!refresh)
+      setRefresh(!refresh);
     }
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleRemoveMedium = async (medium) => {
+    const deleted = await removeMediumFromColab(medium, collaboration.id)
+    if (deleted) {
+      setRefresh(!refresh);
+    }
   }
+
 
   return (
     <UserAside >
@@ -60,27 +60,39 @@ export default function ColabAside(props) {
         <h4>collaborators</h4>
         <ul>
           {collaboration?.users.map(user =>
-            <li>{user.username}</li>
+            <Link
+              to={`/users/${user.id}`}
+              key={user.id} >
+              <li id="collaborator">{user.username}</li>
+            </Link>
           )}
         </ul>
         <h4>media</h4>
         <ul>
           {collaboration?.media.map(medium =>
-            <li>{medium.name}</li>
+            <div
+              className="list-span"
+              key={medium.name}>
+              <li >{medium.name}</li>
+              <small onClick={(e) => {
+                e.preventDefault();
+                handleRemoveMedium(medium.id);
+              }}>[ x ]</small>
+            </div>
           )}
         </ul>
-        <form onSubmit={handleSubmit}>
+        {/* form to add/remove users or media */}
+        <form >
           <h4>add media</h4>
           <select
             defaultValue="default"
             onChange={(e) => {
               setNewMedium(e.target.value)
-            }}
-          >
-            <option disabled value="default"></option>
+            }}>
+            <option disabled value="default">select media to add</option>
             {media.map(medium =>
               <option
-              value={medium.id}
+                value={medium.id}
                 key={medium.name}>{medium.name}</option>
             )}
           </select>
@@ -103,10 +115,16 @@ export default function ColabAside(props) {
           <ul id="user-options">
             {showUsers?.map(user =>
               <li
+                key={user.id}
                 className="user-option"
                 onClick={() => setOpen(user)}
               >{user.username}</li>
             )}
+            {searchUser.length && !showUsers.length ?
+              <li>no users match</li>
+              :
+              <></>
+            }
           </ul>
         </div>
       </div>

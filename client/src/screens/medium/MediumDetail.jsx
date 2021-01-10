@@ -4,7 +4,7 @@ import { getOneMedium } from '../../services/media'
 import MediumStyles from '../../stylesheets/MediumStyles';
 import PostCreate from './post/PostCreate';
 import PostDetail from './post/PostDetail';
-import UserAside from '../../components/UserAside';
+import UserAside from '../../components/aside/UserAside';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 

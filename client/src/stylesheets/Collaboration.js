@@ -9,15 +9,21 @@ overflow: hidden;
 
 }
 
+#colab-page-title {
+  text-align: center;
+}
+
+#colab-title {
+  font-size: 50px;
+}
+
 .header-container {
   display: flex;
   width: 90%;
   min-width: 800px;
   height: 300px;
   background-size: cover;
-  justify-content: space-evenly;
-  align-items: center;
-  
+  justify-content: center;
   border-radius: 5px;
   margin: 0 auto;
   margin-top: 30px;
@@ -27,7 +33,6 @@ overflow: hidden;
 .title-user-pics {
   display: flex; 
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   color: #E36562;
   min-width: 300px;
@@ -53,6 +58,7 @@ overflow: hidden;
   width: 100px;
   object-fit: cover;
   border-radius: 50%;
+  margin: 10px;
 }
 
 .create-post {

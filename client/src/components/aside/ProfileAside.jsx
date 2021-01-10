@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
-import UserAsideStyles from '../stylesheets/UserAside';
-import Logout from '../components/modal/Logout';
+import UserAsideStyles from '../../stylesheets/UserAside';
+import Logout from '../modal/Logout';
 
 
 export default function ProfileAside(props) {
@@ -37,7 +37,7 @@ export default function ProfileAside(props) {
         <h4>your collaborations</h4>
         <ul>
           {loggedInUser?.collaborations.map(colab =>
-            <Link to={`/collaborations/${colab.id}`}>
+            <Link key={ colab.id} to={`/collaborations/${colab.id}`}>
               <li>{colab.title}</li>
             </Link>
           )}

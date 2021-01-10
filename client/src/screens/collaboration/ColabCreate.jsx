@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { createCollaboration, addUserToColab, addMediumToColab, getOneCollaboration } from '../../services/collaborations';
+import { createCollaboration, addUserToColab } from '../../services/collaborations';
 import FormStyles from '../../stylesheets/FormStyles';
 
 
 export default function ColabCreate(props) {
-  const { loggedInUser, media, users, collaborator } = props;
+  const { collaborator } = props;
 
   const [colabId, setColabId] = useState(null)
   const [created, setCreated] = useState(false);
-  // const [showUsers, setShowUsers] = useState([]);
-  const [searchUser, setSearchUser] = useState('');
   const [formData, setFormData] = useState({
     title: '',
     status: 1,
@@ -26,16 +24,19 @@ export default function ColabCreate(props) {
   useEffect(() => {
     const addUser = async () => {
       await addUserToColab(collaborator.id, colabId)
-      setCreated(true)
+      setCreated(!created)
     }
     if (colabId) {
       if (collaborator) {
-          addUser();
-          history.push(`/collaborations/${colabId}`)
-        }
-       else {
+        addUser();
         history.push(`/collaborations/${colabId}`)
       }
+      else {
+        history.push(`/collaborations/${colabId}`)
+      }
+    }
+    return function cleanup() {
+      setCreated(!created)
     }
   }, [colabId])
 
@@ -47,32 +48,31 @@ export default function ColabCreate(props) {
     }))
   }
 
-  // const removeFilter = (field, idx) => { // removes item from formData, taking 'field' as argument to target key value pair
-  //   formData[field].splice(idx, 1)
-  //   setRefresh(!refresh);
-  // }
 
   return (
 
     <FormStyles>
-      <h1>new collaboration</h1>
-      <div className="colab-create-main">
-        <form onSubmit={(e => {
-          e.preventDefault();
-          colabCreate()
-        })}>
-          <label> title
+      <h1>new collaboration with <span >{collaborator.username}</span></h1>
+      <div >
+        <form
+          className="colab-create-main"
+          onSubmit={(e => {
+            e.preventDefault();
+            colabCreate()
+          })}>
           <input
-              type="text"
-              name="title"
-              value={formData.title}
-              onChange={handleChange}
-            />
-          </label>
-         
-            <div>
-              <button type="submit">create</button>
-            </div>
+            id="colab-create-title"
+            type="text"
+            name="title"
+            value={formData.title}
+            placeholder="name your collaboration"
+            onChange={handleChange}
+            maxLength="25"
+            autoFocus
+          />
+          <div>
+            <button type="submit">create</button>
+          </div>
         </form>
       </div>
     </FormStyles >

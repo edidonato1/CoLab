@@ -29,3 +29,8 @@ export const addColabToUser = async (collaborationId, userId) => {
   const resp = await api.put(`/collaborations/${collaborationId}/users/${userId}`)
   return resp.data;
 }
+
+export const removeMediumFromColab = async (mediumId, collaborationId) => {
+  const resp = await api.patch(`/media/${mediumId}/collaborations/${collaborationId}`)
+  return resp.data;
+}

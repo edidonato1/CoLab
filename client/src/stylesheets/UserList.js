@@ -13,6 +13,32 @@ flex-direction: column;
   padding-bottom: ${({mediaFilter}) => (mediaFilter.length ? "0px" : "55px")}
 }
 
+.search {
+  position: relative;
+  display: flex;
+  justify-content: space-between;;
+  width: 100%;
+  margin-top: 0;
+}
+
+#search-icon {
+  position: absolute;
+  left: 148px;
+  padding: 10px 5px;
+  z-index: 1;
+}
+
+#user-search {
+  padding-left: 30px;
+  width: 65%;
+}
+
+#user-search:focus {
+  background: white;
+  border-bottom: 2px solid #092741;
+  margin-bottom: -2px;
+}
+
 .show-users-container {
   display: flex;
   flex-direction: column;

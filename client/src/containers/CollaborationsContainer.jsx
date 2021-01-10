@@ -1,11 +1,12 @@
 import { Route, Switch, useHistory } from 'react-router-dom';
 import Collaboration from '../screens/collaboration/Collaboration';
 import ColabCreate from '../screens/collaboration/ColabCreate';
+import { getAllUsers } from '../services/users';
 // import { createCollaboration } from '../services/collaborations'; 
 
 export default function CollaborationsContainer(props) {
-  const { loggedInUser, media, users} = props
-
+  const { loggedInUser, media, users, collaborator } = props
+  
 
   
   return (
@@ -13,6 +14,7 @@ export default function CollaborationsContainer(props) {
       <Route path="/collaborations/create">
         <ColabCreate
           // colabCreate={colabCreate}
+          collaborator={collaborator}
           loggedInUser={loggedInUser}
           users={users}
           media={media}

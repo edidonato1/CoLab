@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 import { getOneUser } from '../../services/users';
 import UserStyles from '../../stylesheets/UserDetail';
 
-export default function UserDetail({loggedInUser}) {
+export default function UserDetail(props) {
   const [user, setUser] = useState(null);
 
+  const { loggedInUser, collaborator, setCollaborator } = props
+
   const { id } = useParams();
+
+  const history = useHistory();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -28,6 +32,13 @@ export default function UserDetail({loggedInUser}) {
         <p className="profile-text">  {user?.bio}</p>
         <h3>collaborations: </h3>
         <p className="profile-text">{user?.collaborations.length}</p>
+        <button
+          onClick={() => {
+            setCollaborator(user)
+            history.push('/collaborations/create')
+          }
+          }
+        >collaborate with {user?.username}</button>
         <h3>media: </h3>
         <ul className='profile-text'>
           {user?.media?.map(medium =>

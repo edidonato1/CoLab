@@ -3,7 +3,7 @@ import Users from '../screens/user/Users';
 import UserDetail from '../screens/user/UserDetail';
 
 export default function UsersContainer(props) {
-  const { media, loggedInUser, users, setUsers } = props;
+  const { media, loggedInUser, users, setCollaborator } = props;
 
 
   return (
@@ -17,6 +17,7 @@ export default function UsersContainer(props) {
       </Route>
       <Route path="/users/:id">
         <UserDetail
+          setCollaborator={setCollaborator}
           loggedInUser={loggedInUser}
         />
       </Route>

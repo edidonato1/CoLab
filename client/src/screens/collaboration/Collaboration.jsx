@@ -38,12 +38,17 @@ export default function Collaboration(props) {
       />
       {!createPost ?
         <div className="main-div">
-
+          <h1>collaboration</h1>
           <div className="header-container">
             <img className="media-images" src={collaboration?.media[0]?.img_url} />
             <div className="title-user-pics">
               <h1>{collaboration?.title}</h1>
               <div className="collaborator-pics">
+                {/* <img
+                  alt="main user"
+                  className="collaborator-image-small"
+                  src={collaboration?.user.img_url}
+                /> */}
                 {collaboration?.users.map(user =>
                   <img
                     alt="user image"

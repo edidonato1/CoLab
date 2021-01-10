@@ -5,7 +5,7 @@ import FormStyles from '../../stylesheets/FormStyles';
 
 
 export default function ColabCreate(props) {
-  const { loggedInUser, media, users } = props;
+  const { loggedInUser, media, users, collaborator } = props;
 
   const [colabId, setColabId] = useState(null)
   const [created, setCreated] = useState(false);
@@ -25,14 +25,19 @@ export default function ColabCreate(props) {
 
   useEffect(() => {
     const addUser = async () => {
-      await addUserToColab(loggedInUser.id, colabId)
+      await addUserToColab(collaborator.id, colabId)
       setCreated(true)
     }
     if (colabId) {
-      addUser();
-      history.push(`/collaborations/${colabId}`)
+      if (collaborator) {
+          addUser();
+          history.push(`/collaborations/${colabId}`)
+        }
+       else {
+        history.push(`/collaborations/${colabId}`)
+      }
     }
-  }, [colabId,])
+  }, [colabId])
 
   const handleChange = (e) => {
     const { name, value } = e.target;

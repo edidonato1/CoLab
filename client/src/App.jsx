@@ -16,6 +16,7 @@ import './App.css';
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(null);
+  const [collaborator, setCollaborator] = useState(null);;
   const [media, setMedia] = useState([]);
   const [users, setUsers] = useState([]);
   const [updated, setUpdated] = useState(false);
@@ -94,6 +95,8 @@ function App() {
         </Route>
         <Route path='/users'>
           <UsersContainer
+            collaborator={collaborator}
+            setCollaborator={setCollaborator}
             users={users}
             setUsers={setUsers}
             media={media}
@@ -101,6 +104,7 @@ function App() {
         </Route>
         <Route path="/collaborations">
           <CollaborationsContainer
+            collaborator={collaborator}
             users={users}
             loggedInUser={loggedInUser}
             media={media} />

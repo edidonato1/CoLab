@@ -27,7 +27,7 @@ export default function Users(props) {
         :
         null
     ))
-  }, [mediaFilter, users])
+  }, [mediaFilter, users, searchUser, searchByUser, updatedFilter])
   // users, mediaFilter, searchUser, searchByUser, updatedFilter]
 
   const removeFilter = (idx) => { // removes previously added media added to search
@@ -35,12 +35,6 @@ export default function Users(props) {
     setMediaFilter(mediaFilter)
     setUpdatedFilter(!updatedFilter);
   }
-
-  // to collaborate, logged in user clicks a button on user's profile that takes you to a 
-  // create collaboration page.  on that page, the user can choose the media, and from a 
-  // select menu they can add more users.  The users's id, who they clicked to start the
-  // collaboration will be stored in state and will be set to the initial state in the form of users 
-  // to add to the collaboration
 
   return (
     <UserList mediaFilter={mediaFilter}>

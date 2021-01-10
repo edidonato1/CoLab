@@ -13,7 +13,9 @@ export default function UserInfo(props) {
   // the user's info into that variable.  
 
   const collaborate = async () => {
-    await (addUserToColab(currentUser.id, collaboration.id));
+    if (collaboration.users.filter(user => user.id === currentUser.id).length === 0) {
+      await (addUserToColab(currentUser.id, collaboration.id));
+    }
   }
 
   return (
@@ -28,7 +30,9 @@ export default function UserInfo(props) {
           </div>
           <form>
             <div className="confirm">
-              <button onClick={() => collaborate()}
+              <button onClick={() => 
+                collaborate()
+              }
                 className="confirm-button"
                 id="collaborate-confirm">collaborate</button>
               <button onClick={(e) => {

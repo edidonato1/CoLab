@@ -5,12 +5,20 @@ overflow: hidden;
 
 .main-div{
   margin-left: 270px;
-  min-width: 800px;
-
+  min-width: 600px;
+  height: 100vh;
 }
 
 #colab-page-title {
   text-align: center;
+}
+
+#show-dash {
+  display: none;
+}
+
+#mobile-colab-title {
+  display: none;
 }
 
 #colab-title {
@@ -20,7 +28,7 @@ overflow: hidden;
 .header-container {
   display: flex;
   width: 90%;
-  min-width: 800px;
+  min-width: 300px;
   height: 300px;
   background-size: cover;
   justify-content: center;
@@ -135,6 +143,48 @@ padding: 0 15px;
 small {
   font-style: italic;
 
+}
+
+@media screen and (max-width: 850px) {
+  min-width: 300px;
+
+  .create-post-container {
+    flex-direction: column;
+  }
+
+  .main-div {
+    min-width: 400px;
+  }
+
+  .header-container {
+    min-width: 300px;
+  }
+
+  #colab-title {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main-div {
+    margin-left: 0;
+    margin-bottom: 120px;
+  }
+
+  #show-dash {
+  display: flex;
+  margin: 0 auto;
+  }
+
+  #colab-aside {
+    display: none;
+  }
+
+
+
+  #user-search {
+
+  }
 }
 
 

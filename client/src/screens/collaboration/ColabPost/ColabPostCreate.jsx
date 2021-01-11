@@ -9,7 +9,7 @@ export default function ColabPostCreate(props) {
     user_id: Number(loggedInUser?.id),
     collaboration_id: Number(collaboration?.id)
   })
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -28,7 +28,10 @@ export default function ColabPostCreate(props) {
   return (
     <FormStyles>
       <p className="go-back" onClick={() => setCreatePost(!createPost)}>{goBack}</p>
-        <form className="form-main" onSubmit={(e) => {
+      <form
+        id="create-colab-post"
+        className="form-main"
+        onSubmit={(e) => {
           e.preventDefault();
           handleSubmit()
         }}>
@@ -44,7 +47,7 @@ export default function ColabPostCreate(props) {
           <div className="button-box">
             <button type="submit">post</button>
           </div>
-        </form>
+      </form>
     </FormStyles>
   )
 }

@@ -123,7 +123,6 @@ small:hover {
 }
 
 
-
 select:hover {
   background: rgba(97, 72, 83, .7);
 }
@@ -152,6 +151,8 @@ button {
   width: 100%;
   background: #F1F0F0;;
   
+
+
   .profile-title {
     background: white;
   }
@@ -178,6 +179,24 @@ button {
     padding-top: 20px;
     padding-bottom: 20px;
   }
+
+  .search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  #search-icon {
+    position: absolute;
+    left: 5px;
+  }
+
+  #searched-users {
+
+  }
+
+
 
 }
 

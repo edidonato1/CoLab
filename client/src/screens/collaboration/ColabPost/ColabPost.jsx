@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getOneUser } from '../../../services/users';
 import { updateCreatedAt } from '../../../utils/stringFunctions';
+import { destroyColabPost } from '../../../services/colabPosts';
 
 export default function ColabPost(props) {
   const [user, setUser] = useState({})

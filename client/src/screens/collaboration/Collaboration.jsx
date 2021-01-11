@@ -12,6 +12,7 @@ export default function Collaboration(props) {
   const [collaboration, setCollaboration] = useState(null);
   const [refresh, setRefresh] = useState(false);
   const [createPost, setCreatePost] = useState(false);
+  const [showDash, setShowDash] = useState(false);
 
   const { id } = useParams();
 
@@ -29,26 +30,36 @@ export default function Collaboration(props) {
 
   return (
     <ColabStyles>
-      <ColabAside
-        media={media}
-        users={users}
-        collaboration={collaboration}
-        refresh={refresh}
-        setRefresh={setRefresh}
-      />
+      <h1 id="colab-page-title">collaboration</h1>
+      <button
+        onClick={() => setShowDash(!showDash)}
+        id="show-dash">{showDash ? "hide dashboard" : "show dashboard"}</button>
+      {showDash ?
+        <ColabAside
+          media={media}
+          users={users}
+          collaboration={collaboration}
+          refresh={refresh}
+          setRefresh={setRefresh}
+        />
+        :
+        <></>
+      }
+      <div id="colab-aside">
+        <ColabAside
+          media={media}
+          users={users}
+          collaboration={collaboration}
+          refresh={refresh}
+          setRefresh={setRefresh}
+        />
+      </div>
       {!createPost ?
         <div className="main-div">
-          <h1 id="colab-page-title">collaboration</h1>
-          <div className="header-container">
-            {/* <img className="media-images" src={collaboration?.media[0]?.img_url} /> */}
+          <div className="header-container" >
             <div className="title-user-pics">
               <h1 id="colab-title">{collaboration?.title}</h1>
               <div className="collaborator-pics">
-                {/* <img
-                  alt="main user"
-                  className="collaborator-image-small"
-                  src={collaboration?.user.img_url}
-                /> */}
                 {collaboration?.users.map(user =>
                   <img
                     key={user.id}
@@ -58,7 +69,6 @@ export default function Collaboration(props) {
                 )}
               </div>
             </div>
-            {/* <img className="media-images" src={collaboration?.media[1]?.img_url} /> */}
           </div>
           <div className="create-post-container">
             <h3>{collaboration?.colab_posts.length} posts</h3>
@@ -75,11 +85,13 @@ export default function Collaboration(props) {
           </div>
           <div className="colab-posts-container">
             {collaboration && collaboration.colab_posts.map(post =>
-              <ColabPost
-                userId={post.user_id}
-                content={post.content}
-                createdAt={post.created_at}
-              />
+              <div key={post.created_at}>
+                <ColabPost
+                  userId={post.user_id}
+                  content={post.content}
+                  createdAt={post.created_at}
+                />
+              </div>
             ).reverse()}
           </div>
         </div>

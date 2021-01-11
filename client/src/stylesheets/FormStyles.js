@@ -25,6 +25,10 @@ h1 {
   box-shadow: 2px 2px 2px 2px #61485380;
 }
 
+#create-colab-post {
+  
+}
+
 input {
   min-width: 150px;
   width: 70%;

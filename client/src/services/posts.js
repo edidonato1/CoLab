@@ -2,10 +2,12 @@ import api from './apiConfig'
 
 export const getAllPosts = async (mediumId) => {
   const resp = await api.get(`/media/${mediumId}/posts/`);
+  return resp.data;
 }
 
 export const getOnePost = async (id) => {
   const resp = await api.get(`/posts/${id}`)
+  return resp.data;
 }
 
 export const addPost = async (mediumId, postData) => {

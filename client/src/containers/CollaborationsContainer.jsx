@@ -1,4 +1,4 @@
-import { Route, Switch, useHistory } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Collaboration from '../screens/collaboration/Collaboration';
 import ColabCreate from '../screens/collaboration/ColabCreate';
 import { getAllUsers } from '../services/users';
@@ -13,7 +13,6 @@ export default function CollaborationsContainer(props) {
     <Switch>
       <Route path="/collaborations/create">
         <ColabCreate
-          // colabCreate={colabCreate}
           collaborator={collaborator}
           loggedInUser={loggedInUser}
           users={users}

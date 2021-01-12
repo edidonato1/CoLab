@@ -38,7 +38,7 @@ export default function ColabCreate(props) {
     return function cleanup() {
       setCreated(!created)
     }
-  }, [colabId, collaborator])
+  }, [colabId, collaborator, created, history])
 
   const handleChange = (e) => {
     const { name, value } = e.target;

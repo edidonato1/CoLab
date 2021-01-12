@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import FormStyles from '../../../stylesheets/FormStyles';
 import { addColabPost } from '../../../services/colabPosts';
 
@@ -23,11 +23,9 @@ export default function ColabPostCreate(props) {
     setCreatePost(!createPost);
   }
 
-  const goBack = `<< back`
-
   return (
     <FormStyles>
-      <p className="go-back" onClick={() => setCreatePost(!createPost)}>{goBack}</p>
+      <p className="go-back" onClick={() => setCreatePost(!createPost)}>{"<<"} go back</p>
       <form
         id="create-colab-post"
         className="form-main"

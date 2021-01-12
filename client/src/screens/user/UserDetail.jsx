@@ -18,12 +18,12 @@ export default function UserDetail(props) {
       setUser(userData);
     }
     fetchUser();
-  },[id])
+  }, [id])
 
   return (
     <UserStyles >
       <div className="title-div">
-        <Link to="/users"> {"<<"} browse users</Link>
+        <Link to="/users"><p>{"<<"} back to user index</p> </Link>
         <h1 className="username">{user?.username}'s profile</h1>
         <img alt={user?.username} className="profile-image" src={user?.img_url ? user.img_url : `https://images.unsplash.com/photo-1569172122301-bc5008bc09c5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60`} />
       </div>
@@ -32,17 +32,17 @@ export default function UserDetail(props) {
         <p className="profile-text">  {user?.bio}</p>
         <h3>collaborations: </h3>
         <p className="profile-text">{user?.collaborations.length}</p>
-        {user?.id !== loggedInUser?.id ? 
-        <button
-          onClick={() => {
-            setCollaborator(user)
-            history.push('/collaborations/create')
-          }
-          }
-        >collaborate with {user?.username}</button>
-          : 
+        {user?.id !== loggedInUser?.id ?
+          <button
+            onClick={() => {
+              setCollaborator(user)
+              history.push('/collaborations/create')
+            }
+            }
+          >collaborate with {user?.username}</button>
+          :
           <></>
-      }
+        }
         <h3>media: </h3>
         <ul className='profile-text'>
           {user?.media?.map(medium =>

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getOneUser } from '../../../services/users';
 import { updateCreatedAt } from '../../../utils/stringFunctions';
-import { destroyColabPost } from '../../../services/colabPosts';
 
 export default function ColabPost(props) {
   const [user, setUser] = useState({})
@@ -14,13 +13,13 @@ export default function ColabPost(props) {
       setUser(userData);
     }
     fetchUser();
-  }, [])
+  }, [userId])
 
   return (
     <div className="colab-post">
       <div className="post-top">
         <img
-          alt="user image"
+          alt="user"
           className="post-user-image"
           src={user.img_url} />
         <h3 className="username">{user.username}</h3>

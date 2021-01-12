@@ -28,8 +28,8 @@ export default function ColabCreate(props) {
     }
     if (colabId) {
       if (collaborator) {
-        addUser();
-        history.push(`/collaborations/${colabId}`)
+        addUser(); // initialize users array with selected user (collaborator)
+        history.push(`/collaborations/${colabId}`) // redirect to newly created collaboration
       }
       else {
         history.push(`/collaborations/${colabId}`)
@@ -38,7 +38,7 @@ export default function ColabCreate(props) {
     return function cleanup() {
       setCreated(!created)
     }
-  }, [colabId])
+  }, [colabId, collaborator])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -48,11 +48,14 @@ export default function ColabCreate(props) {
     }))
   }
 
-
   return (
 
     <FormStyles>
-      <h1>new collaboration with <span >{collaborator.username}</span></h1>
+      <div onClick={() => history.goBack()}>
+        <p className="go-back">{"<<"} back to {collaborator?.username}'s profile</p>
+      </div>
+      <br />
+      <h1>new collaboration with <span >{collaborator?.username}</span></h1>
       <div >
         <form
           className="colab-create-main"
@@ -69,6 +72,7 @@ export default function ColabCreate(props) {
             onChange={handleChange}
             maxLength="25"
             autoFocus
+            required
           />
           <div>
             <button type="submit">create</button>

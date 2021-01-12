@@ -187,7 +187,6 @@ ul {
   flex-direction: column;
 }
 
-
 #search-icon {
   left: 42px;
   top: 25px;
@@ -202,7 +201,7 @@ ul {
 
 .show-users-container {
   margin-top: 20px;
-  width: initial;
+  min-width: 300px;
   margin-bottom: 100px;
 }
 

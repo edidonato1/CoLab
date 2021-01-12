@@ -5,6 +5,12 @@ display: flex;
 flex-direction: column;
 align-items: center;
 
+.go-back {
+  color: #092741;
+  width: 100%;
+  text-align: center;
+}
+
 h1 {
   color: #E36562;
   text-align: center;

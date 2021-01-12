@@ -37,10 +37,12 @@ export default function Collaboration(props) {
   return (
     <ColabStyles>
       <h1 id="colab-page-title">collaboration</h1>
-      <button
-        onClick={() => setShowDash(!showDash)}
-        id="show-dash">{showDash ? "hide dashboard" : "show dashboard"}</button>
-      {showDash ?
+      { createPost ? <></> :
+          <button
+            onClick={() => setShowDash(!showDash)}
+          id="show-dash">{showDash ? "hide dashboard" : "show dashboard"}</button>
+      }
+      {!showDash ?     <></> :
         <ColabAside
           primaryUser={primaryUser}
           media={media}
@@ -49,8 +51,6 @@ export default function Collaboration(props) {
           refresh={refresh}
           setRefresh={setRefresh}
         />
-        :
-        <></>
       }
       <div id="colab-aside">
         <ColabAside
@@ -69,14 +69,14 @@ export default function Collaboration(props) {
               <h1 id="colab-title">{collaboration?.title}</h1>
               <div className="collaborator-pics">
                 <img
-                  alt="user image"
+                  alt="user"
                   className="collaborator-image-small"
                   src={primaryUser?.img_url}
                 />
                 {collaboration?.users.map(user =>
                   <img
                     key={user.id}
-                    alt="user image"
+                    alt="user"
                     className="collaborator-image-small"
                     src={user.img_url ? user.img_url : `https://images.unsplash.com/photo-1569172122301-bc5008bc09c5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60`} />
                 )}

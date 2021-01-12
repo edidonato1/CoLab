@@ -57,7 +57,7 @@ export default function Users(props) {
               />
             </label>
 
-            <label> filter by media
+            <label className="search"> filter by media
               <select
                 defaultValue="default"
                 id="user-media-filter"

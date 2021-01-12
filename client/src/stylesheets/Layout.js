@@ -97,6 +97,7 @@ button:focus {
   width: 100vw;
   justify-content: center;
 
+
 nav {
   position: fixed;
   bottom: 0;  

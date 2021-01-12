@@ -96,6 +96,8 @@ flex-direction: column;
 
 .media-filters {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 select {
@@ -173,6 +175,42 @@ ul {
   background: #F9EAE7;
   padding: 0px 3px;
   margin: 0px 5px;
+}
+
+@media screen and (max-width: 600px) {
+
+#user-filter {
+    width: 95%;
+    height: fit-content;
+  }
+.search {
+  flex-direction: column;
+}
+
+
+#search-icon {
+  left: 42px;
+  top: 25px;
+  padding: 10px 5px;
+  z-index: 1;
+}
+
+#user-search {
+  padding-left: 30px;
+  width: 65%;
+}
+
+.show-users-container {
+  margin-top: 20px;
+  width: initial;
+  margin-bottom: 100px;
+}
+
+.user-thumbnail {
+  width: 100%;
+
+}
+
 }
 
 `

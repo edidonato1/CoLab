@@ -6,15 +6,15 @@ import Styled from './ModalStyles';
 export default function UserInfo(props) {
   const history = useHistory();
 
-  const { open, setOpen, collaboration } = props;
-  const currentUser = open;
+  const { open, setOpen, collaboration, setColabConfirm, collaborator } = props;
+
   // "open" is used as a boolean variable for the ModalStyles stylesheet
   // Giving it value toggles display of modal -- in this case we are piggybacking
   // the user's info into that variable.  
 
   const collaborate = async () => {
-    if (collaboration.users.filter(user => user.id === currentUser.id).length === 0) {
-      await (addUserToColab(currentUser.id, collaboration.id));
+    if (collaboration.users.filter(user => user.id === collaborator.id).length === 0) {
+      await (addUserToColab(collaborator.id, collaboration.id));
     }
   }
 
@@ -23,10 +23,10 @@ export default function UserInfo(props) {
       <div className="modal-parent">
         <div className="modal">
           <div className="modal-user">
-            <img className="collaborator-image-small" src={currentUser.img_url} />
+            <img className="collaborator-image-small" src={collaborator.img_url} />
             <h4
-              onClick={() => history.push(`/users/${currentUser.id}`)}
-              id="modal-username">{currentUser.username}</h4>
+              onClick={() => history.push(`/users/${collaborator.id}`)}
+              id="modal-username">{collaborator.username}</h4>
           </div>
           <form>
             <div className="confirm">
@@ -37,7 +37,8 @@ export default function UserInfo(props) {
                 id="collaborate-confirm">collaborate</button>
               <button onClick={(e) => {
                 e.preventDefault();
-                setOpen(null)
+                setOpen(false);
+                setTimeout((() => setColabConfirm(false)), 500)
               }} className="confirm-button" id="cancel-delete">back</button>
             </div>
           </form>

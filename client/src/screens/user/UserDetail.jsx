@@ -6,7 +6,7 @@ import UserStyles from '../../stylesheets/UserDetail';
 export default function UserDetail(props) {
   const [user, setUser] = useState(null);
 
-  const { loggedInUser, collaborator, setCollaborator } = props
+  const { loggedInUser, setCollaborator } = props
 
   const { id } = useParams();
 
@@ -18,14 +18,14 @@ export default function UserDetail(props) {
       setUser(userData);
     }
     fetchUser();
-  }, [])
+  },[id])
 
   return (
     <UserStyles >
       <div className="title-div">
-        <Link to="/users"> {"<<"} back to users</Link>
+        <Link to="/users"> {"<<"} browse users</Link>
         <h1 className="username">{user?.username}'s profile</h1>
-        <img className="profile-image" src={user?.img_url ? user.img_url : `https://images.unsplash.com/photo-1569172122301-bc5008bc09c5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60`} />
+        <img alt={user?.username} className="profile-image" src={user?.img_url ? user.img_url : `https://images.unsplash.com/photo-1569172122301-bc5008bc09c5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60`} />
       </div>
       <div className="below-title">
         <h3> bio: </h3>
@@ -46,7 +46,7 @@ export default function UserDetail(props) {
         <h3>media: </h3>
         <ul className='profile-text'>
           {user?.media?.map(medium =>
-            <li >{medium.name}</li>
+            <li key={medium.name}>{medium.name}</li>
           )}
         </ul>
       </div>

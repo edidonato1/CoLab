@@ -7,7 +7,6 @@ display: flex;
 flex-direction: column;
 background: #F9EAE7;
 width: 250px;
-/* height: 70vh; */
 
 
 
@@ -139,7 +138,7 @@ select:focus {
 
 .button-box {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-evenly;
 }
 
 button {
@@ -149,7 +148,8 @@ button {
 @media screen and (max-width: 600px) {
   position: initial;
   width: 100%;
-  background: #F1F0F0;;
+  background: #F1F0F0;
+  margin-bottom: 100px;
   
 
 
@@ -187,16 +187,19 @@ button {
     width: 100%;
   }
 
+  .searched-users {
+    width: 100%;
+    overflow-y: scroll;
+  }
+
   #search-icon {
     position: absolute;
     left: 5px;
   }
 
-  #searched-users {
-
+  #user-options {
+    width: 100%;
   }
-
-
 
 }
 

@@ -11,7 +11,9 @@ export default function ColabAside(props) {
   const [newMedium, setNewMedium] = useState(null)
   const [searchUser, setSearchUser] = useState('');
   const [showUsers, setShowUsers] = useState([]);
-  const [open, setOpen] = useState(null);
+  const [collaborator, setCollaborator] = useState({})
+  const [open, setOpen] = useState(false);
+  const [colabConfirm, setColabConfirm] = useState(false);
 
   const { collaboration, users, media, refresh, setRefresh, primaryUser } = props
 
@@ -46,9 +48,11 @@ export default function ColabAside(props) {
 
 
   return (
-    <UserAside >
-      {open ?
+    <UserAside>
+      {colabConfirm ?
         <UserInfo
+          collaborator={collaborator}
+          setColabConfirm={setColabConfirm}
           collaboration={collaboration}
           open={open}
           setOpen={setOpen}
@@ -108,7 +112,6 @@ export default function ColabAside(props) {
               id="search-icon"
               icon={faSearch} />
             <input
-              name="user-search"
               id="user-search"
               type="text"
               value={searchUser}
@@ -123,7 +126,13 @@ export default function ColabAside(props) {
               <li
                 key={user.id}
                 className="user-option"
-                onClick={() => setOpen(user)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setColabConfirm(true);
+                  setCollaborator(user);
+                  setTimeout((() => setOpen(true)), 200);
+                }
+                }
               >{user.username}</li>
             )}
             {searchUser.length && !showUsers.length ?

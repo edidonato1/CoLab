@@ -164,11 +164,9 @@ input:focus {
 
 textarea {
   border: none;
-  resize: vertical;
+  resize: none;
   width: 100%;
-  min-height: 100px;
-  max-height: 220px;
-  height: 100px;
+  height: 215px;
 }
 
 .medium-list {

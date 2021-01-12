@@ -6,7 +6,7 @@ overflow: hidden;
 .main-div{
   margin-left: 270px;
   min-width: 600px;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 #colab-page-title {

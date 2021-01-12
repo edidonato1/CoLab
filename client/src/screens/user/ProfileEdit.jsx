@@ -53,7 +53,7 @@ export default function ProfileEdit(props) {
         :
         <h2 id="update-title">edit profile</h2>
       }
-      <p className="go-back" onClick={() => setEditProfile(false)}>{goBack}</p>
+      <p className="go-back" onClick={() => setEditProfile(false)}>{"<<"} go back</p>
       <div className="edit-profile-main">
         <form onSubmit={(e) => {
           e.preventDefault();

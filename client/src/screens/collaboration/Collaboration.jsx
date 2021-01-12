@@ -20,11 +20,6 @@ export default function Collaboration(props) {
   const { loggedInUser, media, users } = props;
 
   useEffect(() => {
-    setPrimaryUser(users?.find(user => user.id === collaboration.user_id))
-
-  },[collaboration, users])
-
-  useEffect(() => {
     const fetchCollaboration = async () => {
       const collabData = await getOneCollaboration(id);
       setCollaboration(collabData);
@@ -32,6 +27,11 @@ export default function Collaboration(props) {
 
     fetchCollaboration()
   }, [id, createPost, refresh])
+
+  useEffect(() => {
+    setPrimaryUser(users?.find(user => user?.id === collaboration?.user_id))
+
+  },[collaboration, users])
 
 
   return (

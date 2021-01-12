@@ -91,14 +91,14 @@ export default function Users(props) {
           <div
             key={user.id}
             className="user-thumbnail">
-            <Link className="user-link"  to={`/users/${user.id}`}>
+            <Link className="user-link"  to={`/users/${user?.id}`}>
               <img
                 alt="user thumbnail"
                 className="user-thumbnail-img"
-                src={user.img_url ? user.img_url : `https://images.unsplash.com/photo-1569172122301-bc5008bc09c5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60`} />
+                src={user?.img_url ? user.img_url : `https://images.unsplash.com/photo-1569172122301-bc5008bc09c5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60`} />
               <span id="thumbnail-username-container">
-                <h3 className="thumbnail-username">{user.username}</h3>
-                {loggedInUser.id === user.id ?
+                <h3 className="thumbnail-username">{user?.username}</h3>
+                {loggedInUser?.id === user.id ?
                   <FontAwesomeIcon className="icon" icon={faStar} />
                   :
                   <></>

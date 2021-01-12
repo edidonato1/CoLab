@@ -3,7 +3,7 @@ import ColabPost from './ColabPost/ColabPost';
 import ColabPostCreate from './ColabPost/ColabPostCreate';
 import ColabStyles from '../../stylesheets/Collaboration';
 import ColabAside from '../../components/aside/ColabAside';
-import { Link, useParams, Redirect } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { getOneCollaboration } from '../../services/collaborations';
@@ -13,10 +13,16 @@ export default function Collaboration(props) {
   const [refresh, setRefresh] = useState(false);
   const [createPost, setCreatePost] = useState(false);
   const [showDash, setShowDash] = useState(false);
+  const [primaryUser, setPrimaryUser] = useState('')
 
   const { id } = useParams();
 
   const { loggedInUser, media, users } = props;
+
+  useEffect(() => {
+    setPrimaryUser(users?.find(user => user.id === collaboration.user_id))
+
+  },[collaboration, users])
 
   useEffect(() => {
     const fetchCollaboration = async () => {
@@ -36,6 +42,7 @@ export default function Collaboration(props) {
         id="show-dash">{showDash ? "hide dashboard" : "show dashboard"}</button>
       {showDash ?
         <ColabAside
+          primaryUser={primaryUser}
           media={media}
           users={users}
           collaboration={collaboration}
@@ -48,6 +55,7 @@ export default function Collaboration(props) {
       <div id="colab-aside">
         <ColabAside
           media={media}
+          primaryUser={primaryUser}
           users={users}
           collaboration={collaboration}
           refresh={refresh}
@@ -60,6 +68,11 @@ export default function Collaboration(props) {
             <div className="title-user-pics">
               <h1 id="colab-title">{collaboration?.title}</h1>
               <div className="collaborator-pics">
+                <img
+                  alt="user image"
+                  className="collaborator-image-small"
+                  src={primaryUser?.img_url}
+                />
                 {collaboration?.users.map(user =>
                   <img
                     key={user.id}

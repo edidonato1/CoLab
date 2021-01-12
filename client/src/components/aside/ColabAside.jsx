@@ -13,7 +13,7 @@ export default function ColabAside(props) {
   const [showUsers, setShowUsers] = useState([]);
   const [open, setOpen] = useState(null);
 
-  const { collaboration, users, media, refresh, setRefresh } = props
+  const { collaboration, users, media, refresh, setRefresh, primaryUser } = props
 
   useEffect(() => {
     searchUser !== ''
@@ -59,6 +59,11 @@ export default function ColabAside(props) {
       <div className="user-media" id="colab-aside-main">
         <h4>collaborators</h4>
         <ul>
+          <Link
+            to={`/users/${primaryUser?.id}`}
+            key={primaryUser?.id} >
+            <li id="collaborator">{primaryUser?.username}</li>
+          </Link>
           {collaboration?.users.map(user =>
             <Link
               to={`/users/${user.id}`}
@@ -70,7 +75,8 @@ export default function ColabAside(props) {
         <h4>media</h4>
         <ul>
           {collaboration?.media.map(medium =>
-            <div
+            <Link
+              to={`/media/${medium.id}`}
               className="list-span"
               key={medium.name}>
               <li >{medium.name}</li>
@@ -78,7 +84,7 @@ export default function ColabAside(props) {
                 e.preventDefault();
                 handleRemoveMedium(medium.id);
               }}>[ x ]</small>
-            </div>
+            </Link>
           )}
         </ul>
         {/* form to add/remove users or media */}
